@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algo Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  
+  <style>
+    .sidebar-hidden {
+      transform: translateX(-100%);
+      transition: transform 0.3s ease-in-out;
+    }
+    .sidebar-visible {
+      transform: translateX(0);
+      transition: transform 0.3s ease-in-out;
+    }
+  </style>
+  
+</head>
+
+<body class="bg-gray-900 text-gray-100">
+  <nav class="bg-gray-800 text-white p-8">
+    <div class="container mx-auto flex items-center justify-between">
+      <div class="flex items-baseline">
+        <button id="menu-btn" class="text-white text-2xl mr-4 focus:outline-none">☰</button>
+        <a href="#" class="text-xl font-bold text-white">Sorting Algorithm</a>
+      </div>
+      <div class="flex items-center space-x-8">
+        <a href="#" class="text-gray-400 hover:text-blue-400">Home</a>
+        <a href="#" class="text-gray-400 hover:text-blue-400">Collaborator</a>
+        <a href="#" class="text-gray-400 hover:text-blue-400">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="flex">
+    <aside id="sidebar" class="w-64 bg-gray-800 shadow-md h-screen sticky top-0 p-4 sidebar-visible rounded-l">
+      <h2 class="text-lg font-semibold text-gray-100 mb-4">Content</h2>
+      <ul>
+        <li><a href="#" class="flex items-center py-2 px-3 text-gray-300 hover:bg-gray-700 rounded"><i class="fa-solid fa-magnifying-glass mr-2"></i>Overview</a></li>
+        <li><a href="#" class="flex items-center py-2 px-3 text-gray-300 hover:bg-gray-700 rounded"><i class="fas fa-pencil-alt mr-2"></i>Pretest</a></li>
+        <li><a href="#" class="flex items-center py-2 px-3 text-gray-300 hover:bg-gray-700 rounded"><i class="fas fa-book-open mr-2"></i>Introduction</a></li>
+        <li><a href="#analysis" class="flex items-center py-2 px-3 text-gray-300 hover:bg-gray-700 rounded"><i class="fas fa-chart-line mr-2"></i>Analysis</a></li>
+        <li><a href="#" class="flex items-center py-2 px-3 text-gray-300 hover:bg-gray-700 rounded"><i class="fas fa-question-circle mr-2"></i>Quiz</a></li>
+        <li><a href="#" class="flex items-center py-2 px-3 text-gray-300 hover:bg-gray-700 rounded"><i class="fas fa-play-circle mr-2"></i>Simulation</a></li>
+        <li><a href="#" class="flex items-center py-2 px-3 text-gray-300 hover:bg-gray-700 rounded"><i class="fas fa-check-circle mr-2"></i>Posttest</a></li>
+      </ul>
+    </aside>
+
+    <main class="flex-1 p-6 bg-gray-900">
+      <h1 class="text-2xl font-extrabold text-gray-100 mb-4">Analysis</h1>
+      <p class="text-lg mb-6">
+        To understand the concept of Time and Space Complexity, let's imagine
+        you're organizing a deck of cards.
+      </p>
+
+      <h3 class="text-2xl font-semibold mb-6">
+        Time Complexity (How long it takes)
+      </h3>
+      <h4 class="text-xl mb-4">1. Breaking the Deck in Half:</h4>
+      <p class="mb-4">
+        Imagine you keep splitting the deck of cards into two halves. First,
+        you split it into 2 piles, then each of those into 2 more piles, and
+        so on.<br />
+        For example, if you have 8 cards, after 3 splits, you'll have 8 single
+        cards. The number of splits you make is similar to the time
+        complexity. For `n` cards, it takes about `log(n)` splits. The base of
+        log is generally taken as 2 in Computer Science.
+      </p>
+      <h4 class="text-xl mb-4">2. Putting the Deck Back Together:</h4>
+      <p class="mb-4">
+        Now, you start putting the cards back together, two at a time, and
+        sorting them as you go. This step takes some time because you’re
+        checking which card is smaller or bigger.<br />
+        For each level of merging (putting the cards together), you look at
+        all the cards once. Since you do this for every level, and there are
+        `log(n)` levels, it ends up being `n * log(n)`.
+      </p>
+      <p class="mb-10">
+        So, the <strong>time complexity</strong> of Merge Sort is `O(n *
+        log(n))`. This means the time it takes grows in a way that depends on
+        both the number of cards (n) and how many times you can split them
+        (log(n)).
+      </p>
+
+      <h3 class="text-2xl font-semibold mb-6">
+        Space Complexity (How much space it needs)
+      </h3>
+      <p class="mb-4">
+        When you split the deck, you need extra tables to hold the smaller
+        piles of cards before you put them back together. These extra tables
+        represent the <strong>extra space</strong> you need.<br />
+        Since you're creating new piles for each split, the amount of space
+        you need depends on the number of cards. If you have `n` cards, you'll
+        need extra space to hold those `n` cards temporarily.
+      </p>
+      <p class="mb-6">
+        So, the <strong>space complexity</strong> is `O(n)`, which means you
+        need space proportional to the number of cards you have.
+      </p>
+
+      <h3 class="text-2xl font-semibold mb-4">
+        Best, Average, and Worst Case Scenarios
+      </h3>
+      <p class="mb-4">
+        Let's stick with the card sorting example to explain the best,
+        average, and worst cases for Merge Sort.
+      </p>
+
+      <h4 class="text-xl font-semibold mb-2">
+        Best Case Scenario (Everything is Perfect!)
+      </h4>
+      <p class="mb-4">
+        <strong>Imagine:</strong> You have a deck of cards that's already
+        perfectly sorted.<br />
+        <strong>What Happens:</strong> Even though the cards are already in
+        order, Merge Sort still goes through its usual steps. It will split
+        the cards into smaller piles and then merge them back together.<br />
+        <strong>Time Taken:</strong> Even though the cards are sorted, Merge
+        Sort doesn't skip any steps. So, it still takes `O(n * log(n))` time.
+        There’s no special shortcut here.
+      </p>
+
+      <h4 class="text-xl font-semibold mb-2">
+        Average Case Scenario (Normal Situation)
+      </h4>
+      <p class="mb-4">
+        <strong>Imagine:</strong> You have a deck of cards that are in a
+        random order, like how you'd normally shuffle them.<br />
+        <strong>What Happens:</strong> Merge Sort will split the cards, sort
+        each pair, and then merge them back together.<br />
+        <strong>Time Taken:</strong> On average, it takes `O(n * log(n))` time
+        to sort the cards. This is because the process of splitting and
+        merging is the same whether the cards are randomly ordered or in a
+        mixed state.
+      </p>
+
+      <h4 class="text-xl font-semibold mb-2">
+        Worst Case Scenario (A Messy Deck)
+      </h4>
+      <p class="mb-6">
+        <strong>Imagine:</strong> You have a deck of cards that's completely
+        out of order—like the worst shuffle ever.<br />
+        <strong>What Happens:</strong> Merge Sort still splits and merges the
+        cards in the same way, step by step.<br />
+        <strong>Time Taken:</strong> Even in the worst possible situation,
+        Merge Sort takes `O(n * log(n))` time. The algorithm doesn't get
+        slower, no matter how messed up the deck is.
+      </p>
+
+      <h3 class="text-2xl font-semibold mb-4">Summary</h3>
+      <p class="mb-
