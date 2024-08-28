@@ -12,6 +12,98 @@
 
 </head>
 <body>
+        <div class ="container">
+        <video class="background-video" autoplay loop muted plays-inline > 
+            <source src="stars6.mp4" type="video/mp4">
+        </video>
+        
+        <div class="tw">
+            <h1 id="tw-text1"></h1>
+        </div>
+
+
+       
+
+    </div>
+
+    <footer class="footer-wrapper">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>Disha</h4>
+                <p>
+                    <a href="tel:+918482994868">(+91) 848-299-4868</a><br>
+                    <a href="mailto:chauhandp@rknec.edu">chauhandp@rknec.edu</a><br>
+                    <a href="">Github</a><br>
+                   
+                </p>
+            </div>
+            <div class="footer-column">
+                <h4>Dhruv</h4>
+                <p>
+                    <a href="tel:+918928336720">(+91) 892-833-6720 </a><br>
+                    <a href="mailto:yadavds@rknec.edu">yadavds@rknec.edu</a><br>
+                    <a href="https://github.com/Dhruv197252">Github</a><br>
+                    
+                </p>
+            </div>
+            <div class="footer-column">
+                <h4>Durgesh</h4>
+                <p>
+                    <a href="tel:+919022788792">(+91) 902-278-8792</a><br>
+                    <a href="mailto:admin@nrpms.com">shukladr@rknec.edu</a><br>
+                    <a href="https://github.com/durgeshshukla797">Github</a><br>
+                   
+                </p>
+            </div>
+            <div class="footer-column">
+                <h4>Janhvi</h4>
+                <p>
+                    <a href="tel:+919356862878">(+91) 935-686-2878</a><br>
+                    <a href="mailto:thakarejr@rknec.edu">thakarejr@rknec.edu</a><br>
+                    <a href="https://github.com/janhvithakare">Github</a><br>
+        
+                </p>
+            </div>
+            <div class="footer-column">
+                <h4>Juilee</h4>
+                <p>
+                    <a href="tel:+919022141665">(+91) 902-214-1665</a><br>
+                    <a href="mailto:lambejr@rknec.edu">lambejr@rknec.edu</a><br>
+                    <a href="https://github.com/jui1ee">Github</a><br>
+                    
+                </p>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>© 2024 AlgoSim. All Rights Reserved.</p>
+            <p>Ramdeobaba University, Nagpur</p>
+        </div>
+    </footer>
+
+
+    <script>
+        const text1 = "Welcome to AlgoSim <br> Let's begin the virtual learning!! ";
+        const speed = 100;
+        let i = 0;
+
+        function typeWriter(){
+            if(i < text1.length){
+                if (text1.substring(i, i+4) === "<br>") { 
+                    document.getElementById("tw-text1").innerHTML += "<br>";
+                    i += 4; 
+                } else {
+                    document.getElementById("tw-text1").innerHTML += text1.charAt(i);
+                    i++;
+                }
+                    setTimeout(typeWriter, speed);
+                
+            }
+        }
+
+        // Start the typewriting effect on page load
+        window.onload = typeWriter;
+    </script>
+
     
 
 
