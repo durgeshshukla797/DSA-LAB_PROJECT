@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algo Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+  <style>
+    .sidebar-hidden {
+      transform: translateX(-100%);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .sidebar-visible {
+      transform: translateX(0);
+      transition: transform 0.3s ease-in-out;
+    }
+  </style>
+
+</head>
+
+<body class="bg-gray-900 text-gray-100">
+  <nav class="bg-gray-800 text-white p-8">
+    <div class="container mx-auto flex items-center justify-between">
+      <div class="flex items-baseline">
+        <button id="menu-btn" class="text-white text-2xl mr-4 focus:outline-none">☰</button>
+        <a href="#" class="text-xl font-bold text-white">Sorting Algorithm</a>
+      </div>
+      <div class="flex items-center space-x-8">
+        <a href="#" class="text-gray-400 hover:text-blue-400">Home</a>
+        <a href="#" class="text-gray-400 hover:text-blue-400">Collaborator</a>
+        <a href="#" class="text-gray-400 hover:text-blue-400">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="flex">
+    <aside id="sidebar" class="w-64 bg-gray-800 shadow-md h-screen sticky top-0 p-4 sidebar-visible rounded-l">
+      <h2 class="text-lg font-semibold text-gray-100 mb-4">Content</h2>
+      <ul>
+        <li><a href="#" class="flex items-center py-2 px-3 text-gray-300 hover:bg-gray-700 rounded"><i
+              class="fa-solid fa-magnifying-glass mr-2"></i>Introduction</a></li>
+        <li><a href="#" class="flex items-center py-2 px-3 text-gray-300 hover:bg-gray-700 rounded"><i
+              class="fas fa-pencil-alt mr-2"></i>Pretest</a></li>
+        <li><a href="#" class="flex items-center py-2 px-3 text-gray-300 hover:bg-gray-700 rounded"><i
+              class="fas fa-chart-line mr-2"></i>Analysis</a></li>
+        <li><a href="#" class="flex items-center py-2 px-3 text-gray-300 hover:bg-gray-700 rounded"><i
+              class="fas fa-question-circle mr-2"></i>Quiz</a></li>
+        <li><a href="#" class="flex items-center py-2 px-3 text-gray-300 hover:bg-gray-700 rounded"><i
+              class="fas fa-play-circle mr-2"></i>Simulation</a></li>
+        <li><a href="#" class="flex items-center py-2 px-3 text-gray-300 hover:bg-gray-700 rounded"><i
+              class="fas fa-check-circle mr-2"></i>Posttest</a></li>
+      </ul>
+    </aside>
+
+    <main class="flex-1 p-6 bg-gray-900">
+      <!-- Introduction to Merge Sort Section -->
+      <h1 class="text-2xl font-bold mb-4">Introduction to Merge Sort</h1>
+      <p class="mb-4">
+        To understand Merge Sort we will take the following example into consideration:
+      </p>
+      <p class="mb-4">
+        Imagine you have a big pile of cards, and each card has a number on it. Your goal is to arrange these cards from the smallest number to the biggest. But instead of trying to sort the whole pile at once, let's break it down into smaller, easier steps. This is what merge sort does!
+      </p>
+
+      <h2 class="text-xl font-semibold mt-6 mb-2">Step 1: Break it Down</h2>
+      <p class="mb-4">
+        First, we split the big pile of cards into two smaller piles. Then, we keep splitting those piles until each pile has just one card. It's like tearing a big puzzle into tiny pieces.
+      </p>
+
+      <h2 class="text-xl font-semibold mt-6 mb-2">Step 2: Sort the Small Pieces</h2>
+      <p class="mb-4">
+        Now that we have lots of tiny piles (each with just one card), we start putting them back together, but in the right order. We look at two small piles at a time, compare the cards, and put them in order, making a new pile.
+      </p>
+
+      <h2 class="text-xl font-semibold mt-6 mb-2">Step 3: Merge the Piles</h2>
+      <p class="mb-4">
+        As we keep merging, the piles get bigger. We always compare the top card from each pile, pick the smaller one, and add it to the new pile. We keep doing this until all the cards are in one big pile again, but now they're all in order!
+      </p>
+
+      <h2 class="text-xl font-semibold mt-6 mb-2">An Example:</h2>
+      <p class="mb-4">
+        Let's say you have 8 cards with the numbers 5, 3, 8, 6, 2, 7, 1, and 4.
+      </p>
+      <ul class="list-disc list-inside mt-2 mb-4">
+        <li>
+          <strong>Split:</strong> First, we split them into two groups: (5, 3, 8, 6) and (2, 7, 1, 4).
+        </li>
+        <li>
+          <strong>Split Again:</strong> Then, we split those groups: (5, 3) (8, 6) and (2, 7) (1, 4).
+        </li>
+        <li>
+          <strong>Split One More Time:</strong> Finally, we split them until we have single cards: (5) (3) (8) (6) (2) (7) (1) (4).
+        </li>
+      </ul>
+
+      <p class="mb-4">Now, we start <strong>merging</strong>:</p>
+      <ul class="list-disc list-inside mb-4">
+        <li>
+          <strong>Merge Small Piles:</strong> Compare and merge:
+          <ul class="list-inside list-disc pl-6 mt-1">
+            <li>(5) and (3) become (3, 5)</li>
+            <li>(8) and (6) become (6, 8)</li>
+            <li>(2) and (7) become (2, 7)</li>
+            <li>(1) and (4) become (1, 4)</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Merge Again:</strong> Compare and merge:
+          <ul class="list-inside list-disc pl-6 mt-1">
+            <li>(3, 5) and (6, 8) become (3, 5, 6, 8)</li>
+            <li>(2, 7) and (1, 4) become (1, 2, 4, 7)</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Final Merge:</strong> Compare and merge:
+          <ul class="list-inside list-disc pl-6 mt-1">
+            <li>(3, 5, 6, 8) and (1, 2, 4, 7) become (1, 2, 3, 4, 5, 6, 7, 8)</li>
+          </ul>
+        </li>
+      </ul>
+      <p class="mb-4">And there you have it – all the cards are sorted!</p>
+     </main>
+  </div>
+</body>
+
+</html>
