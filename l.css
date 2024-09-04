@@ -1,0 +1,99 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color:#0b0202;
+}
+
+.nav {
+    height: 50px;
+    background-color: #35fff5;
+    display: flex; 
+    align-items: center;
+    padding-left: 2%; 
+}
+
+#menu img {        
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#Home {
+    margin-left: 2%;
+    font-size: x-large;
+    color:#35fff5;
+    font-weight: bold; 
+}
+
+#link img, 
+#hash img, 
+#tree img, 
+#tower img, 
+#sort img {
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#link img {
+    margin-top: 4%;
+    height: 40%;
+    width: 30%;
+    margin-left: 2%;
+    position: relative; 
+}
+
+#hash img {
+    margin-top: 2%;
+    height: 20%;
+    width: 30%;
+    margin-left: 15%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#tree img {
+    position: absolute; 
+    top: 10%; 
+    left: 36%; 
+    height: 40%;
+    width: 30%;
+}
+
+#tower img {
+    position: absolute; 
+    top: 10%; 
+    left: 70%;
+    height: 40%;
+    width: 30%;
+}
+
+#sort img {
+    position: absolute; 
+    top: 65%; 
+    left: 55%;
+    height: 40%;
+    width: 30%;
+}
+
+.down {
+    background-color:#35fff5;
+    height: 400px;
+    width: 100%;
+    position: relative;
+}
+
+#menu img:hover, 
+#link img:hover, 
+#hash img:hover, 
+#tree img:hover, 
+#tower img:hover, 
+#sort img:hover {
+    transform: scale(1.1); 
+}
