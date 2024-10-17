@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlgoSim</title>
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #1c1e22;
+            color: rgb(229, 231, 235);
+        }
+
+        /* Card styles for main content */
+        .card {
+            background-color: rgb(45, 47, 51);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            color: rgb(229, 231, 235);
+        }
+
+        #sidebar {
+            padding: 20px;
+        }
+
+        h1 {
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgb(225, 29, 72);
+        }
+
+        #sidebar ul li a {
+            padding: 8px 16px;
+        }
+
+        #sidebar a {
+            color: rgb(229, 231, 235);
+        }
+
+        /* Custom styles for table borders and bold edge weights */
+        td, th {
+            border: 1px solid rgba(229, 231, 235, 0.2);
+            padding: 8px;
+        }
+
+        .edge-weight {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        #graphCanvas {
+            border: 1px solid rgba(229, 231, 235, 0.4);
+        }
+    </style>
+</head>
+
+<body class="bg-slate-950 text-gray-300 min-h-screen flex flex-col">
+    <!-- Navbar -->
+    <nav class="bg-black text-white py-6 px-4 md:px-8 shadow-lg">
+        <div class="container mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <!-- Menu button beside title -->
+                <button id="menu-btn" class="text-white text-2xl"><i class="fa fa-bars"></i></button>
+                <a href="#" class="text-2xl font-bold text-white italic">Dijkstra Algorithm</a>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <button style="background-color: rgb(225, 29, 72); border: none; color: white; height: 50px; border-radius: 25px; cursor: pointer; font-weight: bold; font-size: 15px; padding: 0 20px;">Home</button>
+                <button style="background-color: rgb(225, 29, 72); border: none; color: white; height: 50px; border-radius: 25px; cursor: pointer; font-weight: bold; font-size: 15px; padding: 0 20px;">Collaborator</button>
+                <button style="background-color: rgb(225, 29, 72); border: none; color: white; height: 50px; border-radius: 25px; cursor: pointer; font-weight: bold; font-size: 15px; padding: 0 20px;">Contact</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Layout Wrapper -->
+    <div class="flex-1 flex flex-col md:flex-row">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="w-full md:w-64 bg-black shadow-md h-auto md:h-screen sticky top-0 border-t md:border-t-0 border-black hidden">
+            <h2 class="text-lg font-semibold text-white mb-4">Content</h2>
+            <ul class="space-y-4">
+                <li><a href="Algopage.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fa-solid fa-magnifying-glass mr-3"></i>Overview</a></li>
+                <li><a href="pretest.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-pencil-alt mr-3"></i>Pretest</a></li>
+                <li><a href="introduction.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-book-open mr-3"></i>Introduction</a></li>
+                <li><a href="analysis.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-chart-line mr-3"></i>Analysis</a></li>
+                <li><a href="quiz.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-question-circle mr-3"></i>Quiz</a></li>
+                <li><a href="simulation.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-play-circle mr-3"></i>Simulation</a></li>
+                <li><a href="postest.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-check-circle mr-3"></i>Posttest</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-8 bg-slate-950">
+            <h1 class="text-4xl font-extrabold ">Visualization</h1>
+
+            <div id="graphContainer" class="flex items-start mt-8">
+                <canvas id="graphCanvas" width="600" height="600" class="rounded-lg shadow-lg"></canvas>
+                <table id="distancesTable" class="ml-8 text-left bg-gray-800 rounded-lg shadow-lg">
+                    <thead>
+                        <tr class="bg-gray-700">
+                            <th class="text-lg">Node</th>
+                            <th class="text-lg">Distance from Start Node (Start Node = A)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Distances will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="controls" class="flex gap-4 mt-6">
+                <button id="createEdgeButton" class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-md shadow-md">Create Edge</button>
+                <button id="runDijkstraButton" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md shadow-md">Run Dijkstra</button>
+                <button id="resetButton" class="bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-md shadow-md">Reset</button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white p-6 border-t border-black mt-auto">
+        <div class="container mx-auto text-center italic">
+            <p>&copy; 2024 Dijkstra Algorithm. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript to Toggle Sidebar -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const sidebar = document.getElementById('sidebar');
+
+        menuBtn.addEventListener('click', function () {
+            sidebar.classList.toggle('hidden');
+        });
+    </script>
+
+    <!-- Dijkstra Visualization Script -->
+    <script src="simulation.js"></script>
+</body>
+
+</html>

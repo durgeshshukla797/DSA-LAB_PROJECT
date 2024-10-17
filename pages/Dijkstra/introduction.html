@@ -4,13 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Algo Page</title>
+  <title>AlgoSim</title>
   <!-- Tailwind CSS -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-  <!-- Custom CSS -->
-  <link href="style.css" rel="stylesheet">
+
   <!-- Consistent Font Style -->
   <style>
     body {
@@ -35,15 +34,12 @@
     }
 
     /* Improved typography */
-    h1, h2, h3 {
+    h1 {
       text-transform: uppercase;
       letter-spacing: 1px;
       color: rgb(225, 29, 72); /* Bright, eye-catching color */
     }
 
-    ul li strong {
-      color: rgb(225, 29, 72);
-    }
 
     /* Reduce padding inside sidebar */
     #sidebar ul li a {
@@ -54,7 +50,11 @@
     #sidebar a {
       color: rgb(229, 231, 235);
     }
-
+    
+    .video{
+      display: flex;
+      justify-content: center;
+    }
   </style>
 </head>
 
@@ -86,7 +86,7 @@
         <li><a href="introduction.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-book-open mr-3"></i>Introduction</a></li>
         <li><a href="analysis.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-chart-line mr-3"></i>Analysis</a></li>
         <li><a href="quiz.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-question-circle mr-3"></i>Quiz</a></li>
-        <li><a href="#" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-play-circle mr-3"></i>Simulation</a></li>
+        <li><a href="simulation.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-play-circle mr-3"></i>Simulation</a></li>
         <li><a href="postest.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-check-circle mr-3"></i>Posttest</a></li>
       </ul>
     </aside>
@@ -170,8 +170,20 @@
         </ul>
         <p class="mb-6">And there you have it – all the cards are sorted!</p>
       </div>
+
+      <div class="card">
+        <h2> Video Reference:</h2>
+      </div>
+      <div class="video">
+        <video width="1000" height="900" controls poster=
+        "thumbnail.jpg">
+          <source src="Dijkstra Algorithm.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      </div>
+    </div>
     </main>
-  </div>
+ 
 
   <!-- Footer -->
   <footer class="bg-black text-white p-6 border-t border-black">

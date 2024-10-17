@@ -4,12 +4,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AlgoSim</title>
+  <title>Algo Page</title>
   <!-- Tailwind CSS -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-
+  <!-- Custom CSS -->
+  <link href="style.css" rel="stylesheet">
+  <!-- Consistent Font Style -->
   <style>
     body {
       font-family: 'Roboto', sans-serif;
@@ -39,7 +41,6 @@
       color: rgb(225, 29, 72); /* Bright, eye-catching color */
     }
 
-   
 
     /* Reduce padding inside sidebar */
     #sidebar ul li a {
@@ -50,7 +51,11 @@
     #sidebar a {
       color: rgb(229, 231, 235);
     }
-
+    
+    .video{
+      display: flex;
+      justify-content: center;
+    }
   </style>
 </head>
 
@@ -61,7 +66,7 @@
       <div class="flex items-center space-x-4">
         <!-- Menu button beside title -->
         <button id="menu-btn" class="text-white text-2xl"><i class="fa fa-bars"></i></button>
-        <a href="#" class="text-2xl font-bold text-white italic">Dijkstra Algorithm</a>
+        <a href="#" class="text-2xl font-bold text-white italic">Sorting Algorithm</a>
       </div>
       <div class="hidden md:flex space-x-6">
         <button style="background-color: rgb(225, 29, 72); border: none; color: white; height: 50px; border-radius: 25px; cursor: pointer; font-weight: bold; font-size: 15px; padding: 0 20px;">Home</button>
@@ -82,7 +87,7 @@
         <li><a href="introduction.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-book-open mr-3"></i>Introduction</a></li>
         <li><a href="analysis.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-chart-line mr-3"></i>Analysis</a></li>
         <li><a href="quiz.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-question-circle mr-3"></i>Quiz</a></li>
-        <li><a href="simulation.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-play-circle mr-3"></i>Simulation</a></li>
+        <li><a href="#" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-play-circle mr-3"></i>Simulation</a></li>
         <li><a href="postest.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-check-circle mr-3"></i>Posttest</a></li>
       </ul>
     </aside>
@@ -90,77 +95,110 @@
     <!-- Main Content -->
     <main class="flex-1 p-8 bg-slate-950">
       <div class="card">
-        <h1 class="text-3xl font-extrabold text-gray-100 mb-6">Analysis</h1>
-        <p class="text-lg mb-8">
-          To understand the concept of Time and Space Complexity, let's imagine you're organizing a deck of cards.
+        <h1 class="text-3xl font-bold mb-6">Introduction to Merge Sort</h1>
+        <p class="mb-6">
+          To understand Merge Sort, we will take the following example into consideration:
+        </p>
+        <p class="mb-6">
+          Imagine you have a big pile of cards, and each card has a number on it. Your goal is to arrange these cards from the smallest number to the biggest. But instead of trying to sort the whole pile at once, let's break it down into smaller, easier steps. This is what merge sort does!
         </p>
       </div>
 
       <div class="card">
-        <h3 class="text-2xl font-semibold mb-6">Time Complexity (How long it takes)</h3>
-        
-        <h4 class="text-xl mb-4">1. Breaking the Deck in Half:</h4>
+        <h2 class="text-2xl font-semibold mt-8 mb-4">Step 1: Break it Down</h2>
         <p class="mb-6">
-          Imagine you keep splitting the deck of cards into two halves. First, you split it into 2 piles, then each of those into 2 more piles, and so on. For example, if you have 8 cards, after 3 splits, you'll have 8 single cards. The number of splits you make is similar to the time complexity. For `n` cards, it takes about `log(n)` splits. The base of log is generally taken as 2 in Computer Science.
-        </p>
-
-        <h4 class="text-xl mb-4">2. Putting the Deck Back Together:</h4>
-        <p class="mb-6">
-          Now, you start putting the cards back together, two at a time, and sorting them as you go. This step takes some time because you’re checking which card is smaller or bigger. For each level of merging (putting the cards together), you look at all the cards once. Since you do this for every level, and there are `log(n)` levels, it ends up being `n * log(n)`.
-        </p>
-        <p class="mb-10">
-          So, the <strong>time complexity</strong> of Merge Sort is `O(n * log(n))`. This means the time it takes grows in a way that depends on both the number of cards (n) and how many times you can split them (log(n)).
+          First, we split the big pile of cards into two smaller piles. Then, we keep splitting those piles until each pile has just one card. It's like tearing a big puzzle into tiny pieces.
         </p>
       </div>
 
       <div class="card">
-        <h3 class="text-2xl font-semibold mb-6">Space Complexity (How much space it needs)</h3>
+        <h2 class="text-2xl font-semibold mt-8 mb-4">Step 2: Sort the Small Pieces</h2>
         <p class="mb-6">
-          When you split the deck, you need extra tables to hold the smaller piles of cards before you put them back together. These extra tables represent the <strong>extra space</strong> you need. Since you're creating new piles for each split, the amount of space you need depends on the number of cards. If you have `n` cards, you'll need extra space to hold those `n` cards temporarily.
-        </p>
-        <p class="mb-10">
-          So, the <strong>space complexity</strong> is `O(n)`, which means you need space proportional to the number of cards you have.
+          Now that we have lots of tiny piles (each with just one card), we start putting them back together, but in the right order. We look at two small piles at a time, compare the cards, and put them in order, making a new pile.
         </p>
       </div>
 
       <div class="card">
-        <h3 class="text-2xl font-semibold mb-4">Best, Average, and Worst Case Scenarios</h3>
+        <h2 class="text-2xl font-semibold mt-8 mb-4">Step 3: Merge the Piles</h2>
         <p class="mb-6">
-          Let's stick with the card sorting example to explain the best, average, and worst cases for Merge Sort.
+          As we keep merging, the piles get bigger. We always compare the top card from each pile, pick the smaller one, and add it to the new pile. We keep doing this until all the cards are in one big pile again, but now they're all in order!
         </p>
+      </div>
 
-        <h4 class="text-xl font-semibold mb-2">Best Case Scenario (Everything is Perfect!)</h4>
+      <div class="card">
+        <h2 class="text-2xl font-semibold mt-8 mb-4">An Example:</h2>
         <p class="mb-6">
-          <strong>Imagine:</strong> You have a deck of cards that is already sorted. This means when you split and merge them, you don't have to make any changes. You just put them back together as they are! The best-case time complexity for Merge Sort is still `O(n * log(n))`, because you still have to go through the cards.
+          Let's say you have 8 cards with the numbers 5, 3, 8, 6, 2, 7, 1, and 4.
         </p>
+        <ul class="list-disc list-inside pl-6 mt-2 mb-6">
+          <li>
+            <strong>Split:</strong> First, we split them into two groups: (5, 3, 8, 6) and (2, 7, 1, 4).
+          </li>
+          <li>
+            <strong>Split Again:</strong> Then, we split those groups: (5, 3) (8, 6) and (2, 7) (1, 4).
+          </li>
+          <li>
+            <strong>Split One More Time:</strong> Finally, we split them until we have single cards: (5) (3) (8) (6) (2) (7) (1) (4).
+          </li>
+        </ul>
+      </div>
 
-        <h4 class="text-xl font-semibold mb-2">Average Case Scenario (A Mixed Bag)</h4>
-        <p class="mb-6">
-          <strong>Imagine:</strong> You have a random mix of cards. Some are in order, and some are not. You have to split and merge a lot, but it’s not the worst situation either. The average-case time complexity is also `O(n * log(n))` because, on average, you’ll be doing the same amount of work as the best case when you split and merge.
-        </p>
+      <div class="card">
+        <p class="mb-6">Now, we start <strong>merging</strong>:</p>
+        <ul class="list-disc list-inside pl-6 mb-6">
+          <li>
+            <strong>Merge Small Piles:</strong> Compare and merge:
+            <ul class="list-inside list-disc pl-6 mt-1">
+              <li>(5) and (3) become (3, 5)</li>
+              <li>(8) and (6) become (6, 8)</li>
+              <li>(2) and (7) become (2, 7)</li>
+              <li>(1) and (4) become (1, 4)</li>
+            </ul>
+          </li>
+          <li class="mt-4">
+            <strong>Merge Again:</strong> Compare and merge:
+            <ul class="list-inside list-disc pl-6 mt-1">
+              <li>(3, 5) and (6, 8) become (3, 5, 6, 8)</li>
+              <li>(2, 7) and (1, 4) become (1, 2, 4, 7)</li>
+            </ul>
+          </li>
+          <li class="mt-4">
+            <strong>Final Merge:</strong> Compare and merge:
+            <ul class="list-inside list-disc pl-6 mt-1">
+              <li>(3, 5, 6, 8) and (1, 2, 4, 7) become (1, 2, 3, 4, 5, 6, 7, 8)</li>
+            </ul>
+          </li>
+        </ul>
+        <p class="mb-6">And there you have it – all the cards are sorted!</p>
+      </div>
 
-        <h4 class="text-xl font-semibold mb-2">Worst Case Scenario (A Total Mess!)</h4>
-        <p class="mb-6">
-          <strong>Imagine:</strong> You have a deck that is completely reversed! This means every card needs to be moved into the right position when you put them back together. Despite this mess, the time complexity for Merge Sort remains `O(n * log(n))`, which means even in the worst case, the algorithm does a lot of work efficiently!
-        </p>
+      <div class="card">
+        <h2> Video Reference:</h2>
+      </div>
+      <div class="video">
+        <video width="1000" height="900" controls poster=
+        "thumbnail.jpg">
+          <source src="Dijkstra Algorithm.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
       </div>
     </div>
     </main>
+ 
 
-
-    <!-- Footer -->
+  <!-- Footer -->
   <footer class="bg-black text-white p-6 border-t border-black">
     <div class="container mx-auto text-center italic">
       <p>&copy; 2024 Dijkstra Algorithm. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- JavaScript for responsive sidebar -->
+  <!-- JavaScript to Toggle Sidebar -->
   <script>
     const menuBtn = document.getElementById('menu-btn');
     const sidebar = document.getElementById('sidebar');
 
-    menuBtn.addEventListener('click', () => {
+    menuBtn.addEventListener('click', function () {
       sidebar.classList.toggle('hidden');
     });
   </script>
