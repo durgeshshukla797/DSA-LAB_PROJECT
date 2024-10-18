@@ -91,98 +91,162 @@
       </ul>
     </aside>
 
-    <!-- Main Content -->
-    <main class="flex-1 p-8 bg-slate-950">
-      <div class="card">
-        <h1 class="text-3xl font-bold mb-6">Introduction to Merge Sort</h1>
-        <p class="mb-6">
-          To understand Merge Sort, we will take the following example into consideration:
-        </p>
-        <p class="mb-6">
-          Imagine you have a big pile of cards, and each card has a number on it. Your goal is to arrange these cards from the smallest number to the biggest. But instead of trying to sort the whole pile at once, let's break it down into smaller, easier steps. This is what merge sort does!
-        </p>
-      </div>
+ <!-- Main Content -->
+<main class="flex-1 p-8 bg-slate-950">
+  <h1 class="text-3xl font-extrabold mb-6 text-center pb-11 pt-5">Introduction to Dijkstra's Algorithm</h1>
+  
+  <div class="space-y-6">
+    <p class="text-lg leading-relaxed">
+      Now that we know some basic Graphs concepts let's dive into understanding the concept of Dijkstra's Algorithm.
+    </p>
+    <p class="text-lg leading-relaxed">
+      Ever wondered how does Google Maps find the shortest and fastest route between two places?
+    </p>
+    <p class="text-lg leading-relaxed">
+      Well, the answer is Dijkstra's Algorithm. Dijkstra's Algorithm is a Graph algorithm that finds the shortest path from a source vertex to all other vertices in the Graph (single source shortest path). It is a type of Greedy Algorithm that only works on Weighted Graphs having positive weights. The time complexity of Dijkstra's Algorithm is O(V²) with the help of the adjacency matrix representation of the graph. This time complexity can be reduced to O((V + E) log V) with the help of an adjacency list representation of the graph, where V is the number of vertices and E is the number of edges in the graph.
+    </p>
+  </div>
 
-      <div class="card">
-        <h2 class="text-2xl font-semibold mt-8 mb-4">Step 1: Break it Down</h2>
-        <p class="mb-6">
-          First, we split the big pile of cards into two smaller piles. Then, we keep splitting those piles until each pile has just one card. It's like tearing a big puzzle into tiny pieces.
-        </p>
-      </div>
+  <h2 class="text-2xl font-bold mt-8 mb-5 text-red-500">Basics of Dijkstra's Algorithm</h2>
+  <ul class="list-disc list-inside pl-6 mb-6 text-lg leading-relaxed">
+    <li class="mt-3">
+      Dijkstra's Algorithm basically starts at the node that you choose (the source node) and it analyzes the graph to find the shortest path between that node and all the other nodes in the graph.
+    </li>
+    <li class="mt-3">
+      The algorithm keeps track of the currently known shortest distance from each node to the source node and it updates these values if it finds a shorter path.
+    </li>
+    <li class="mt-3">
+      Once the algorithm has found the shortest path between the source node and another node, that node is marked as "visited" and added to the path.
+    </li>
+    <li class="mt-3">
+      The process continues until all the nodes in the graph have been added to the path. This way, we have a path that connects the source node to all other nodes following the shortest path possible to reach each node.
+    </li>
+  </ul>
 
-      <div class="card">
-        <h2 class="text-2xl font-semibold mt-8 mb-4">Step 2: Sort the Small Pieces</h2>
-        <p class="mb-6">
-          Now that we have lots of tiny piles (each with just one card), we start putting them back together, but in the right order. We look at two small piles at a time, compare the cards, and put them in order, making a new pile.
-        </p>
-      </div>
+  <h2 class="text-2xl font-bold mt-8 mb-5 text-red-500">Requirements</h2>
+<div class="space-y-4">
+  <p class="text-lg leading-relaxed">
+    Dijkstra's Algorithm can only work with graphs that have positive weights. This is because, during the process, the weights of the edges have to be added to find the shortest path.
+  </p>
+  <p class="mb-6 whitespace-pre-line text-lg leading-relaxed">
+    If there is a negative weight in the graph, then the algorithm will not work properly. Once a node has been marked as "visited", the current path to that node is marked as the shortest path to reach that node. And negative weights can alter this if the total weight can be decremented after this step has occurred.
+  </p>
+</div>
 
-      <div class="card">
-        <h2 class="text-2xl font-semibold mt-8 mb-4">Step 3: Merge the Piles</h2>
-        <p class="mb-6">
-          As we keep merging, the piles get bigger. We always compare the top card from each pile, pick the smaller one, and add it to the new pile. We keep doing this until all the cards are in one big pile again, but now they're all in order!
-        </p>
-      </div>
+<h2 class="text-2xl font-bold mt-8 mb-5 text-red-500">Understanding Dijkstra's Algorithm</h2>
+<div class="space-y-4">
+  <p class="font-semibold text-lg leading-relaxed">The following is the step that we will follow to implement Dijkstra's Algorithm:</p>
+  <ol class="list-decimal list-inside pl-6 mb-6 text-lg leading-relaxed">
+    <li class="mt-3">
+      <strong>Step 1:</strong> First, we will mark the source node with a current distance of 0 and set the rest of the nodes to INFINITY.
+    </li>
+    <li class="mt-3">
+      <strong>Step 2:</strong> We will then set the unvisited node with the smallest current distance as the current node, suppose X.
+    </li>
+    <li class="mt-3">
+      <strong>Step 3:</strong> For each neighbor N of the current node X: We will then add the current distance of X with the weight of the edge joining X-N. If it is smaller than the current distance of N, set it as the new current distance of N.
+    </li>
+    <li class="mt-3">
+      <strong>Step 4:</strong> We will then mark the current node X as visited.
+    </li>
+    <li class="mt-3 mb-6">
+      <strong>Step 5:</strong> We will repeat the process from 'Step 2' if there is any node unvisited left in the graph.
+    </li>
+  </ol>
 
-      <div class="card">
-        <h2 class="text-2xl font-semibold mt-8 mb-4">An Example:</h2>
-        <p class="mb-6">
-          Let's say you have 8 cards with the numbers 5, 3, 8, 6, 2, 7, 1, and 4.
-        </p>
-        <ul class="list-disc list-inside pl-6 mt-2 mb-6">
-          <li>
-            <strong>Split:</strong> First, we split them into two groups: (5, 3, 8, 6) and (2, 7, 1, 4).
-          </li>
-          <li>
-            <strong>Split Again:</strong> Then, we split those groups: (5, 3) (8, 6) and (2, 7) (1, 4).
-          </li>
-          <li>
-            <strong>Split One More Time:</strong> Finally, we split them until we have single cards: (5) (3) (8) (6) (2) (7) (1) (4).
-          </li>
-        </ul>
-      </div>
+  <p class="mt-7 mb-5 font-semibold text-lg leading-relaxed">
+    Let us now understand the implementation of the algorithm with the help of an example:
+  </p>
+  <img src="exmaple.png" class="mx-auto pb-4" alt="Example">
+  <ul class="list-decimal list-inside pl-6 mb-6 text-lg leading-relaxed italic">
+    <li class="mt-3">
+      We will use the above graph as the input, with node <strong>A</strong> as the source.
+    </li>
+    <li class="mt-3">
+      First, we will mark all the nodes as unvisited.
+    </li>
+    <li class="mt-3">
+      We will set the path to <strong>0</strong> at node <strong>A</strong> and <strong>INFINITY</strong> for all the other nodes.
+    </li>
+    <li class="mt-3">
+      We will now mark source node <strong>A</strong> as visited and access its neighboring nodes. We have only accessed the neighboring nodes, not visited them.
+    </li>
+    <li class="mt-3">
+      We will now update the path to node <strong>B</strong> by <strong>4</strong> with the help of relaxation because the path to node <strong>A</strong> is <strong>0</strong> and the path from node <strong>A</strong> to <strong>B</strong> is <strong>4</strong>, and the <strong>minimum((0 + 4), INFINITY)</strong> is 4.
+    </li>
+    <li class="mt-3">
+      We will also update the path to node <strong>C</strong> by <strong>5</strong> with the help of relaxation because the path to node <strong>A</strong> is <strong>0</strong> and the path from node <strong>A</strong> to <strong>C</strong> is <strong>5</strong>, and the <strong>minimum((0 + 5), INFINITY)</strong> is <strong>5</strong>. Both the neighbors of node <strong>A</strong> are now relaxed; therefore, we can move ahead.
+    </li>
+    <li class="mt-3">
+      We will now select the next unvisited node with the least path and visit it. Hence, we will visit node <strong>B</strong> and perform relaxation on its unvisited neighbors. After performing relaxation, the path to node <strong>C</strong> will remain <strong>5</strong>, whereas the path to node <strong>E</strong> will become <strong>11</strong>, and the path to node <strong>D</strong> will become <strong>13</strong>.
+    </li>
+    <li class="mt-3">
+      We will now visit node <strong>E</strong> and perform relaxation on its neighboring nodes <strong>B</strong>, <strong>D</strong>, and <strong>F</strong>. Since only node <strong>F</strong> is unvisited, it will be relaxed. Thus, the path to node <strong>B</strong> will remain as it is, i.e., <strong>4</strong>, the path to node <strong>D</strong> will also remain <strong>13</strong>, and the path to node <strong>F</strong> will become <strong>14 (8 + 6)</strong>.
+    </li>
+    <li class="mt-3">
+      Now we will visit node <strong>D</strong>, and only node <strong>F</strong> will be relaxed. However, the path to node <strong>F</strong> will remain unchanged, i.e., <strong>14</strong>.
+    </li>
+    <li class="mt-3">
+      Since only node <strong>F</strong> is remaining, we will visit it but not perform any relaxation as all its neighboring nodes are already visited.
+    </li>
+    <li class="mt-3">
+      Once all the nodes of the graphs are visited, the program will end.
+    </li>
+  </ul>
+</div>
 
-      <div class="card">
-        <p class="mb-6">Now, we start <strong>merging</strong>:</p>
-        <ul class="list-disc list-inside pl-6 mb-6">
-          <li>
-            <strong>Merge Small Piles:</strong> Compare and merge:
-            <ul class="list-inside list-disc pl-6 mt-1">
-              <li>(5) and (3) become (3, 5)</li>
-              <li>(8) and (6) become (6, 8)</li>
-              <li>(2) and (7) become (2, 7)</li>
-              <li>(1) and (4) become (1, 4)</li>
-            </ul>
-          </li>
-          <li class="mt-4">
-            <strong>Merge Again:</strong> Compare and merge:
-            <ul class="list-inside list-disc pl-6 mt-1">
-              <li>(3, 5) and (6, 8) become (3, 5, 6, 8)</li>
-              <li>(2, 7) and (1, 4) become (1, 2, 4, 7)</li>
-            </ul>
-          </li>
-          <li class="mt-4">
-            <strong>Final Merge:</strong> Compare and merge:
-            <ul class="list-inside list-disc pl-6 mt-1">
-              <li>(3, 5, 6, 8) and (1, 2, 4, 7) become (1, 2, 3, 4, 5, 6, 7, 8)</li>
-            </ul>
-          </li>
-        </ul>
-        <p class="mb-6">And there you have it – all the cards are sorted!</p>
-      </div>
 
-      <div class="card">
-        <h2> Video Reference:</h2>
-      </div>
-      <div class="video">
-        <video width="1000" height="900" controls poster=
-        "thumbnail.jpg">
-          <source src="Dijkstra Algorithm.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      </div>
-    </div>
-    </main>
+  <h2 class="text-2xl font-bold mt-8 mb-5 text-red-500">Flowchart:</h2>
+  <div>
+    <img src="flowchart.png" class="mx-auto pb-4" alt="Flowchart">
+  </div>
+
+  <h2 class="text-2xl font-bold mt-8 mb-7 text-red-500">Video Reference:</h2>
+<div class="mb-8">
+  <video width="900" height="650" controls class="mx-auto rounded-lg shadow-lg">
+    <source src="Dijkstra's algorithm.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+<h2 class="text-2xl font-bold mt-8 mb-7 text-red-500">Advantages & Disadvantages</h2>
+<div class="space-y-6">
+  <p class="mt-7 mb-5 font-semibold">
+    Let us discuss some advantages of Dijkstra's Algorithm:
+  </p>
+  <ul class="list-decimal list-inside pl-6 mb-6 text-lg font-medium">
+    <li class="mt-3">
+      One primary advantage of using Dijkstra's Algorithm is that it has an almost linear time and space complexity.
+    </li>
+    <li class="mt-3">
+      We can use this algorithm to calculate the shortest path from a single vertex to all other vertices and a single source vertex to a single destination vertex by stopping the algorithm once we get the shortest distance for the destination vertex.
+    </li>
+    <li class="mt-3">
+      This algorithm only works for directed weighted graphs, and all the edges of this graph should be non-negative.
+    </li>
+  </ul>
+
+  <p class="mt-7 mb-5 font-semibold">
+    Despite having multiple advantages, Dijkstra's algorithm has some disadvantages also, such as:
+  </p>
+  <ul class="list-decimal list-inside pl-6 mb-6 text-lg font-medium">
+    <li class="mt-3">
+      Dijkstra's Algorithm performs a concealed exploration that utilizes a lot of time during the process.
+    </li>
+    <li class="mt-3">
+      This algorithm is impotent to handle negative edges.
+    </li>
+    <li class="mt-3">
+      Since this algorithm heads to the acyclic graph, it cannot calculate the exact shortest path.
+    </li>
+    <li class="mt-3">
+      It also requires maintenance to keep a record of vertices that have been visited.
+    </li>
+  </ul>
+</div>
+
+</main>
+</div>
  
 
   <!-- Footer -->
