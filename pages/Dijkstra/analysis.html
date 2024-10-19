@@ -10,6 +10,7 @@
   <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
+  <!-- Consistent Font Style -->
   <style>
     body {
       font-family: 'Roboto', sans-serif;
@@ -17,29 +18,10 @@
       color: rgb(229, 231, 235); /* Main text color */
     }
 
-    /* Card styles for main content */
-    .card {
-      background-color: rgb(45, 47, 51); /* Slightly darker card background */
-      border-radius: 8px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-      color: rgb(229, 231, 235); /* Use the new color for text in cards */
-    }
-
     /* Sidebar styling */
     #sidebar {
       padding: 20px;
     }
-
-    /* Improved typography */
-    h1 {
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: rgb(225, 29, 72); /* Bright, eye-catching color */
-    }
-
-   
 
     /* Reduce padding inside sidebar */
     #sidebar ul li a {
@@ -50,7 +32,8 @@
     #sidebar a {
       color: rgb(229, 231, 235);
     }
-
+    
+   
   </style>
 </head>
 
@@ -87,80 +70,109 @@
       </ul>
     </aside>
 
-    <!-- Main Content -->
-    <main class="flex-1 p-8 bg-slate-950">
-      <div class="card">
-        <h1 class="text-3xl font-extrabold text-gray-100 mb-6">Analysis</h1>
-        <p class="text-lg mb-8">
-          To understand the concept of Time and Space Complexity, let's imagine you're organizing a deck of cards.
-        </p>
-      </div>
+ <!-- Main Content -->
+<main class="flex-1 p-8 bg-slate-950">
+  <h1 class="text-3xl font-extrabold mb-6 text-center pb-11 pt-5 text-red-700">Analysis</h1>
+  
+  
+  <h2 class="text-2xl font-bold mt-8 mb-5 text-red-500">Time Complexity of Dijkstra’s Algorithm:</h2>
+  <div>
+  <p class="font-semibold text-lg leading-relaxed">Best Case Time Complexity: <span class="italic">O((V + E) log V)</span></p>
+  <ul class="list-disc list-inside pl-6 mb-6 text-lg leading-relaxed">
+    <li class="mt-3">
+      This best-case scenario occurs when using an optimized data structure like a Fibonacci heap for implementing the priority queue.
+    </li>
+    <li class="mt-3">
+      The time complexity is determined by the graph’s number of vertices <span class="italic">(V)</span> and edges <span class="italic">(E)</span>.
+    </li>
+    <li class="mt-3">
+      In this scenario, the algorithm efficiently finds the shortest paths, with the priority queue operations optimized, leading to the overall time complexity of O((V + E) log V).
+    </li>
+    <li class="mt-3 mb-6">
+      This scenario is typically encountered when the graph is sparse, meaning it has relatively few edges compared to vertices.
+    </li>
+  </ul>
 
-      <div class="card">
-        <h3 class="text-2xl font-semibold mb-6">Time Complexity (How long it takes)</h3>
-        
-        <h4 class="text-xl mb-4">1. Breaking the Deck in Half:</h4>
-        <p class="mb-6">
-          Imagine you keep splitting the deck of cards into two halves. First, you split it into 2 piles, then each of those into 2 more piles, and so on. For example, if you have 8 cards, after 3 splits, you'll have 8 single cards. The number of splits you make is similar to the time complexity. For `n` cards, it takes about `log(n)` splits. The base of log is generally taken as 2 in Computer Science.
-        </p>
+  <p class="font-semibold text-lg leading-relaxed">Average Case Time Complexity: <span class="italic">O((V + E) log V)</span></p>
+  <ul class="list-disc list-inside pl-6 mb-6 text-lg leading-relaxed">
+    <li class="mt-3">
+      The average-case time complexity of Dijkstra’s algorithm is typically the same as the best-case scenario, <span class="italic">O((V + E) log V)</span>.
+    </li>
+    <li class="mt-3">
+      This is because Dijkstra’s algorithm performs well on most real-world graphs, which are often neither extremely sparse nor fully connected.
+    </li>
+    <li class="mt-3">
+      The algorithm efficiently finds shortest paths in graphs with varying densities, finding a balance between the quantity of edges and vertices.
+    </li>
+    <li class="mt-3 mb-6">
+      In practice, this average complexity is encountered in a wide range of scenarios, making Dijkstra’s algorithm a reliable choice for many shortest path problems.
+    </li>
+  </ul>
 
-        <h4 class="text-xl mb-4">2. Putting the Deck Back Together:</h4>
-        <p class="mb-6">
-          Now, you start putting the cards back together, two at a time, and sorting them as you go. This step takes some time because you’re checking which card is smaller or bigger. For each level of merging (putting the cards together), you look at all the cards once. Since you do this for every level, and there are `log(n)` levels, it ends up being `n * log(n)`.
-        </p>
-        <p class="mb-10">
-          So, the <strong>time complexity</strong> of Merge Sort is `O(n * log(n))`. This means the time it takes grows in a way that depends on both the number of cards (n) and how many times you can split them (log(n)).
-        </p>
-      </div>
+  <p class="font-semibold text-lg leading-relaxed">Worst Case Time Complexity: <span class="italic">O((V2) log V)</span></p>
+  <ul class="list-disc list-inside pl-6 mb-6 text-lg leading-relaxed">
+    <li class="mt-3">
+      In the worst-case scenario, Dijkstra’s algorithm operates less efficiently, typically when using a simple priority queue or an array-based implementation.
+    </li>
+    <li class="mt-3">
+      This occurs when the graph is dense, with many edges, and the priority queue operations become less efficient due to the lack of optimization.
+    </li>
+    <li class="mt-3">
+      The time complexity in this case is determined by the number of vertices squared <span class="italic">(V2)</span> and logarithmic factors related to priority queue operations, resulting in <span class="italic">O((V2) log V)</span>.
+    </li>
+    <li class="mt-3 mb-6">
+      The worst-case scenario often arises in fully connected graphs or graphs with many edges between each pair of vertices.
+    </li>
+  </ul>
+</div>
 
-      <div class="card">
-        <h3 class="text-2xl font-semibold mb-6">Space Complexity (How much space it needs)</h3>
-        <p class="mb-6">
-          When you split the deck, you need extra tables to hold the smaller piles of cards before you put them back together. These extra tables represent the <strong>extra space</strong> you need. Since you're creating new piles for each split, the amount of space you need depends on the number of cards. If you have `n` cards, you'll need extra space to hold those `n` cards temporarily.
-        </p>
-        <p class="mb-10">
-          So, the <strong>space complexity</strong> is `O(n)`, which means you need space proportional to the number of cards you have.
-        </p>
-      </div>
 
-      <div class="card">
-        <h3 class="text-2xl font-semibold mb-4">Best, Average, and Worst Case Scenarios</h3>
-        <p class="mb-6">
-          Let's stick with the card sorting example to explain the best, average, and worst cases for Merge Sort.
-        </p>
-
-        <h4 class="text-xl font-semibold mb-2">Best Case Scenario (Everything is Perfect!)</h4>
-        <p class="mb-6">
-          <strong>Imagine:</strong> You have a deck of cards that is already sorted. This means when you split and merge them, you don't have to make any changes. You just put them back together as they are! The best-case time complexity for Merge Sort is still `O(n * log(n))`, because you still have to go through the cards.
-        </p>
-
-        <h4 class="text-xl font-semibold mb-2">Average Case Scenario (A Mixed Bag)</h4>
-        <p class="mb-6">
-          <strong>Imagine:</strong> You have a random mix of cards. Some are in order, and some are not. You have to split and merge a lot, but it’s not the worst situation either. The average-case time complexity is also `O(n * log(n))` because, on average, you’ll be doing the same amount of work as the best case when you split and merge.
-        </p>
-
-        <h4 class="text-xl font-semibold mb-2">Worst Case Scenario (A Total Mess!)</h4>
-        <p class="mb-6">
-          <strong>Imagine:</strong> You have a deck that is completely reversed! This means every card needs to be moved into the right position when you put them back together. Despite this mess, the time complexity for Merge Sort remains `O(n * log(n))`, which means even in the worst case, the algorithm does a lot of work efficiently!
-        </p>
-      </div>
+  <h2 class="text-2xl font-bold mt-8 mb-5 text-red-500">Applications</h2>
+  <div>
+  <p class="text-2xl font-semibold mb-6 text-center pb-4 pt-5 "> 1. Digital Mapping Services in Google Maps:</p>
+  <img src="application 1.png" width="700" height="50" class="mx-auto pb-4" alt="Application1">
+  <p class="text-lg leading-relaxed pt-3">
+    There are various times when we have tried to find the distance in Google Maps either from our location to the nearest preferred location or from one city to another, which comprises multiple routes/paths connecting them; however, the application must display the minimum distance. This is only possible because Dijkstra's algorithm helps the application find the shortest between two given locations along the path. Let us consider the USA as a graph wherein the cities/places are represented as vertices, and the routes between two cities/places are represented as edges. Then with the help of Dijkstra's Algorithm, we can calculate the shortest routes between any two cities/places.
+  </p>
+  </div>
+  <div>
+    <p class="text-2xl font-semibold mb-6 text-center pb-4 pt-5 ">2. Social Networking Applications: </p>
+    <img src="application 2.png" width="700" height="50" class="mx-auto pb-4" alt="Application1">
+    <p class="text-lg leading-relaxed pt-3">
+      In many applications like Facebook, Twitter, Instagram, and more, many of us might have observed that these apps suggest the list of friends that a specific user may know. How do many social media companies implement this type of feature in an efficient and effective way, specifically when the system has over a billion users? The answer to this question is Dijkstra's Algorithm. The standard Dijkstra's Algorithm is generally used to estimate the shortest distance between the users measured through the connections or mutuality among them. When social networking is very small, it uses the standard Dijkstra's Algorithm in addition to some other features in order to determine the shortest paths. However, when the graph is much bigger, the standard algorithm takes several seconds to count, and thus, some advanced algorithms are used as the alternative.
+    </p>
     </div>
-    </main>
+    <div>
+      <p class="text-2xl font-semibold mb-6 text-center pb-4 pt-5 ">3. Flight Program:</p>
+      <img src="application 3.png" width="700" height="50" class="mx-auto pb-4" alt="Application1">
+      <p class="text-lg leading-relaxed pt-3">
+        Suppose that a person requires software to prepare an agenda of flights for customers. The agent has access to a database with all flights and airports. In addition to the flight number, origin airport, and destination, the flights also have departure and arrival times. So, in order to determine the earliest arrival time for the selected destination from the original airport and given start time, the agents make use of Dijkstra's Algorithm.
+      </p>
+      </div>
+      <div>
+        <p class="text-2xl font-semibold mb-6 text-center pb-4 pt-5 ">4. Robotic Path:</p>
+        <img src="application 4.png" width="700" height="50" class="mx-auto pb-4" alt="Application1">
+        <p class="text-lg leading-relaxed pt-3">
+          These days, drones and robots have come into existence, some operated manually and some automatically. The drones and robots which are operated automatically and used to deliver the packages to a given location or used for any certain task are configured with Dijkstra's Algorithm module so that whenever the source and destination are known, the drone and robot will move in the ordered direction by following the shortest path keeping the time taken to a minimum in order to deliver the packages.
+        </p>
+        </div>
+</main>
+</div>
+ 
 
-
-    <!-- Footer -->
+  <!-- Footer -->
   <footer class="bg-black text-white p-6 border-t border-black">
     <div class="container mx-auto text-center italic">
       <p>&copy; 2024 Dijkstra Algorithm. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- JavaScript for responsive sidebar -->
+  <!-- JavaScript to Toggle Sidebar -->
   <script>
     const menuBtn = document.getElementById('menu-btn');
     const sidebar = document.getElementById('sidebar');
 
-    menuBtn.addEventListener('click', () => {
+    menuBtn.addEventListener('click', function () {
       sidebar.classList.toggle('hidden');
     });
   </script>
