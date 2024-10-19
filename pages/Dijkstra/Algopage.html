@@ -10,6 +10,7 @@
   <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
+  <!-- Consistent Font Style -->
   <style>
     body {
       font-family: 'Roboto', sans-serif;
@@ -17,39 +18,22 @@
       color: rgb(229, 231, 235); /* Main text color */
     }
 
-    /* Card styles for main content */
-    .card {
-      background-color: rgb(45, 47, 51); 
-      border-radius: 8px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-      color: rgb(229, 231, 235);
-    }
-
-
+    /* Sidebar styling */
     #sidebar {
       padding: 20px;
     }
 
-    
-    h1 {
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: rgb(225, 29, 72); 
-    }
-
-
- 
+    /* Reduce padding inside sidebar */
     #sidebar ul li a {
       padding: 8px 16px;
     }
 
-
+    /* Apply color to sidebar links */
     #sidebar a {
       color: rgb(229, 231, 235);
     }
-
+    
+   
   </style>
 </head>
 
@@ -86,36 +70,67 @@
       </ul>
     </aside>
 
+ <!-- Main Content -->
+<main class="flex-1 p-8 bg-slate-950">
+  <h1 class="text-3xl font-extrabold mb-6 text-center pb-11 pt-5 text-red-700">Overview</h1>
+  
+  <h2 class="text-2xl font-bold mt-8 mb-5 text-red-500">Why we need Dijkstra’s Algorithm ?</h2>
+  <div>
+  <ul class="list-disc list-inside pl-6 mb-6 text-lg leading-relaxed">
+    <li class="mt-3">
+      In many applications one wants to obtain the shortest path from a to b.
+    </li>
+    <li class="mt-3">
+      Depending on the context, the length of the path does not necessarily have to be the length in meter.
+    </li>
+    <li class="mt-3">
+      One can as well look at the cost of a path; both if we have to pay for using it or if we receive some. In general we speak of cost.Therefore one assigns cost to each part of the path – also called "edge".
+    </li>
+    <li class="mt-3">
+      Dijkstra's Algorithm computes shortest or cheapest paths, if all cost are positive numbers.
+    <li class="mt-3 mb-6">
+      However, if one allows negative numbers, the algorithm will fail.
+    </li>
+  </ul>
+  </div>
 
-    <main class="flex-1 p-8 bg-slate-950">
-      <h1 class="text-4xl font-extrabold mb-8">Overview</h1>
-
-    
-      <div class="card">
-        <h2 class="text-2xl font-bold mb-4">Prerequisites of the Experiment</h2>
-        <h3 class="text-lg font-semibold mb-4">This experiment requires you to have basic knowledge about:</h3>
-        <ul class="list-disc list-inside space-y-3">
-          <li><strong>The Notion of Sorting</strong></li>
-          <li><strong>Notion of Time and Space complexity</strong></li>
-          <li><strong>And above all, a curiosity to learn and explore!</strong></li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h2 class="text-2xl font-bold mb-4">Overview of the Experiment</h2>
-        <p class="text-lg mb-4">The aim of this experiment is to understand the Merge Sort algorithm, its time and space complexity, and how it compares against other sorting algorithms.</p>
-        <p class="text-lg mb-4">The experiment features a series of modules with:</p>
-        <ul class="list-disc list-inside space-y-3">
-          <li><strong>Video lectures</strong></li>
-          <li><strong>Interactive demonstrations</strong></li>
-          <li><strong>Simulations</strong></li>
-          <li><strong>Hands-on practice exercises</strong></li>
-          <li><strong>Quizzes for self-analysis</strong></li>
-        </ul>
-      </div>
-    </div>
-    </main>
-
+  <h2 class="text-2xl font-bold mt-8 mb-5 text-red-500">Where Dijkstra’s Algorithm is used?</h2>
+  <div>
+    <p class="text-lg leading-relaxed pt-3 pb-11">
+      Dijkstra’s algorithm is used when the graph has positive weights only. It is faster than the above other single source shortest path algorithms.
+    </p>
+    <img src="dijkstra.webp" width="900" height="500" class="mx-auto pb-4" alt="Application1">
+  </div>
+ 
+  <div>
+    <p class="font-semibold text-lg leading-relaxed pb-3">The AlgoSim will teach us about Dijkstra's Shortest Path Algorithm. We will understand the working of Dijkstra's Algorithm with a stepwise graphical explanation.</p>
+    <p class="font-medium text-lg leading-relaxed">We will cover the following:</p>
+    <ul class="list-decimal list-inside pl-6 mb-6 text-lg leading-relaxed">
+    <li class="mt-3">
+      A Brief Overview of the Fundamental Concepts of Graph
+    </li>
+    <li class="mt-3">
+      Understand the Use of Dijkstra's Algorithm
+    </li>
+    <li class="mt-3">
+      Understand the Working of the Algorithm with a Step-by-Step Example
+    </li>
+    <li class="mt-3">
+      Highlight real-world examples where Dijkstra’s algorithm is used, such as in road maps, network optimization, and more.
+    </li>
+    <li class="mt-3">
+      Include an interactive graph that users can manipulate (place nodes, set edges with weights) and visualize how Dijkstra's algorithm processes the graph.
+    </li>
+    <li class="mt-3">
+      Summarize the importance and limitations (e.g., works only with non-negative weights) of the Dijkstra algorithm.
+    </li>
+  </ul>
+  <p class="font-semibold text-lg leading-relaxed pb-3">So, let's get started.</p>
+  </div>
+  
+</main>
+</div>
+ 
 
   <!-- Footer -->
   <footer class="bg-black text-white p-6 border-t border-black">
