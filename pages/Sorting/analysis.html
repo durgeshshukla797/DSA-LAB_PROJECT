@@ -1,171 +1,274 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Algo Page</title>
-  <!-- Tailwind CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <!-- Font Awesome -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-  <!-- Custom CSS -->
-  <link href="style.css" rel="stylesheet">
-  <!-- Consistent Font Style -->
-  <style>
-    body {
-      font-family: 'Roboto', sans-serif;
-      background-color: #1c1e22; /* Complementary background */
-      color: rgb(229, 231, 235); /* Main text color */
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Algo Page</title>
+    <!-- Tailwind CSS -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+        rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        rel="stylesheet"
+    />
 
-    /* Card styles for main content */
-    .card {
-      background-color: rgb(45, 47, 51); /* Slightly darker card background */
-      border-radius: 8px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-      color: rgb(229, 231, 235); /* Use the new color for text in cards */
-    }
+    <!-- Consistent Font Style -->
+    <style>
+        body {
+            font-family: "Roboto", sans-serif;
+            background-color: #1c1e22; /* Complementary background */
+            color: rgb(229, 231, 235); /* Main text color */
+        }
 
-    /* Sidebar styling */
-    #sidebar {
-      padding: 20px;
-    }
+        /* Sidebar styling */
+        #sidebar {
+            padding: 20px;
+        }
 
-    /* Improved typography */
-    h1 {
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: rgb(225, 29, 72); /* Bright, eye-catching color */
-    }
+        /* Reduce padding inside sidebar */
+        #sidebar ul li a {
+            padding: 8px 16px;
+        }
 
-   
-
-    /* Reduce padding inside sidebar */
-    #sidebar ul li a {
-      padding: 8px 16px;
-    }
-
-    /* Apply color to sidebar links */
-    #sidebar a {
-      color: rgb(229, 231, 235);
-    }
-
-  </style>
+        /* Apply color to sidebar links */
+        #sidebar a {
+            color: rgb(229, 231, 235);
+        }
+    </style>
 </head>
 
 <body class="text-white">
-  <!-- Navbar -->
-  <nav class="bg-black text-white py-6 px-4 md:px-8 shadow-lg">
-    <div class="container mx-auto flex items-center justify-between">
-      <div class="flex items-center space-x-4">
-        <!-- Menu button beside title -->
-        <button id="menu-btn" class="text-white text-2xl"><i class="fa fa-bars"></i></button>
-        <a href="#" class="text-2xl font-bold text-white italic">Sorting Algorithm</a>
-      </div>
-      <div class="hidden md:flex space-x-6">
-        <button style="background-color: rgb(225, 29, 72); border: none; color: white; height: 50px; border-radius: 25px; cursor: pointer; font-weight: bold; font-size: 15px; padding: 0 20px;">Home</button>
-        <button style="background-color: rgb(225, 29, 72); border: none; color: white; height: 50px; border-radius: 25px; cursor: pointer; font-weight: bold; font-size: 15px; padding: 0 20px;">Collaborator</button>
-        <button style="background-color: rgb(225, 29, 72); border: none; color: white; height: 50px; border-radius: 25px; cursor: pointer; font-weight: bold; font-size: 15px; padding: 0 20px;">Contact</button>
-      </div>
+    <!-- Navbar -->
+    <nav class="bg-black text-white py-6 px-4 md:px-8 shadow-lg">
+        <div class="container mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <!-- Menu button beside title -->
+                <button id="menu-btn" class="text-white text-2xl">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a href="#" class="text-2xl font-bold text-white italic">Sorting Algorithm</a>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <button
+                    style="
+                    background-color: rgb(225, 29, 72);
+                    border: none;
+                    color: white;
+                    height: 50px;
+                    border-radius: 25px;
+                    cursor: pointer;
+                    font-weight: bold;
+                    font-size: 15px;
+                    padding: 0 20px;
+                ">
+                    Home
+                </button>
+                <button
+                    style="
+                    background-color: rgb(225, 29, 72);
+                    border: none;
+                    color: white;
+                    height: 50px;
+                    border-radius: 25px;
+                    cursor: pointer;
+                    font-weight: bold;
+                    font-size: 15px;
+                    padding: 0 20px;
+                ">
+                    Collaborator
+                </button>
+                <button
+                    style="
+                    background-color: rgb(225, 29, 72);
+                    border: none;
+                    color: white;
+                    height: 50px;
+                    border-radius: 25px;
+                    cursor: pointer;
+                    font-weight: bold;
+                    font-size: 15px;
+                    padding: 0 20px;
+                ">
+                    Contact
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Layout Wrapper -->
+    <div class="flex flex-col md:flex-row">
+        <!-- Sidebar -->
+        <aside
+            id="sidebar"
+            class="w-full md:w-64 bg-black shadow-md h-auto md:h-screen sticky top-0 border-t md:border-t-0 border-black hidden"
+        >
+            <h2 class="text-lg font-semibold text-white mb-4">Content</h2>
+            <ul class="space-y-4">
+                <li>
+                    <a
+                        href="Algopage.html"
+                        class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"
+                    ><i class="fa-solid fa-magnifying-glass mr-3"></i>Overview</a>
+                </li>
+                <li>
+                    <a
+                        href="pretest.html"
+                        class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"
+                    ><i class="fas fa-pencil-alt mr-3"></i>Pretest</a>
+                </li>
+                <li>
+                    <a
+                        href="introduction.html"
+                        class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"
+                    ><i class="fas fa-book-open mr-3"></i>Introduction</a>
+                </li>
+                <li>
+                    <a
+                        href="analysis.html"
+                        class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"
+                    ><i class="fas fa-chart-line mr-3"></i>Analysis</a>
+                </li>
+                <li>
+                    <a
+                        href="quiz.html"
+                        class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"
+                    ><i class="fas fa-question-circle mr-3"></i>Quiz</a>
+                </li>
+                <li>
+                    <a
+                        href="#"
+                        class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"
+                    ><i class="fas fa-play-circle mr-3"></i>Simulation</a>
+                </li>
+                <li>
+                    <a
+                        href="postest.html"
+                        class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"
+                    ><i class="fas fa-check-circle mr-3"></i>Posttest</a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-8 bg-slate-950">
+            <h1 class="text-3xl font-extrabold mb-6 text-center pb-11 pt-5 text-red-700">
+                Analysis
+            </h1>
+            <div class="card">
+                <h3 class="text-2xl font-bold mt-8 mb-7 text-red-500">Time Complexity</h3>
+                <p class="font-semibold text-lg leading-relaxed mb-6">
+                    To understand the concept of Time and Space Complexity, imagine you're organizing a deck of cards.
+                </p>
+
+                <h4 class="text-xl mb-4"><strong>1. Breaking the Deck in Half:</strong></h4>
+                <p class="mb-6">
+                    Imagine you keep splitting the deck of cards into two halves. The number of splits is <strong>log(n)</strong>. The base of log is 2 in Computer Science.
+                </p>
+
+                <h4 class="text-xl mb-4"><strong>2. Putting the Deck Back Together:</strong></h4>
+                <p class="mb-6">
+                    When you start putting the cards back together, the complexity becomes <strong>n * log(n)</strong>. Hence, the time complexity of Merge Sort is <strong>O(n * log(n))</strong>.
+                </p>
+
+                <!-- Updated Section Title -->
+                <div class="my-8">
+                    <h4 class="text-xl font-semibold text-red-500 mb-2">Merge Sort Example</h4>
+                    <img src="merge_sort_image.png" alt="Merge Sort Diagram" class="w-96 h-48 border rounded-md" />
+                </div>
+                
+                
+                
+                
+
+            <div class="card">
+                <h3 class="text-2xl font-bold mt-8 mb-7 text-red-500">Space Complexity</h3>
+                <p class="font-semibold text-lg leading-relaxed mb-6">
+                    For Merge Sort, the space complexity is O(n) because you need extra space to hold n cards temporarily.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3 class="text-2xl font-bold mt-8 mb-7 text-red-500">Best, Average, and Worst Case Scenarios</h3>
+
+                <h4 class="text-xl font-semibold mb-2">Best Case Scenario</h4>
+                <p class="mb-6">
+                    Even if the deck is sorted, Merge Sort still operates at <strong>O(n * log(n))</strong> as splitting and merging still happens.
+                </p>
+
+                <h4 class="text-xl font-semibold mb-2">Average Case Scenario</h4>
+                <p class="mb-6">
+                    In a random deck, Merge Sort also operates at <strong>O(n * log(n))</strong>, making it a consistent performer.
+                </p>
+
+                <h4 class="text-xl font-semibold mb-2">Worst Case Scenario</h4>
+                <p class="mb-6">
+                    Even in the worst case (completely reversed deck), the time complexity remains <strong>O(n * log(n))</strong>.
+                </p>
+            </div>
+
+            <!-- New Applications Section -->
+            <div class="card">
+                <h3 class="text-2xl font-bold mt-8 mb-7 text-red-500">Applications of Merge Sort</h3>
+                <p class="font-semibold text-lg leading-relaxed mb-6">
+                    Merge Sort is widely used in various scenarios where its stability and consistent time complexity make it highly preferred.
+                </p>
+
+                <h4 class="text-xl font-semibold mb-4">1. Sorting Large Datasets</h4>
+                <p class="mb-6">
+                    Merge Sort is ideal for sorting massive datasets, especially when the data can't fit into memory and needs to be accessed from external storage.
+                </p>
+
+                <h4 class="text-xl font-semibold mb-4">2. External Sorting</h4>
+                <p class="mb-6">
+                    When dealing with huge datasets stored in external memory (such as on a disk), Merge Sort is preferred because it accesses data sequentially, which is faster for disk operations.
+                </p>
+
+                <h4 class="text-xl font-semibold mb-4">3. Inversion Counting</h4>
+                <p class="mb-6">
+                    Merge Sort helps in counting inversions in an array, where an inversion is a pair of elements out of order.
+                </p>
+
+                <h4 class="text-xl font-semibold mb-4">4. TimSort in Programming Languages</h4>
+                <p class="mb-6">
+                    A variation of Merge Sort, TimSort, is used in languages like Python, Java, Android, and Swift for sorting non-primitive types because of its stability.
+                </p>
+
+                <h4 class="text-xl font-semibold mb-4">5. Sorting Linked Lists</h4>
+                <p class="mb-6">
+                    Merge Sort is preferred for sorting linked lists because of its non-contiguous memory usage.
+                </p>
+
+                <h4 class="text-xl font-semibold mb-4">6. Parallel Sorting</h4>
+                <p class="mb-6">
+                    The independent sorting of subarrays makes Merge Sort easy to parallelize, which can greatly speed up sorting in multicore systems.
+                </p>
+
+                <h4 class="text-xl font-semibold mb-4">7. Union and Intersection of Arrays</h4>
+                <p class="mb-6">
+                    Merge Sort's merge function is highly efficient for solving problems like finding the union or intersection of two sorted arrays.
+                </p>
+            </div>
+        </main>
     </div>
-  </nav>
-
-  <!-- Layout Wrapper -->
-  <div class="flex flex-col md:flex-row">
-    <!-- Sidebar -->
-    <aside id="sidebar" class="w-full md:w-64 bg-black shadow-md h-auto md:h-screen sticky top-0 border-t md:border-t-0 border-black hidden">
-      <h2 class="text-lg font-semibold text-white mb-4">Content</h2>
-      <ul class="space-y-4">
-        <li><a href="Algopage.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fa-solid fa-magnifying-glass mr-3"></i>Overview</a></li>
-        <li><a href="pretest.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-pencil-alt mr-3"></i>Pretest</a></li>
-        <li><a href="introduction.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-book-open mr-3"></i>Introduction</a></li>
-        <li><a href="analysis.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-chart-line mr-3"></i>Analysis</a></li>
-        <li><a href="quiz.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-question-circle mr-3"></i>Quiz</a></li>
-        <li><a href="#" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-play-circle mr-3"></i>Simulation</a></li>
-        <li><a href="postest.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-check-circle mr-3"></i>Posttest</a></li>
-      </ul>
-    </aside>
-
-    <!-- Main Content -->
-    <main class="flex-1 p-8 bg-slate-950">
-      <div class="card">
-        <h1 class="text-3xl font-extrabold text-gray-100 mb-6">Analysis</h1>
-        <p class="text-lg mb-8">
-          To understand the concept of Time and Space Complexity, let's imagine you're organizing a deck of cards.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3 class="text-2xl font-semibold mb-6">Time Complexity (How long it takes)</h3>
-        
-        <h4 class="text-xl mb-4">1. Breaking the Deck in Half:</h4>
-        <p class="mb-6">
-          Imagine you keep splitting the deck of cards into two halves. First, you split it into 2 piles, then each of those into 2 more piles, and so on. For example, if you have 8 cards, after 3 splits, you'll have 8 single cards. The number of splits you make is similar to the time complexity. For `n` cards, it takes about `log(n)` splits. The base of log is generally taken as 2 in Computer Science.
-        </p>
-
-        <h4 class="text-xl mb-4">2. Putting the Deck Back Together:</h4>
-        <p class="mb-6">
-          Now, you start putting the cards back together, two at a time, and sorting them as you go. This step takes some time because you’re checking which card is smaller or bigger. For each level of merging (putting the cards together), you look at all the cards once. Since you do this for every level, and there are `log(n)` levels, it ends up being `n * log(n)`.
-        </p>
-        <p class="mb-10">
-          So, the <strong>time complexity</strong> of Merge Sort is `O(n * log(n))`. This means the time it takes grows in a way that depends on both the number of cards (n) and how many times you can split them (log(n)).
-        </p>
-      </div>
-
-      <div class="card">
-        <h3 class="text-2xl font-semibold mb-6">Space Complexity (How much space it needs)</h3>
-        <p class="mb-6">
-          When you split the deck, you need extra tables to hold the smaller piles of cards before you put them back together. These extra tables represent the <strong>extra space</strong> you need. Since you're creating new piles for each split, the amount of space you need depends on the number of cards. If you have `n` cards, you'll need extra space to hold those `n` cards temporarily.
-        </p>
-        <p class="mb-10">
-          So, the <strong>space complexity</strong> is `O(n)`, which means you need space proportional to the number of cards you have.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3 class="text-2xl font-semibold mb-4">Best, Average, and Worst Case Scenarios</h3>
-        <p class="mb-6">
-          Let's stick with the card sorting example to explain the best, average, and worst cases for Merge Sort.
-        </p>
-
-        <h4 class="text-xl font-semibold mb-2">Best Case Scenario (Everything is Perfect!)</h4>
-        <p class="mb-6">
-          <strong>Imagine:</strong> You have a deck of cards that is already sorted. This means when you split and merge them, you don't have to make any changes. You just put them back together as they are! The best-case time complexity for Merge Sort is still `O(n * log(n))`, because you still have to go through the cards.
-        </p>
-
-        <h4 class="text-xl font-semibold mb-2">Average Case Scenario (A Mixed Bag)</h4>
-        <p class="mb-6">
-          <strong>Imagine:</strong> You have a random mix of cards. Some are in order, and some are not. You have to split and merge a lot, but it’s not the worst situation either. The average-case time complexity is also `O(n * log(n))` because, on average, you’ll be doing the same amount of work as the best case when you split and merge.
-        </p>
-
-        <h4 class="text-xl font-semibold mb-2">Worst Case Scenario (A Total Mess!)</h4>
-        <p class="mb-6">
-          <strong>Imagine:</strong> You have a deck that is completely reversed! This means every card needs to be moved into the right position when you put them back together. Despite this mess, the time complexity for Merge Sort remains `O(n * log(n))`, which means even in the worst case, the algorithm does a lot of work efficiently!
-        </p>
-      </div>
-    </div>
-    </main>
-
 
     <!-- Footer -->
-  <footer class="bg-black text-white p-6 border-t border-black">
-    <div class="container mx-auto text-center italic">
-      <p>&copy; 2024 Dijkstra Algorithm. All rights reserved.</p>
-    </div>
-  </footer>
+    <footer class="bg-black text-white p-6 border-t border-black">
+        <div class="container mx-auto text-center italic">
+            <p>&copy; 2024 Sorting Algorithm. All rights reserved.</p>
+        </div>
+    </footer>
 
-  <!-- JavaScript for responsive sidebar -->
-  <script>
-    const menuBtn = document.getElementById('menu-btn');
-    const sidebar = document.getElementById('sidebar');
+    <!-- JavaScript for responsive sidebar -->
+    <script>
+        const menuBtn = document.getElementById("menu-btn");
+        const sidebar = document.getElementById("sidebar");
 
-    menuBtn.addEventListener('click', () => {
-      sidebar.classList.toggle('hidden');
-    });
-  </script>
+        menuBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("hidden");
+        });
+    </script>
 </body>
-
 </html>
