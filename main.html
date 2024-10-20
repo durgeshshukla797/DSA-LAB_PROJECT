@@ -1,42 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DSA</title>
-    <link rel="stylesheet" href="./style/main.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AlgoSim</title>
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+  <!-- Consistent Font Style -->
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #1c1e22; /* Complementary background */
+      color: rgb(229, 231, 235); /* Main text color */
+    }
+  </style>
 </head>
-<body>
 
-<div class="nav">
-    <p id="menu"><img src="./public/menu.jpg" alt="Menu"></p>
-</div>
+<body class="text-white flex flex-col min-h-screen">
+  <!-- Navbar -->
+  <nav class="bg-black text-white py-6 px-4 md:px-8 shadow-lg">
+    <div class="container mx-auto flex items-center justify-between">
+      <div class="flex items-center space-x-4">
+        <!-- Menu button beside title -->
+        <h1 style="color: rgb(225, 29, 72);" class="text-3xl italic font-extrabold">AlgoSim</h1>
+      </div>
+    </div>
+  </nav>
 
-<div class="con">
-<a href="blank.html>"><p id="link">
-    <img src="./public/linked.jpg"></a>
-</p>
-<a href="blank.html>"><p id="hash">
-    <img src="./public/hash.jpg">
-</p></a>
-<a href="./pages/Dijkstra/Algopage.html"><p id="tree">
-    <img src="./public/tree.jpg">
-</p></a>
-<a href="blank.html>"><p id="tower">
-    <img src="./public/tower.png">
-</p></a>
-<a href="./pages/Sorting/algopage.html"><p id="sort">
-    <img src="./public/sort.png">
-</p></a>
+  <!-- Main Content -->
+  <main class="flex-1 p-8 bg-slate-950">
+    <!-- First Row: 3 Boxes -->
+    <div class="grid grid-cols-1 md:grid-cols-3 ">
+      <!-- Box 1 -->
+      <div style="background-color: rgb(225, 29, 72);"  class=" rounded-lg p-4 w-72 h-72 ml-20 mt-10 transform transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:bg-gray-700">
+        <div class=" rounded-lg overflow-hidden h-40">
+          <img src="public/linked.jpg" alt="Image 1" class="w-full h-full object-cover">
+        </div>
+        <div class="mt-4 text-center">
+          <p class="pt-5 font-extrabold text-2xl">Linked List</p>
+        </div>
+      </div>
 
-<div class="down">
-<p id="Home">
+      <!-- Box 2 -->
+      <a href="Sorting/algopage.html">
+      <div  style="background-color: rgb(225, 29, 72);"  class=" rounded-lg p-4 w-72 h-72 mt-10 ml-20 transform transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:bg-gray-700">
+        <div class="bg-gray-700 rounded-lg overflow-hidden h-40">
+          <img src="public/sort.png" alt="Image 2" class="w-full h-full object-cover">
+        </div>
+        <div class="mt-4 text-center">
+          <p class="pt-5 font-extrabold text-2xl" >Merge Sort</p>
+        </div>
+      </div>
+      </a>
 
-</ul>
-</p>
-</div>
-</div>
+      <!-- Box 3 -->
+       <a href="Dijkstra/Algopage.html">
+      <div   style="background-color: rgb(225, 29, 72);"  class=" rounded-lg p-4 w-72 h-72  ml-20 mt-10 transform transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:bg-gray-700">
+        <div class="bg-gray-700 rounded-lg overflow-hidden h-40">
+          <img src="public/tree.jpg" alt="Image 3" class="w-full h-full object-cover">
+        </div>
+        <div class="mt-4 text-center">
+          <p class="pt-5 font-extrabold text-2xl" >Dijkstra Algorithm</p>
+        </div>
+      </div>
+    </div>
+  </a>
 
-<script src="link.js"></script>
+    <!-- Second Row: 2 Boxes -->
+    <div class="grid grid-cols-1 md:grid-cols-2  mt-6">
+      <!-- Box 4 -->
+      <div style="background-color: rgb(225, 29, 72);"  class=" rounded-lg p-4 w-72 h-72 ml-80 mt-10 transform transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:bg-gray-700">
+        <div class="bg-gray-700 rounded-lg overflow-hidden h-40">
+          <img src="public/hash.jpg" alt="Image 4" class="w-full h-full object-cover">
+        </div>
+        <div class="mt-4 text-center">
+          <p class="pt-5 font-extrabold text-2xl">Hashing</p>
+        </div>
+      </div>
+
+      <!-- Box 5 -->
+      <div  style="background-color: rgb(225, 29, 72);" class=" rounded-lg p-4 w-72 h-72 mt-10 ml-20 transform transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:bg-gray-700">
+        <div class="bg-gray-700 rounded-lg overflow-hidden h-40">
+          <img src="public/tower.png" alt="Image 5" class="w-full h-full object-cover">
+        </div>
+        <div class="mt-4 text-center">
+          <p class="pt-5 font-extrabold text-2xl">Tower Of Hanoi</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-black text-white p-6 border-t border-black">
+    <div class="container mx-auto text-center italic">
+      <p style="color: rgb(225, 29, 72);">&copy; 2024 AlgoSim. All rights reserved.</p>
+    </div>
+  </footer>
 </body>
+
 </html>
