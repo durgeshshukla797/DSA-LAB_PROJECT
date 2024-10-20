@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AlgoSim</title>
+  <title>AlgoSim - Merge Sort</title>
   <!-- Tailwind CSS -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <!-- Font Awesome -->
@@ -13,35 +13,27 @@
   <style>
     body {
       font-family: 'Roboto', sans-serif;
-      background-color: #1c1e22; /* Complementary background */
-      color: rgb(229, 231, 235); /* Main text color */
+      background-color: #1c1e22;
+      color: rgb(229, 231, 235);
       display: flex;
       flex-direction: column;
-      min-height: 100vh; /* Ensure the body takes at least the full viewport height */
+      min-height: 100vh;
     }
 
-
-    /* Sidebar styling */
     #sidebar {
       padding: 20px;
     }
 
-
-
-
-    /* Reduce padding inside sidebar */
     #sidebar ul li a {
       padding: 8px 16px;
     }
 
-    /* Apply color to sidebar links */
     #sidebar a {
       color: rgb(229, 231, 235);
     }
 
-    /* Footer styling */
     footer {
-      margin-top: auto; /* Push footer to the bottom */
+      margin-top: auto;
     }
   </style>
 </head>
@@ -51,9 +43,8 @@
   <nav class="bg-black text-white py-6 px-4 md:px-8 shadow-lg">
     <div class="container mx-auto flex items-center justify-between">
       <div class="flex items-center space-x-4">
-        <!-- Menu button beside title -->
         <button id="menu-btn" aria-label="Toggle Sidebar" class="text-white text-2xl"><i class="fa fa-bars"></i></button>
-        <a href="#" class="text-2xl font-bold text-white italic">Dijkstra Algorithm</a>
+        <a href="#" class="text-2xl font-bold text-white italic">Merge Sort</a>
       </div>
       <div class="hidden md:flex space-x-6">
         <button style="background-color: rgb(225, 29, 72); border: none; color: white; height: 50px; border-radius: 25px; cursor: pointer; font-weight: bold; font-size: 15px; padding: 0 20px;">Home</button>
@@ -71,7 +62,7 @@
       <ul class="space-y-4">
         <li><a href="Algopage.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fa-solid fa-magnifying-glass mr-3"></i>Overview</a></li>
         <li><a href="pretest.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-pencil-alt mr-3"></i>Pretest</a></li>
-        <li><a href="introduction.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-book-open mr-3"></i>Introduction</a></li>
+        <li><a href ="introduction.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-book-open mr-3"></i>Introduction</a></li>
         <li><a href="analysis.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-chart-line mr-3"></i>Analysis</a></li>
         <li><a href="quiz.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-question-circle mr-3"></i>Quiz</a></li>
         <li><a href="simulation.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-play-circle mr-3"></i>Simulation</a></li>
@@ -101,49 +92,48 @@
         <form id="quiz-form" class="hidden">
           <!-- Question 1 -->
           <div class="mb-4 p-4 bg-gray-800 rounded-md">
-            <h2 class="text-xl mb-3">1. How does Dijkstra's Algorithm avoid infinite loops in graphs with cycles?</h2>
-            <label class=" mb-2 block"><input type="radio" name="q1" value="It ignores all cycles by removing them from the graph" class="mr-2"> A) It ignores all cycles by removing them from the graph</label>
-            <label class="mb-2 block"><input type="radio" name="q1" value="It marks nodes as visited once, preventing reprocessing" class="mr-2"> B) It marks nodes as visited once, preventing reprocessing</label>
-            <label class="mb-2 block"><input type="radio" name="q1" value="It uses a special case to detect and skip cycles" class="mr-2"> C) It uses a special case to detect and skip cycles</label>
-            <label class="mb-2 block"><input type="radio" name="q1" value="It processes cycles using a separate stack" class="mr-2"> D) It processes cycles using a separate stack</label>
+            <h2 class="text-xl mb-3">1. What is the primary advantage of using Merge Sort over other sorting algorithms?</h2>
+            <label class=" mb-2 block"><input type="radio" name="q1" value="It has a faster time complexity" class="mr-2"> A) It has a faster time complexity</label>
+            <label class="mb-2 block"><input type="radio" name="q1" value="It is more efficient in terms of memory usage" class="mr-2"> B) It is more efficient in terms of memory usage</label>
+            <label class="mb-2 block"><input type="radio" name="q1" value="It is a stable sorting algorithm" class="mr-2"> C) It is a stable sorting algorithm</label>
+            <label class="mb-2 block"><input type="radio" name="q1" value="It is an in-place sorting algorithm" class="mr-2"> D) It is an in-place sorting algorithm</label>
           </div>
 
           <!-- Question 2 -->
           <div class="mb-4 p-4 bg-gray-800 rounded-md">
-            <h2 class="text-xl mb-3">2. What is the time complexity of Dijkstra's Algorithm in dense graphs?</h2>
-            <label class=" mb-2 block"><input type="radio" name="q2" value="O(V^2)" class="mr-2"> A) O(V^2)</label>
-            <label class=" mb-2 block"><input type="radio" name="q2" value="O(V log V)" class="mr-2"> B) O(V log V)</label>
-            <label class=" mb-2 block"><input type="radio" name="q2" value="O(V + E log V)" class="mr-2"> C) O(V + E log V)</label>
-            <label class=" mb-2 block"><input type="radio" name="q2" value="O(VE)" class="mr-2"> D) O(VE)</label>
+            <h2 class="text-xl mb-3">2. What is the time complexity of Merge Sort in the worst-case scenario?</h2>
+            <label class=" mb-2 block"><input type="radio" name="q2" value="O(n log n)" class="mr-2"> A) O(n log n)</label>
+            <label class=" mb-2 block"><input type="radio" name="q2" value=" O(n^2)" class="mr-2"> B) O(n^2)</label>
+            <label class=" mb-2 block"><input type="radio" name="q2" value="O(n)" class="mr-2"> C) O(n)</label>
+            <label class=" mb-2 block"><input type="radio" name="q2" value="O(log n)" class="mr-2"> D) O(log n)</label>
           </div>
 
           <!-- Question 3 -->
           <div class="mb-4 p-4 bg-gray-800 rounded-md">
-            <h2 class="text-xl mb-3">3. In Dijkstra's Algorithm, what role does the priority queue play?</h2>
-            <label class=" mb-2 block"><input type="radio" name="q3" value="It stores nodes and edges in increasing order of distance" class="mr-2"> A) It stores nodes and edges in increasing order of distance</label>
-            <label class="mb-2 block"><input type="radio" name="q3" value="It sorts the nodes based on their degree" class="mr-2"> B) It sorts the nodes based on their degree</label>
-            <label class="mb-2 block"><input type="radio" name="q3" value="It prioritizes unexplored edges over explored ones" class="mr-2"> C) It prioritizes unexplored edges over explored ones</label>
-            <label class="mb-2 block"><input type="radio" name="q3" value="It selects the closest unvisited node to process next" class="mr-2"> D) It selects the closest unvisited node to process next</label>
+            <h2 class="text-xl mb-3">3. How does Merge Sort handle duplicate elements in the input array?</h2>
+            <label class=" mb-2 block"><input type="radio" name="q3" value="It removes duplicate elements" class="mr-2"> A) It removes duplicate elements</label>
+            <label class="mb-2 block"><input type="radio" name="q3" value="It keeps duplicate elements" class="mr-2"> B) It keeps duplicate elements</label>
+            <label class="mb-2 block"><input type="radio" name="q3" value="It throws an error" class="mr-2"> C) It throws an error</label>
+            <label class="mb-2 block"><input type="radio" name="q3" value="It ignores duplicate elements" class="mr-2"> D) It ignores duplicate elements</label>
           </div>
 
           <!-- Question 4 -->
           <div class="mb-4 p-4 bg-gray-800 rounded-md">
-            <h2 class="text-xl mb-3">4. What advantage does using Dijkstra’s Algorithm offer when computing the shortest path in a Directed Acyclic Graph (DAG)?</h2>
-            <label class=" mb-2 block"><input type="radio" name="q4" value="No advantage; a simpler topological sorting algorithm is more efficient." class="mr-2"> A) No advantage; a simpler topological sorting algorithm is more efficient.</label>
-            <label class="mb-2 block"><input type="radio" name="q4" value="Dijkstra's Algorithm is optimal for DAGs with cycles." class="mr-2"> B) Dijkstra's Algorithm is optimal for DAGs with cycles.</label>
-            <label class="mb-2 block"><input type="radio" name="q4" value="It simplifies the implementation by avoiding topological sorting." class="mr-2"> C) It simplifies the implementation by avoiding topological sorting.</label>
-            <label class="mb-2 block"><input type="radio" name="q4" value="It ensures faster convergence compared to other algorithms." class="mr-2"> D) It ensures faster convergence compared to other algorithms.</label>
+            <h2 class="text-xl mb-3">4. What is the primary disadvantage of using Merge Sort?</h2>
+            <label class=" mb-2 block"><input type="radio" name="q4" value="It has a high time complexity" class="mr-2"> A) It has a high time complexity</label>
+            <label class="mb-2 block"><input type="radio" name="q4" value="It requires extra memory" class="mr-2"> B) It requires extra memory</label>
+            <label class="mb-2 block"><input type="radio" name="q4" value="It is not a stable sorting algorithm" class="mr-2"> C) It is not a stable sorting algorithm</label>
+            <label class="mb-2 block"><input type="radio" name="q4" value="It is not an in-place sorting algorithm" class="mr-2"> D) It is not an in-place sorting algorithm</label>
           </div>
 
           <!-- Question 5 -->
           <div class="mb-4 p-4 bg-gray-800 rounded-md">
-            <h2 class="text-xl mb-3">5. How does Dijkstra's Algorithm differ from the Bellman-Ford Algorithm?</h2>
-            <label class=" mb-2 block"><input type="radio" name="q5" value="Dijkstra can handle negative weights, Bellman-Ford cannot" class="mr-2"> A) Dijkstra can handle negative weights, Bellman-Ford cannot</label>
-            <label class="mb-2 block"><input type="radio" name="q5" value="Bellman-Ford is faster than Dijkstra on average" class="mr-2"> B) Bellman-Ford is faster than Dijkstra on average</label>
-            <label class="mb-2 block"><input type="radio" name="q5" value="Dijkstra requires priority queues, Bellman-Ford does not" class="mr-2"> C) Dijkstra requires priority queues, Bellman-Ford does not</label>
-            <label class="mb-2 block"><input type="radio" name="q5" value="Dijkstra is greedy, while Bellman-Ford is based on dynamic programming" class="mr-2"> D) Dijkstra is greedy, while Bellman-Ford is based on dynamic programming</label>
+            <h2 class="text-xl mb-3">5. How does Merge Sort compare to Quick Sort in terms of time complexity?</h2>
+            <label class=" mb-2 block"><input type="radio" name="q5" value="Merge Sort is faster" class="mr-2"> A) Merge Sort is faster</label>
+            <label class="mb-2 block"><input type="radio" name="q5" value="Quick Sort is faster" class="mr-2"> B) Quick Sort is faster</label>
+            <label class="mb-2 block"><input type="radio" name="q5" value="Both have the same time complexity" class="mr-2"> C) Both have the same time complexity</label>
+            <label class="mb-2 block"><input type="radio" name="q5" value="It depends on the input size" class="mr-2"> D) It depends on the input size</label>
           </div>
-
 
           <button type="submit" class="mt-4 px-6 py-2 bg-blue-600 text-white rounded-md">Submit</button>
         </form>
@@ -155,11 +145,10 @@
     </div>
     </main>
 
-
   <!-- Footer -->
   <footer class="bg-black text-white p-6 border-t border-black">
     <div class="container mx-auto text-center italic">
-      <p>&copy; 2024 Dijkstra Algorithm. All rights reserved.</p>
+      <p>&copy; 2024 Merge Sort. All rights reserved.</p>
     </div>
   </footer>
 
@@ -197,11 +186,11 @@
 
       // Correct answers
       const answers = {
-        q1: 'It marks nodes as visited once, preventing reprocessing',
-        q2: 'O(V^2)',
-        q3: 'It selects the closest unvisited node to process next',
-        q4: 'No advantage; a simpler topological sorting algorithm is more efficient.',
-        q5: 'Dijkstra is greedy, while Bellman-Ford is based on dynamic programming'
+        q1: 'It is a stable sorting algorithm',
+        q2: 'O(n log n)',
+        q3: 'It keeps duplicate elements',
+        q4: 'It requires extra memory',
+        q5: 'Both have the same time complexity'
       };
 
       // Check answers
