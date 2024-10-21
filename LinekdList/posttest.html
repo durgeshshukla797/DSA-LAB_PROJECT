@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AlgoSim</title>
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+  
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #1c1e22; /* Complementary background */
+      color: rgb(229, 231, 235); /* Main text color */
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh; /* Ensure the body takes at least the full viewport height */
+    }
+
+
+    /* Sidebar styling */
+    #sidebar {
+      padding: 20px;
+    }
+
+
+
+
+    /* Reduce padding inside sidebar */
+    #sidebar ul li a {
+      padding: 8px 16px;
+    }
+
+    /* Apply color to sidebar links */
+    #sidebar a {
+      color: rgb(229, 231, 235);
+    }
+
+    /* Footer styling */
+    footer {
+      margin-top: auto; /* Push footer to the bottom */
+    }
+  </style>
+</head>
+
+<body class="text-white">
+  <!-- Navbar -->
+  <nav class="bg-black text-white py-6 px-4 md:px-8 shadow-lg">
+    <div class="container mx-auto flex items-center justify-between">
+      <div class="flex items-center space-x-4">
+        <!-- Menu button beside title -->
+        <button id="menu-btn" aria-label="Toggle Sidebar" class="text-white text-2xl"><i class="fa fa-bars"></i></button>
+        <a href="#" class="text-2xl font-bold text-white italic">Linked List</a>
+      </div>
+      <div class="hidden md:flex space-x-6">
+        <button style="background-color: rgb(225, 29, 72); border: none; color: white; height: 50px; border-radius: 25px; cursor: pointer; font-weight: bold; font-size: 15px; padding: 0 20px;">Home</button>
+        <button style="background-color: rgb(225, 29, 72); border: none; color: white; height: 50px; border-radius: 25px; cursor: pointer; font-weight: bold; font-size: 15px; padding: 0 20px;">Collaborator</button>
+        <button style="background-color: rgb(225, 29, 72); border: none; color: white; height: 50px; border-radius: 25px; cursor: pointer; font-weight: bold; font-size: 15px; padding: 0 20px;">Contact</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Layout Wrapper -->
+  <div class="flex flex-col md:flex-row flex-grow">
+    <!-- Sidebar -->
+    <aside id="sidebar" class="w-full md:w-64 bg-black shadow-md h-auto md:h-screen sticky top-0 border-t md:border-t-0 border-black hidden">
+      <h2 class="text-lg font-semibold text-white mb-4">Content</h2>
+      <ul class="space-y-4">
+        <li><a href="Algopage.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fa-solid fa-magnifying-glass mr-3"></i>Overview</a></li>
+        <li><a href="pretest.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-pencil-alt mr-3"></i>Pretest</a></li>
+        <li><a href="introduction.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-book-open mr-3"></i>Introduction</a></li>
+        <li><a href="analysis.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-chart-line mr-3"></i>Analysis</a></li>
+        <li><a href="quiz.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-question-circle mr-3"></i>Quiz</a></li>
+        <li><a href="simulation.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-play-circle mr-3"></i>Simulation</a></li>
+        <li><a href="posttest.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-check-circle mr-3"></i>Posttest</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-8 bg-slate-950">
+      <div class="container mx-auto p-6">
+        <h1 class="text-3xl font-extrabold mb-6 text-center pb-11 pt-5 text-red-700">Posttest</h1>
+
+        <!-- Instructions Section -->
+        <div id="instructions" class="mb-6 p-4 bg-gray-800 rounded-md">
+          <h2 class="text-2xl font-semibold mb-4 mt-2">Instructions</h2>
+          <ul class="mt-2 list-disc list-inside mb-4">
+            <li class="mb-2"><strong>Read Each Question Carefully:</strong> Make sure you understand the question before selecting an answer. Take your time to avoid mistakes.</li>
+            <li class="mb-2"><strong>Choose the Correct Option:</strong> For each question, select the answer you believe is correct. Only one option can be selected for each question.</li>
+            <li class="mb-2"><strong>Time Limit:</strong> There is no time limit for this quiz. You can take as much time as you need to complete it.</li>
+            <li class="mb-2"><strong>No External Assistance:</strong> Complete the quiz on your own without using any outside help, such as notes, books, or the internet. Collaboration is not allowed.</li>
+            <li class="mb-2"><strong>Review Before Submitting:</strong> Before submitting your quiz, review your answers to ensure they are correct. Once submitted, you will not be able to change your answers.</li>
+          </ul>
+          <button id="continue-btn" class="mt-4 px-6 py-2 bg-blue-600 text-white rounded-md">Continue</button>
+        </div>
+
+        <!-- Quiz Section -->
+        <form id="quiz-form" class="hidden">
+         <!-- Question 1 -->
+<div class="mb-4 p-4 bg-gray-800 rounded-md">
+  <h2 class="text-xl mb-3">1. What is the primary advantage of using a linked list over an array?</h2>
+  <label class="mb-2 block"><input type="radio" name="q1" value="Faster search time" class="mr-2"> A) Faster search time</label>
+  <label class="mb-2 block"><input type="radio" name="q1" value="Efficient insertion and deletion" class="mr-2"> B) Efficient insertion and deletion</label>
+  <label class="mb-2 block"><input type="radio" name="q1" value="Less memory usage" class="mr-2"> C) Less memory usage</label>
+  <label class="mb-2 block"><input type="radio" name="q1" value="Easier implementation" class="mr-2"> D) Easier implementation</label>
+</div>
+
+<!-- Question 2 -->
+<div class="mb-4 p-4 bg-gray-800 rounded-md">
+  <h2 class="text-xl mb-3">2. What is the purpose of the head pointer in a linked list?</h2>
+  <label class="mb-2 block"><input type="radio" name="q2" value="To point to the last node in the list" class="mr-2"> A) To point to the last node in the list</label>
+  <label class="mb-2 block"><input type="radio" name="q2" value="To point to the first node in the list" class="mr-2"> B) To point to the first node in the list</label>
+  <label class="mb-2 block"><input type="radio" name="q2" value="To point to a random node in the list" class="mr-2"> C) To point to a random node in the list</label>
+  <label class="mb-2 block"><input type="radio" name="q2" value="To point to the middle node in the list" class="mr-2"> D) To point to the middle node in the list</label>
+</div>
+
+<!-- Question 3 -->
+<div class="mb-4 p-4 bg-gray-800 rounded-md">
+  <h2 class="text-xl mb-3">3. What is the time complexity of searching for an element in a linked list?</h2>
+  <label class="mb-2 block"><input type="radio" name="q3" value="O(1)" class="mr-2"> A) O(1)</label>
+  <label class="mb-2 block"><input type="radio" name="q3" value="O(log n)" class="mr-2"> B) O(log n)</label>
+  <label class="mb-2 block"><input type="radio" name="q3" value="O(n)" class="mr-2"> C) O(n)</label>
+  <label class="mb-2 block"><input type="radio" name="q3" value="O(n^2)" class="mr-2"> D) O(n^2)</label>
+</div>
+
+<!-- Question 4 -->
+<div class="mb-4 p-4 bg-gray-800 rounded-md">
+  <h2 class="text-xl mb-3">4. Which of the following operations has a time complexity of O(n) in a linked list?</h2>
+  <label class="mb-2 block"><input type="radio" name="q4" value="Inserting a node at the beginning" class="mr-2"> A) Inserting a node at the beginning</label>
+  <label class="mb-2 block"><input type="radio" name="q4" value="Deleting a node from the end" class="mr-2"> B) Deleting a node from the end</label>
+  <label class="mb-2 block"><input type="radio" name="q4" value="Accessing the first node" class="mr-2"> C) Accessing the first node</label>
+  <label class="mb-2 block"><input type="radio" name="q4" value="Appending a node to the beginning" class="mr-2"> D) Appending a node to the beginning</label>
+</div>
+
+<!-- Question 5 -->
+<div class="mb-4 p-4 bg-gray-800 rounded-md">
+  <h2 class="text-xl mb-3">5. What happens when you delete a node from a singly linked list?</h2>
+  <label class="mb-2 block"><input type="radio" name="q5" value="The entire list is deleted" class="mr-2"> A) The entire list is deleted</label>
+  <label class="mb-2 block"><input type="radio" name="q5" value="Only the node is deleted; the next node becomes the new current node" class="mr-2"> B) Only the node is deleted; the next node becomes the new current node</label>
+  <label class="mb-2 block"><input type="radio" name="q5" value="The previous node is deleted" class="mr-2"> C) The previous node is deleted</label>
+  <label class="mb-2 block"><input type="radio" name="q5" value="The list remains unchanged" class="mr-2"> D) The list remains unchanged</label>
+</div>
+
+
+          <button type="submit" class="mt-4 px-6 py-2 bg-blue-600 text-white rounded-md">Submit</button>
+        </form>
+
+        <div id="result" class="mt-6 hidden">
+          <h2 class="text-2xl">Your Score: <span id="score"></span>/5</h2>
+        </div>
+      </div>
+    </div>
+    </main>
+
+
+  <!-- Footer -->
+  <footer class="bg-black text-white p-6 border-t border-black">
+    <div class="container mx-auto text-center italic">
+      <p>&copy; 2024 Linked List. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // JavaScript to Toggle Sidebar
+    const menuBtn = document.getElementById('menu-btn');
+    const sidebar = document.getElementById('sidebar');
+
+    menuBtn.addEventListener('click', function () {
+      sidebar.classList.toggle('hidden');
+    });
+
+    // JavaScript to answer the quiz
+    const continueBtn = document.getElementById('continue-btn');
+    const quizForm = document.getElementById('quiz-form');
+    const resultDiv = document.getElementById('result');
+    const scoreSpan = document.getElementById('score');
+
+    // Show the quiz form when the Continue button is clicked
+    continueBtn.addEventListener('click', function () {
+      document.getElementById('instructions').classList.add('hidden');
+      quizForm.classList.remove('hidden');
+    });
+
+    quizForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      let score = 0;
+
+      // Check if any answer is selected
+      const selectedAnswers = [...quizForm.elements].some(input => input.checked);
+      if (!selectedAnswers) {
+        alert('Please select an answer for each question.');
+        return;
+      }
+
+      // Correct answers
+      const answers = {
+        q1: 'Efficient insertion and deletion',
+        q2: 'To point to the first node in the list',
+        q3: 'O(n)',
+        q4: 'Deleting a node from the end',
+        q5: 'Only the node is deleted; the next node becomes the new current node'
+      };
+
+      // Check answers
+      for (let question in answers) {
+        const userAnswer = quizForm.elements[question].value;
+        if (userAnswer === answers[question]) {
+          score++;
+        }
+      }
+
+      // Display score
+      scoreSpan.textContent = score;
+      resultDiv.classList.remove('hidden');
+    });
+  </script>
+</body>
+
+</html>
