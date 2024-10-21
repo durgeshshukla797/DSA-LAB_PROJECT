@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linked List Simulation</title>
+  <style>
+    .visual-space {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 20px;
+      flex-wrap: wrap;
+    }
+
+    .node {
+      display: inline-block;
+      margin: 5px;
+      padding: 0;
+      border: 2px solid black;
+      text-align: center;
+      width: 100px;
+      height: 50px;
+      position: relative;
+      display: flex;
+    }
+
+    .node .value {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgb(179, 126, 92);
+      color: white;
+      font-weight: bold;
+    }
+
+    .node .pointer {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgb(223, 231, 231);
+      font-size: 12px;
+    }
+
+    .arrow {
+      width: 50px;
+      height: 4px; /* Increased height for bold effect */
+      background-color: green; /* Arrow color */
+      position: relative;
+      margin-left: -10px; /* Center the arrow between the nodes */
+      margin-right: 10px; /* Space to the right of the arrow */
+      top: -20px; /* Adjust the position to be above the nodes */
+    }
+
+    .arrow:after {
+      content: "";
+      position: absolute;
+      right: -12px;
+      top: -5px;
+      border-left: 12px solid green; /* Arrowhead color */
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+    }
+    button {
+  background-color: rgb(84, 84, 197); /* Set button background to blue */
+  color: white; /* Set text color to white for better contrast */
+  border: none; /* Remove default border */
+  padding: 10px 15px; /* Add some padding */
+  border-radius: 5px; /* Add rounded corners */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  font-size: 16px; /* Increase font size */
+}
+
+button:hover {
+  background-color: rgb(84, 84, 197); /* Darker blue on hover */
+}
+
+
+    .input-section {
+      margin: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="input-section">
+    <label for="node-value">Node Value:</label>
+    <input type="text" id="node-value" placeholder="Enter value" />
+    <button onclick="addNodeByInputBox()">Add Node</button>
+    <br><br>
+    
+    <label for="index-value">Insert Node at Index:</label>
+    <input type="number" id="index-value" placeholder="Enter index" />
+    <button onclick="insertNodeAtIndex()">Insert Node</button>
+    <br><br>
+
+    <label for="delete-value">Delete Node Value:</label>
+    <input type="text" id="delete-value" placeholder="Enter value to delete" />
+    <button onclick="deleteNodeByValue()">Delete Node</button>
+  </div>
+
+  <div class="visual-space" id="visual-space"></div>
+
+  <script>
+    let visSpace = document.getElementById('visual-space');
+    let linkedList = new LinkedList();
+
+    function createNodeElement(value, isLastNode = false) {
+      let nodeDiv = document.createElement('div');
+      nodeDiv.className = 'node';
+
+      // Create two parts: value and pointer
+      let valueDiv = document.createElement('div');
+      valueDiv.className = 'value';
+      valueDiv.innerHTML = value;
+
+      let pointerDiv = document.createElement('div');
+      pointerDiv.className = 'pointer';
+      pointerDiv.innerHTML = isLastNode ? 'NULL' : 'next →'; // Show NULL for the last node
+
+      nodeDiv.appendChild(valueDiv);
+      nodeDiv.appendChild(pointerDiv);
+      return nodeDiv;
+    }
+
+    function createArrowElement() {
+      let arrowDiv = document.createElement('div');
+      arrowDiv.className = 'arrow';
+      return arrowDiv;
+    }
+
+    function clearVisualSpace() {
+      visSpace.innerHTML = '';  // Clear the entire visual space
+    }
+
+    function renderLinkedList() {
+      clearVisualSpace();
+
+      let current = linkedList.head;
+      while (current !== null) {
+        // Render each node
+        let nodeDiv = createNodeElement(current.value, current.next === null);
+        visSpace.appendChild(nodeDiv);
+
+        // Add a green arrow if it's not the last node
+        if (current.next !== null) {
+          let arrowDiv = createArrowElement();
+          visSpace.appendChild(arrowDiv);
+        }
+
+        current = current.next;
+      }
+    }
+
+    function addNode(value) {
+      linkedList.insertElement(value);
+      renderLinkedList();  // Re-render the entire list with the new node added
+    }
+
+    function addNodeByInputBox() {
+      let nodeValue = document.getElementById("node-value").value;
+      if (nodeValue === '') {
+        alert('Please enter a value');
+        return;
+      }
+
+      addNode(nodeValue);
+      document.getElementById("node-value").value = '';  // Clear input after adding
+    }
+
+    function deleteNode(value) {
+      if (linkedList.deleteElement(value)) {
+        renderLinkedList();  // Re-render the list after deletion
+      } else {
+        alert('Node not found');
+      }
+    }
+
+    function deleteNodeByValue() {
+      let deleteValue = document.getElementById("delete-value").value;
+      if (deleteValue === '') {
+        alert('Please enter a value to delete');
+        return;
+      }
+
+      deleteNode(deleteValue);
+      document.getElementById("delete-value").value = '';  // Clear input after deleting
+    }
+
+    function insertNodeAtIndex() {
+      let nodeValue = document.getElementById("node-value").value;
+      let index = parseInt(document.getElementById("index-value").value);
+
+      if (nodeValue === '' || isNaN(index)) {
+        alert('Please enter a valid value and index');
+        return;
+      }
+
+      linkedList.insertElementAtIndex(nodeValue, index);
+      renderLinkedList();  // Re-render the entire list with the new node added
+      document.getElementById("node-value").value = '';  // Clear input after adding
+      document.getElementById("index-value").value = '';  // Clear index input after adding
+    }
+
+    // Linked List Structure (for completeness, without visualization)
+    function Node(value) {
+      this.value = value;
+      this.next = null;
+    }
+
+    function LinkedList() {
+      this.head = null;
+      this.size = 0;
+
+      this.insertElement = function(value) {
+        let newNode = new Node(value);
+
+        if (this.head === null) {
+          this.head = newNode;
+        } else {
+          let current = this.head;
+          while (current.next) {
+            current = current.next;
+          }
+          current.next = newNode;
+        }
+        this.size++;
+      }
+
+      this.insertElementAtIndex = function(value, index) {
+        let newNode = new Node(value);
+
+        if (index < 0 || index > this.size) {
+          alert('Index out of bounds');
+          return;
+        }
+
+        if (index === 0) {
+          newNode.next = this.head;
+          this.head = newNode;
+        } else {
+          let current = this.head;
+          let previous = null;
+          let i = 0;
+
+          while (i < index) {
+            previous = current;
+            current = current.next;
+            i++;
+          }
+
+          previous.next = newNode;
+          newNode.next = current;
+        }
+
+        this.size++;
+      }
+
+      this.deleteElement = function(value) {
+        if (this.head === null) {
+          return false;
+        }
+
+        // If the node to delete is the head
+        if (this.head.value === value) {
+          this.head = this.head.next;
+          this.size--;
+          return true;
+        }
+
+        let current = this.head;
+        let previous = null;
+
+        while (current !== null && current.value !== value) {
+          previous = current;
+          current = current.next;
+        }
+
+        if (current === null) {
+          return false;  // Value not found
+        }
+
+        previous.next = current.next;
+        this.size--;
+        return true;
+      }
+    }
+
+  </script>
+</body>
+</html>

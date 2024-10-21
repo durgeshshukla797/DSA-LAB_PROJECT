@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AlgoSim</title>
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+  <!-- Consistent Font Style -->
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #1c1e22; /* Complementary background */
+      color: rgb(229, 231, 235); /* Main text color */
+    }
+
+    /* Sidebar styling */
+    #sidebar {
+      padding: 20px;
+    }
+
+    /* Reduce padding inside sidebar */
+    #sidebar ul li a {
+      padding: 8px 16px;
+    }
+
+    /* Apply color to sidebar links */
+    #sidebar a {
+      color: rgb(229, 231, 235);
+    }
+    
+   
+  </style>
+</head>
+
+<body class="text-white">
+  <!-- Navbar -->
+  <nav class="bg-black text-white py-6 px-4 md:px-8 shadow-lg">
+    <div class="container mx-auto flex items-center justify-between">
+      <div class="flex items-center space-x-4">
+        <!-- Menu button beside title -->
+        <button id="menu-btn" class="text-white text-2xl"><i class="fa fa-bars"></i></button>
+        <a href="#" class="text-2xl font-bold text-white italic">Linked List</a>
+      </div>
+      <div class="hidden md:flex space-x-6">
+        <button style="background-color: rgb(225, 29, 72); border: none; color: white; height: 50px; border-radius: 25px; cursor: pointer; font-weight: bold; font-size: 15px; padding: 0 20px;">Home</button>
+        <button style="background-color: rgb(225, 29, 72); border: none; color: white; height: 50px; border-radius: 25px; cursor: pointer; font-weight: bold; font-size: 15px; padding: 0 20px;">Collaborator</button>
+        <button style="background-color: rgb(225, 29, 72); border: none; color: white; height: 50px; border-radius: 25px; cursor: pointer; font-weight: bold; font-size: 15px; padding: 0 20px;">Contact</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Layout Wrapper -->
+  <div class="flex flex-col md:flex-row">
+    <!-- Sidebar -->
+    <aside id="sidebar" class="w-full md:w-64 bg-black shadow-md h-auto md:h-screen sticky top-0 border-t md:border-t-0 border-black hidden">
+      <h2 class="text-lg font-semibold text-white mb-4">Content</h2>
+      <ul class="space-y-4">
+        <li><a href="Algopage.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fa-solid fa-magnifying-glass mr-3"></i>Overview</a></li>
+        <li><a href="pretest.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-pencil-alt mr-3"></i>Pretest</a></li>
+        <li><a href="introduction.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-book-open mr-3"></i>Introduction</a></li>
+        <li><a href="analysis.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-chart-line mr-3"></i>Analysis</a></li>
+        <li><a href="quiz.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-question-circle mr-3"></i>Quiz</a></li>
+        <li><a href="simulation.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-play-circle mr-3"></i>Simulation</a></li>
+        <li><a href="posttest.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-check-circle mr-3"></i>Posttest</a></li>
+      </ul>
+    </aside>
+
+ <!-- Main Content -->
+<main class="flex-1 p-8 bg-slate-950">
+    <h1 class="text-3xl font-extrabold mb-6 text-center pb-11 pt-5 text-red-700">Introduction to Linked Lists</h1>
+
+<div class="space-y-6">
+  <p class="text-lg leading-relaxed">
+    Let's dive into the concept of Linked Lists, a fundamental data structure used for efficient dynamic memory management.
+  </p>
+
+  <p class="text-lg leading-relaxed">
+    Ever wondered how certain programs handle frequent insertions and deletions without wasting memory space? The answer lies in Linked Lists.
+  </p>
+
+  <h2 class="text-2xl font-bold mt-8 mb-5 text-red-500">What is a Linked List?</h2>
+  
+  <ul class="list-disc list-inside pl-6 mb-6 text-lg leading-relaxed">
+    <li class="mt-3">
+      A Linked List is a linear data structure consisting of nodes where each node contains a data part and a reference (or link) to the next node in the sequence.
+    </li>
+    <li class="mt-3">
+      It allows dynamic memory allocation, meaning the size of a Linked List can grow or shrink as elements are added or removed, without the need to allocate memory in advance.
+    </li>
+    <li class="mt-3">
+      Linked Lists are useful in scenarios where the size of the data is unknown or unpredictable, as they do not require contiguous memory allocation like arrays.
+    </li>
+  </ul>
+
+  <h2 class="text-2xl font-bold mt-8 mb-5 text-red-500">Types of Linked Lists</h2>
+
+  <ul class="list-disc list-inside pl-6 mb-6 text-lg leading-relaxed">
+    <li class="mt-3">
+      <strong>Singly Linked List</strong>: Each node contains a data field and a pointer to the next node, forming a one-way chain of nodes.
+    </li>
+    <li class="mt-3">
+      <strong>Doubly Linked List</strong>: Each node contains data and two pointers—one pointing to the next node and the other pointing to the previous node, allowing traversal in both directions.
+    </li>
+    <li class="mt-3">
+      <strong>Circular Linked List</strong>: Similar to a singly linked list, but the last node points back to the first node, forming a circular structure.
+    </li>
+  </ul>
+
+  <h2 class="text-2xl font-bold mt-8 mb-5 text-red-500">Key Operations on Linked Lists</h2>
+
+  <ul class="list-disc list-inside pl-6 mb-6 text-lg leading-relaxed">
+    <li class="mt-3">
+      <strong>Insertion</strong>: A new node can be added at the beginning, middle, or end of the list.
+    </li>
+    <li class="mt-3">
+      <strong>Deletion</strong>: Nodes can be removed from the beginning, middle, or end of the list.
+    </li>
+    <li class="mt-3">
+      <strong>Traversal</strong>: Traversing the list involves visiting each node from the head node to the last node sequentially.
+    </li>
+  </ul>
+</div>
+
+    
+    
+
+  <h2 class="text-2xl font-bold mt-8 mb-5 text-red-500">Basics of Linked Lists</h2>
+  <p class="text-lg leading-relaxed">
+    A Linked List is a linear data structure where elements, called nodes, are stored in sequential order. Each node contains two components: the data and a reference (or pointer) to the next node in the sequence.
+  </p>
+  <p class="text-lg leading-relaxed">
+    The Linked List starts at a node known as the "head," which serves as the entry point to the list. We can traverse the list starting from the head and following the references from one node to the next.
+  </p>
+  <p class="text-lg leading-relaxed">
+    In a singly linked list, each node points to the next one, and the process continues until we reach a node that has no further reference, known as the "tail," which points to null. This marks the end of the list.
+  </p>
+  <p class="text-lg leading-relaxed">
+    Linked Lists allow for dynamic memory allocation, making it easy to insert and delete elements without reallocation or reorganization of the entire structure, as long as the pointers are properly adjusted.
+  </p>
+  
+
+  <h2 class="text-2xl font-bold mt-8 mb-5 text-red-500">Requirements for Linked Lists</h2>
+  <div class="space-y-4">
+    <p class="text-lg leading-relaxed">
+      To implement and work with Linked Lists, certain requirements must be met. A Linked List is composed of nodes where each node contains data and a reference (or pointer) to the next node in the sequence.
+    </p>
+    <p class="mb-6 text-lg leading-relaxed">
+      If we want to traverse or manipulate a Linked List, we need a starting point, which is the "head" of the list. Without a head node or a reference to it, we cannot access the elements of the Linked List. Additionally, each node must correctly point to the next node, otherwise, the list can break, making traversal or manipulation impossible. If the last node does not point to null, it may cause unexpected behavior in the list.
+    </p>
+  </div>
+  
+
+<h2 class="text-2xl font-bold mt-8 mb-5 text-red-500">Understanding Linked List Traversal</h2>
+<p class="text-lg leading-relaxed">
+  The following steps outline how we can traverse a Linked List:
+</p>
+
+<ol class="list-decimal list-inside pl-6 mb-6 text-lg font-medium">
+  <li class="mt-3">
+    <strong>Step 1:</strong> Start by initializing a pointer (or reference) to the head node of the Linked List. This pointer will help us traverse the list.
+  </li>
+  <li class="mt-3">
+    <strong>Step 2:</strong> Check if the current node is null. If it is, the traversal is complete, and we have reached the end of the Linked List.
+  </li>
+  <li class="mt-3">
+    <strong>Step 3:</strong> If the current node is not null, process or print the value stored in the node.
+  </li>
+  <li class="mt-3">
+    <strong>Step 4:</strong> Move the pointer (or reference) to the next node by accessing the 'next' pointer of the current node.
+  </li>
+  <li class="mt-3">
+    <strong>Step 5:</strong> Repeat steps 2-4 until the current pointer reaches null, indicating the end of the Linked List.
+  </li>
+</ol>
+
+
+  <p class="mt-7 mb-5 font-semibold text-lg leading-relaxed">
+    Let us now understand the implementation of the algorithm with the help of an example:
+  </p>
+  <img src="exmaple.png" class="mx-auto pb-4" alt="Example">
+  <ul class="list-decimal list-inside pl-6 mb-6 text-lg leading-relaxed italic">
+    <li class="mt-3">
+      We will use the above graph as the input, with node <strong>A</strong> as the source.
+    </li>
+    <li class="mt-3">
+      First, we will mark all the nodes as unvisited.
+    </li>
+    <li class="mt-3">
+      We will set the path to <strong>0</strong> at node <strong>A</strong> and <strong>INFINITY</strong> for all the other nodes.
+    </li>
+    <li class="mt-3">
+      We will now mark source node <strong>A</strong> as visited and access its neighboring nodes. We have only accessed the neighboring nodes, not visited them.
+    </li>
+    <li class="mt-3">
+      We will now update the path to node <strong>B</strong> by <strong>4</strong> with the help of relaxation because the path to node <strong>A</strong> is <strong>0</strong> and the path from node <strong>A</strong> to <strong>B</strong> is <strong>4</strong>, and the <strong>minimum((0 + 4), INFINITY)</strong> is 4.
+    </li>
+    <li class="mt-3">
+      We will also update the path to node <strong>C</strong> by <strong>5</strong> with the help of relaxation because the path to node <strong>A</strong> is <strong>0</strong> and the path from node <strong>A</strong> to <strong>C</strong> is <strong>5</strong>, and the <strong>minimum((0 + 5), INFINITY)</strong> is <strong>5</strong>. Both the neighbors of node <strong>A</strong> are now relaxed; therefore, we can move ahead.
+    </li>
+    <li class="mt-3">
+      We will now select the next unvisited node with the least path and visit it. Hence, we will visit node <strong>B</strong> and perform relaxation on its unvisited neighbors. After performing relaxation, the path to node <strong>C</strong> will remain <strong>5</strong>, whereas the path to node <strong>E</strong> will become <strong>11</strong>, and the path to node <strong>D</strong> will become <strong>13</strong>.
+    </li>
+    <li class="mt-3">
+      We will now visit node <strong>E</strong> and perform relaxation on its neighboring nodes <strong>B</strong>, <strong>D</strong>, and <strong>F</strong>. Since only node <strong>F</strong> is unvisited, it will be relaxed. Thus, the path to node <strong>B</strong> will remain as it is, i.e., <strong>4</strong>, the path to node <strong>D</strong> will also remain <strong>13</strong>, and the path to node <strong>F</strong> will become <strong>14 (8 + 6)</strong>.
+    </li>
+    <li class="mt-3">
+      Now we will visit node <strong>D</strong>, and only node <strong>F</strong> will be relaxed. However, the path to node <strong>F</strong> will remain unchanged, i.e., <strong>14</strong>.
+    </li>
+    <li class="mt-3">
+      Since only node <strong>F</strong> is remaining, we will visit it but not perform any relaxation as all its neighboring nodes are already visited.
+    </li>
+    <li class="mt-3">
+      Once all the nodes of the graphs are visited, the program will end.
+    </li>
+  </ul>
+</div>
+
+
+ <h2 class="text-2xl font-bold mt-8 mb-5 ml-10 text-red-500">Flowchart:</h2>
+  <div>
+    <img src="flowchart.png" class="mx-auto pb-4" alt="Flowchart">
+  </div>
+
+  <h2 class="text-2xl font-bold mt-8 mb-5 ml-10 text-red-500">Video Reference:</h2>
+<div class="mb-8">
+  <video width="900" height="650" controls class="mx-auto rounded-lg shadow-lg">
+    <source src="Dijkstra's algorithm.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+<h2 class="text-2xl font-bold mt-8 mb-5 ml-10 text-red-500">Advantages & disadvantages</h2>
+<div class="ml-12">
+  <p class="mt-7 mb-5 font-semibold">
+   some advantages of Linked List:
+  </p>
+  <ul class="list-decimal list-inside pl-6 mb-6 text-lg font-medium">
+    <li class="mt-3">
+        Linked Lists can easily grow and shrink in size dynamically, making them ideal for situations where the size of the data set is unknown or fluctuating. Unlike arrays, you don't need to allocate a fixed amount of memory upfront.
+    </li>
+    <li class="mt-3">
+        Insertion and deletion of elements, especially at the beginning or in the middle of a Linked List, are more efficient than arrays. These operations can be performed in constant time, O(1), if the pointer to the node is known.
+    </li>
+    <li class="mt-3">
+        Linked Lists use memory only as needed. There’s no need for pre-allocated memory as in arrays, which could lead to either wasted memory or memory reallocation overhead.
+    </li>
+    <li class="mt-3">
+         Memory allocation in Linked Lists is more efficient because memory is allocated as nodes are created, reducing the need for large contiguous blocks of memory.
+      </li>
+  </ul>
+
+  <p class="mt-7 mb-5 font-semibold">
+   Linked List has some disadvantages also, such as:
+  </p>
+  <ul class="list-decimal list-inside pl-6 mb-6 text-lg font-medium">
+    <li class="mt-3">
+        Each node in a Linked List stores a reference to the next node (and in the case of a Doubly Linked List, the previous node too). This requires additional memory compared to arrays, where elements are stored contiguously without extra pointers.
+    </li>
+    <li class="mt-3">
+        Unlike arrays, where elements can be accessed by their index, Linked Lists require sequential traversal to access specific elements. This makes operations like searching or accessing an element slower, with a time complexity of O(n).
+    </li>
+    <li class="mt-3">
+        Implementing operations such as insertion, deletion, or traversal in a Linked List requires careful manipulation of pointers or references, which adds to the complexity compared to simple array manipulations.
+    </li>
+    <li class="mt-3">
+        Due to the non-contiguous memory allocation of nodes in a Linked List, caching is less efficient compared to arrays, which benefit from spatial locality by storing elements together in memory.
+    </li>
+  </ul>
+</div>
+
+</main>
+</div>
+ 
+
+  <!-- Footer -->
+  <footer class="bg-black text-white p-6 border-t border-black">
+    <div class="container mx-auto text-center italic">
+      <p>&copy; 2024 Linked List Algorithm. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript to Toggle Sidebar -->
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const sidebar = document.getElementById('sidebar');
+
+    menuBtn.addEventListener('click', function () {
+      sidebar.classList.toggle('hidden');
+    });
+  </script>
+</body>
+
+</html>
