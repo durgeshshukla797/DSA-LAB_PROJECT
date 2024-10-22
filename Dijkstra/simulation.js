@@ -80,11 +80,6 @@ function handleCanvasClickForNode(event) {
     const id = String.fromCharCode(65 + nodes.length); // 'A', 'B', 'C', etc.
     nodes.push({ x, y, id, color: 'lightblue' }); // Initial color for nodes
 
-    // Set the first node as the starting node
-    if (nodes.length === 1) {
-        startNode = nodes[0];
-    }
-
     drawGraph();
 }
 
@@ -132,7 +127,7 @@ function getNodeAtPosition(x, y) {
     });
 }
 
-// Dijkstra's Algorithm with animation
+// Dijkstra's Algorithm with animation and multiple colors
 async function dijkstra(start) {
   const distances = {};
   const visited = {};
@@ -148,16 +143,18 @@ async function dijkstra(start) {
 
   while (Object.keys(visited).length < nodes.length) {
       drawGraph();
-      await sleep(1000); // Increased delay to 1000 ms for slower animation
+      await sleep(1000); // Delay for animation
 
+      // Get the unvisited node with the smallest distance
       const unvisitedNodes = nodes.filter(n => !visited[n.id]);
       let currentNode = unvisitedNodes.reduce((acc, node) => {
           return distances[node.id] < distances[acc.id] ? node : acc;
       });
 
       visited[currentNode.id] = true;
-      currentNode.color = 'orange'; // Mark current node
+      currentNode.color = 'orange'; // Mark current node as being visited
 
+      // For each edge, update distances to neighbors
       edges
           .filter(e => e.from === currentNode.id || e.to === currentNode.id)
           .forEach(edge => {
@@ -182,7 +179,6 @@ async function dijkstra(start) {
   return { distances, prev };
 }
 
-
 // Highlight the shortest path after Dijkstra's algorithm completes
 function highlightShortestPath(prev) {
     let currentNodeId = nodes[nodes.length - 1].id; // You can change this to the target node
@@ -200,8 +196,17 @@ function highlightShortestPath(prev) {
 
 // Run Dijkstra and display results in the table
 async function runDijkstra() {
-    if (!startNode) {
+    if (nodes.length === 0) {
         alert('Please create at least one node!');
+        return;
+    }
+
+    // Ask the user to input the source node via an alert box
+    let sourceId = prompt('Enter the source node (e.g., A, B, C):');
+    startNode = nodes.find(node => node.id === sourceId);
+
+    if (!startNode) {
+        alert('Invalid source node! Please try again.');
         return;
     }
 
