@@ -6,18 +6,153 @@
     <title>Tower of Hanoi</title>
     <link rel="stylesheet" href="styles.css">
 
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #ff007b;
+            background-color: #101010;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            background-color: black;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .navbar button {
+            background-color: rgb(225, 29, 72);
+            border: none;
+            color: white;
+            height: 40px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 15px;
+            padding: 0 15px;
+            margin: 0 5px;
+        }
+
+        h1 {
+            margin-bottom: 50px;
+            font-size: 59px;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 100px; /* Ensure space below the navbar */
+        }
+
+        label {
+            margin-right: 10px;
+            color:  #d0ccce;
+            font-size: 17px;
+        }
+
+        input {
+            width: 90px;
+            padding: 10px;
+            margin-right: 5px;
+            background-color: #d0ccce;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #d0ccce;
+            color:#0f0e0e;
+        }
+
+        /* Tower styles */
+        .tower-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+            width: 95%;
+            position: relative;
+        }
+
+        .rod-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            width: 230px;
+            position: relative;
+        }
+
+        .rod {
+            width: 10px;
+            height: 250px;
+            background-color: #5e5b5c;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tower-label {
+            margin-top: 10px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .ring {
+            height: 20px;
+            background-color: #ff007b;
+            border-radius: 4px;
+            position: absolute;
+            bottom: 0;
+            transition: all 0.3s;
+            z-index: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .ring-1 { width: 40px; }
+        .ring-2 { width: 70px; }
+        .ring-3 { width: 100px; }
+        .ring-4 { width: 130px; }
+        .ring-5 { width: 160px; }
+        .ring-6 { width: 190px; }
+        .ring-7 { width: 220px; }
+        .ring-8 { width: 250px; }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="introduction.html">
+            <button>Back</button>
+        </a>
+    </nav>
 
     <div class="container">
         <h1>Tower of Hanoi</h1>
         <label for="numRings">Enter number of rings:</label>
         <input type="number" id="numRings" min="1" max="8" value="3">
         <button onclick="startHanoi()">Start</button>
-        <button onclick="stopHanoi()">Stop</button> <!-- Stop button -->
-        <button onclick="resumeHanoi()">Resume</button> <!-- Resume button -->
+        <button onclick="stopHanoi()">Stop</button>
+        <button onclick="resumeHanoi()">Resume</button>
 
         <div>
             <label for="speedSlider">Transition Speed:</label>
-            <input type="range" id="speedSlider" min="100" max="2000" value="500" step="100" oninput="updateSpeed()"> <!-- Speed Slider -->
+            <input type="range" id="speedSlider" min="100" max="2000" value="500" step="100" oninput="updateSpeed()">
             <span id="speedDisplay">500ms</span>
         </div>
 

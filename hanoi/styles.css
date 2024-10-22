@@ -15,13 +15,40 @@ body {
     font-family: Arial, sans-serif;
 }
 
+/* Navbar styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: black;
+    padding: 15px 20px; /* Add some padding for spacing */
+    display: flex;
+    justify-content: space-between;
+    z-index: 10; /* Ensure the navbar stays on top of other elements */
+}
+
+.navbar button {
+    background-color: rgb(225, 29, 72);
+    border: none;
+    color: white;
+    height: 40px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 0 15px;
+    margin: 0 5px;
+}
+
+/* Main container for the game */
+.container {
+    text-align: center;
+    margin-top: 100px; /* Ensure space below the navbar */
+}
+
 h1 {
     margin-bottom: 50px;
     font-size: 59px;
-}
-
-.container {
-    text-align: center;
 }
 
 label {
@@ -42,13 +69,10 @@ button {
     font-size: 16px;
     cursor: pointer;
     background-color: #d0ccce;
-    color:#0f0e0e
+    color: #0f0e0e;
 }
-/*button:hover{
-    color: #ff007b;
-    background-color: #101010;
-}*/
 
+/* Tower styles */
 .tower-container {
     display: flex;
     justify-content: space-around;
@@ -101,3 +125,8 @@ button {
 .ring-6 { width: 190px; }
 .ring-7 { width: 220px; }
 .ring-8 { width: 250px; }
+
+/* Style adjustments for speed slider */
+#speedSlider {
+    margin-left: 10px;
+}
