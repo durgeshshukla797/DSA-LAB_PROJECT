@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AlgoSim - Pretest</title>
+    <title>Tower of Hanoi - Pretest</title>
     <!-- Tailwind CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
@@ -60,13 +60,13 @@
             <i class="fa fa-bars"></i>
           </button>
           <a href="#" class="text-2xl font-bold text-white italic"
-            >Merge Sort</a
+            >Tower of Hanoi</a
           >
         </div>
         <div class="hidden md:flex space-x-6">
-          <button
+          <a href="../main.html"><button
             style="
-              background-color: rgb(225, 29, 72);
+              background-color: #ff007b;
               border: none;
               color: white;
               height: 50px;
@@ -78,10 +78,10 @@
             "
           >
             Home
-          </button>
+          </button></a>
           <button
             style="
-              background-color: rgb(225, 29, 72);
+              background-color: #ff007b;
               border: none;
               color: white;
               height: 50px;
@@ -96,7 +96,7 @@
           </button>
           <button
             style="
-              background-color: rgb(225, 29, 72);
+              background-color: #ff007b;
               border: none;
               color: white;
               height: 50px;
@@ -178,7 +178,7 @@
       <main class="flex-1 p-8 bg-slate-950">
         <div class="container mx-auto p-6">
           <h1
-            class="text-3xl font-extrabold mb-6 text-center pb-11 pt-5 text-red-700"
+            class="text-3xl font-extrabold mb-6 text-center pb-11 pt-5 " style="color: #ff007b;"
           >
             Pretest
           </h1>
@@ -214,7 +214,7 @@
             </ul>
             <button
               id="continue-btn"
-              class="mt-4 px-6 py-2 bg-blue-600 text-white rounded-md"
+              class="mt-4 px-6 py-2 text-white rounded-md" style="background-color: #ff007b;"
             >
               Continue
             </button>
@@ -224,29 +224,29 @@
           <form id="quiz-form" class="hidden">
             <!-- Question 1 -->
             <div class="mb-4 p-4 bg-gray-800 rounded-md">
-              <h2 class="text-xl mb-3">1. What is Merge Sort used for?</h2>
+              <h2 class="text-xl mb-3">1.What is the objective of the Tower of Hanoi problem?</h2>
               <label class="mb-2 block"
                 ><input type="radio" name="q1" value="A" class="mr-2" /> A)
-                Sorting an array</label
+                To sort the discs by size on the starting rod.</label
               >
               <label class="mb-2 block"
                 ><input type="radio" name="q1" value="B" class="mr-2" /> B)
-                Finding the shortest path in a graph</label
+                To minimize the number of rods used.</label
               >
               <label class="mb-2 block"
                 ><input type="radio" name="q1" value="C" class="mr-2" /> C)
-                Detecting cycles in a graph</label
+                To move largest disc.</label
               >
               <label class="mb-2 block"
                 ><input type="radio" name="q1" value="D" class="mr-2" /> D)
-                Finding the maximum flow in a network</label
+                To move all discs from the source rod to the target rod.k</label
               >
             </div>
 
             <!-- Question 2 -->
             <div class="mb-4 p-4 bg-gray-800 rounded-md">
               <h2 class="text-xl mb-3">
-                2. What is the time complexity of Merge Sort?
+                2. What is the time complexity of Tower of Hanoi?
               </h2>
               <label class="mb-2 block"
                 ><input type="radio" name="q2" value="A" class="mr-2" /> A)
@@ -258,7 +258,7 @@
               >
               <label class="mb-2 block"
                 ><input type="radio" name="q2" value="C" class="mr-2" /> C)
-                O(log n)</label
+                O(2^n)</label
               >
               <label class="mb-2 block"
                 ><input type="radio" name="q2" value="D" class="mr-2" /> D)
@@ -269,77 +269,76 @@
             <!-- Question 3 -->
             <div class="mb-4 p-4 bg-gray-800 rounded-md">
               <h2 class="text-xl mb-3">
-                3. Merge Sort is an example of which algorithmic paradigm?
+                3.What is the minimum number of moves required to solve the problem for 4 discs
               </h2>
               <label class="mb-2 block"
                 ><input type="radio" name="q3" value="A" class="mr-2" /> A)
-                Dynamic Programming</label
+                7</label
               >
               <label class="mb-2 block"
                 ><input type="radio" name="q3" value="B" class="mr-2" /> B)
-                Greedy Algorithm</label
+                16</label
               >
               <label class="mb-2 block"
                 ><input type="radio" name="q3" value="C" class="mr-2" /> C)
-                Divide and Conquer</label
+                15</label
               >
               <label class="mb-2 block"
                 ><input type="radio" name="q3" value="D" class="mr-2" /> D)
-                Backtracking</label
+                10</label
               >
             </div>
 
             <!-- Question 4 -->
             <div class="mb-4 p-4 bg-gray-800 rounded-md">
               <h2 class="text-xl mb-3">
-                4. Which of the following is a characteristic of Merge Sort?
+                4. If you double the number of discs, what happens to the number of moves required ?
               </h2>
               <label class="mb-2 block"
-                ><input type="radio" name="q4" value="A" class="mr-2" /> A) It
-                is an in-place sorting algorithm</label
+                ><input type="radio" name="q4" value="A" class="mr-2" /> A) 
+                The number of moves more than double.</label
               >
               <label class="mb-2 block"
-                ><input type="radio" name="q4" value="B" class="mr-2" /> B) It
-                divides the input array into two halves</label
+                ><input type="radio" name="q4" value="B" class="mr-2" /> B) 
+                The number of moves double.</label
               >
               <label class="mb-2 block"
-                ><input type="radio" name="q4" value="C" class="mr-2" /> C) It
-                sorts only integer arrays</label
+                ><input type="radio" name="q4" value="C" class="mr-2" /> C) 
+                The number of moves stay the same.</label
               >
               <label class="mb-2 block"
-                ><input type="radio" name="q4" value="D" class="mr-2" /> D) It
-                uses a priority queue</label
+                ><input type="radio" name="q4" value="D" class="mr-2" /> D) 
+                The number of moves increase by a constant factor.</label
               >
             </div>
 
             <!-- Question 5 -->
             <div class="mb-4 p-4 bg-gray-800 rounded-md">
               <h2 class="text-xl mb-3">
-                5. What is the main advantage of using Merge Sort over other
-                algorithms like Quick Sort?
+                5. Which of the following is not used to solve the Tower of Hanoi?
               </h2>
               <label class="mb-2 block"
                 ><input type="radio" name="q5" value="A" class="mr-2" /> A)
-                Better average case time complexity</label
+                Queues</label
               >
               <label class="mb-2 block"
                 ><input type="radio" name="q5" value="B" class="mr-2" /> B)
-                Stable sorting algorithm</label
+                Backtracking</label
               >
               <label class="mb-2 block"
-                ><input type="radio" name="q5" value="C" class="mr-2" /> C) Uses
-                less memory</label
+                ><input type="radio" name="q5" value="C" class="mr-2" /> C) 
+                Recursion</label
               >
               <label class="mb-2 block"
                 ><input type="radio" name="q5" value="D" class="mr-2" /> D)
-                Works faster on small datasets</label
+                Stacks</label
               >
             </div>
 
             <button
               type="button"
               id="submit-btn"
-              class="px-6 py-2 bg-blue-600 text-white rounded-md"
+              class="px-6 py-2 text-white rounded-md" style="background-color: #ff007b;"
             >
               Submit
             </button>
@@ -372,11 +371,11 @@
 
       // Correct answers
       const correctAnswers = {
-        q1: "A",
-        q2: "B",
+        q1: "D",
+        q2: "C",
         q3: "C",
-        q4: "B",
-        q5: "B",
+        q4: "A",
+        q5: "A",
       };
 
       // Calculate score on form submission

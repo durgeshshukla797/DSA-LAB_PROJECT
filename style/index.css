@@ -47,7 +47,7 @@
 .tw h1 {
     text-decoration: none;
     background-color: rgba(0,0,0,0.6);
-    border: 1px solid rgb(53, 255, 245);
+    border: 1px solid #ff007b;
     border-radius: 200px;
     animation: blink 0.7s infinite;
     font-size: 50px;
@@ -93,7 +93,7 @@
 .footer-column h4 {
     font-size: 18px;
     margin-bottom: 10px;
-    color: rgb(53, 255, 245);
+    color: #ff007b;
 }
 
 .footer-column p, .footer-column a {
@@ -104,7 +104,7 @@
 }
 
 .footer-column a:hover {
-    color:  rgb(53, 255, 245);
+    color:  #ff007b;
 }
 
 .footer-column ul {
@@ -121,7 +121,7 @@
 }
 
 .footer-column ul li a:hover {
-    color:  rgb(53, 255, 245);
+    color:  #ff007b;
 }
 
 .footer-column p {
@@ -134,7 +134,7 @@
 }
 
 .footer-column p a:hover {
-    color:  rgb(53, 255, 245);
+    color:  #ff007b;
 }
 
 .footer-copyright  {

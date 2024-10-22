@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AlgoSim - Merge Sort</title>
+  <title>Tower of Hanoi - Post Test</title>
   <!-- Tailwind CSS -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <!-- Font Awesome -->
@@ -44,12 +44,12 @@
     <div class="container mx-auto flex items-center justify-between">
       <div class="flex items-center space-x-4">
         <button id="menu-btn" aria-label="Toggle Sidebar" class="text-white text-2xl"><i class="fa fa-bars"></i></button>
-        <a href="#" class="text-2xl font-bold text-white italic">Merge Sort</a>
+        <a href="#" class="text-2xl font-bold text-white italic">Tower of Hanoi</a>
       </div>
       <div class="hidden md:flex space-x-6">
-        <button style="background-color: rgb(225, 29, 72); border: none; color: white; height: 50px; border-radius: 25px; cursor: pointer; font-weight: bold; font-size: 15px; padding: 0 20px;">Home</button>
-        <button style="background-color: rgb(225, 29, 72); border: none; color: white; height: 50px; border-radius: 25px; cursor: pointer; font-weight: bold; font-size: 15px; padding: 0 20px;">Collaborator</button>
-        <button style="background-color: rgb(225, 29, 72); border: none; color: white; height: 50px; border-radius: 25px; cursor: pointer; font-weight: bold; font-size: 15px; padding: 0 20px;">Contact</button>
+        <a href="../main.html"><button style="background-color:#ff007b; border: none; color: white; height: 50px; border-radius: 25px; cursor: pointer; font-weight: bold; font-size: 15px; padding: 0 20px;">Home</button></a>
+        <button style="background-color: #ff007b; border: none; color: white; height: 50px; border-radius: 25px; cursor: pointer; font-weight: bold; font-size: 15px; padding: 0 20px;">Collaborator</button>
+        <button style="background-color: #ff007b; border: none; color: white; height: 50px; border-radius: 25px; cursor: pointer; font-weight: bold; font-size: 15px; padding: 0 20px;">Contact</button>
       </div>
     </div>
   </nav>
@@ -73,7 +73,7 @@
     <!-- Main Content -->
     <main class="flex-1 p-8 bg-slate-950">
       <div class="container mx-auto p-6">
-        <h1 class="text-3xl font-extrabold mb-6 text-center pb-11 pt-5 text-red-700">Posttest</h1>
+        <h1 class="text-3xl font-extrabold mb-6 text-center pb-11 pt-5 " style="color: #ff007b;">Post Test</h1>
 
         <!-- Instructions Section -->
         <div id="instructions" class="mb-6 p-4 bg-gray-800 rounded-md">
@@ -85,57 +85,57 @@
             <li class="mb-2"><strong>No External Assistance:</strong> Complete the quiz on your own without using any outside help, such as notes, books, or the internet. Collaboration is not allowed.</li>
             <li class="mb-2"><strong>Review Before Submitting:</strong> Before submitting your quiz, review your answers to ensure they are correct. Once submitted, you will not be able to change your answers.</li>
           </ul>
-          <button id="continue-btn" class="mt-4 px-6 py-2 bg-blue-600 text-white rounded-md">Continue</button>
+          <button id="continue-btn" class="mt-4 px-6 py-2  text-white rounded-md"style="background-color: #ff007b;">Continue</button>
         </div>
 
         <!-- Quiz Section -->
         <form id="quiz-form" class="hidden">
           <!-- Question 1 -->
           <div class="mb-4 p-4 bg-gray-800 rounded-md">
-            <h2 class="text-xl mb-3">1. What is the primary advantage of using Merge Sort over other sorting algorithms?</h2>
-            <label class=" mb-2 block"><input type="radio" name="q1" value="It has a faster time complexity" class="mr-2"> A) It has a faster time complexity</label>
-            <label class="mb-2 block"><input type="radio" name="q1" value="It is more efficient in terms of memory usage" class="mr-2"> B) It is more efficient in terms of memory usage</label>
-            <label class="mb-2 block"><input type="radio" name="q1" value="It is a stable sorting algorithm" class="mr-2"> C) It is a stable sorting algorithm</label>
-            <label class="mb-2 block"><input type="radio" name="q1" value="It is an in-place sorting algorithm" class="mr-2"> D) It is an in-place sorting algorithm</label>
+            <h2 class="text-xl mb-3">1. What is the minimum number of moves required to solve the Tower of Hanoi problem with n discs?</h2>
+            <label class=" mb-2 block"><input type="radio" name="q1" value="n^2 - 1" class="mr-2"> A) n^2 - 1</label>
+            <label class="mb-2 block"><input type="radio" name="q1" value="3^n - 1" class="mr-2"> B) 3^n - 1</label>
+            <label class="mb-2 block"><input type="radio" name="q1" value="2^n - 1" class="mr-2"> C) 2^n - 1</label>
+            <label class="mb-2 block"><input type="radio" name="q1" value="2n + 1" class="mr-2"> D) 2n + 1 </label>
           </div>
 
           <!-- Question 2 -->
           <div class="mb-4 p-4 bg-gray-800 rounded-md">
-            <h2 class="text-xl mb-3">2. What is the time complexity of Merge Sort in the worst-case scenario?</h2>
-            <label class=" mb-2 block"><input type="radio" name="q2" value="O(n log n)" class="mr-2"> A) O(n log n)</label>
-            <label class=" mb-2 block"><input type="radio" name="q2" value=" O(n^2)" class="mr-2"> B) O(n^2)</label>
-            <label class=" mb-2 block"><input type="radio" name="q2" value="O(n)" class="mr-2"> C) O(n)</label>
-            <label class=" mb-2 block"><input type="radio" name="q2" value="O(log n)" class="mr-2"> D) O(log n)</label>
+            <h2 class="text-xl mb-3">2. What is the recurrence relation for minimum number of moves to solve the problem with n discs??</h2>
+            <label class=" mb-2 block"><input type="radio" name="q2" value="T(n) = T(n-1) + n" class="mr-2"> A) T(n) = T(n-1) + n</label>
+            <label class=" mb-2 block"><input type="radio" name="q2" value="T(n) = T(n-1) + 2" class="mr-2"> B) T(n) = T(n-1) + 2</label>
+            <label class=" mb-2 block"><input type="radio" name="q2" value="T(n) = 2 x T(n-1) + 1" class="mr-2"> C) T(n) = 2 x T(n-1) + 1</label>
+            <label class=" mb-2 block"><input type="radio" name="q2" value="T(n) = n x T(n-1) + 1" class="mr-2"> D) T(n) = n x T(n-1) + 1</label>
           </div>
 
           <!-- Question 3 -->
           <div class="mb-4 p-4 bg-gray-800 rounded-md">
-            <h2 class="text-xl mb-3">3. How does Merge Sort handle duplicate elements in the input array?</h2>
-            <label class=" mb-2 block"><input type="radio" name="q3" value="It removes duplicate elements" class="mr-2"> A) It removes duplicate elements</label>
-            <label class="mb-2 block"><input type="radio" name="q3" value="It keeps duplicate elements" class="mr-2"> B) It keeps duplicate elements</label>
-            <label class="mb-2 block"><input type="radio" name="q3" value="It throws an error" class="mr-2"> C) It throws an error</label>
-            <label class="mb-2 block"><input type="radio" name="q3" value="It ignores duplicate elements" class="mr-2"> D) It ignores duplicate elements</label>
+            <h2 class="text-xl mb-3">3. If you introduce a 4th peg in the Tower of Hanoi, what is the problem called now?</h2>
+            <label class=" mb-2 block"><input type="radio" name="q3" value="Three - peg puzzle" class="mr-2"> A) Three - peg puzzle</label>
+            <label class="mb-2 block"><input type="radio" name="q3" value="Frame-Stewart Algorithm" class="mr-2"> B) Frame-Stewart Algorithm</label>
+            <label class="mb-2 block"><input type="radio" name="q3" value=" Disk - Reversal Puzzle" class="mr-2"> C) Disk - Reversal Puzzle</label>
+            <label class="mb-2 block"><input type="radio" name="q3" value="Gray code problem" class="mr-2"> D) Gray code problem</label>
           </div>
 
           <!-- Question 4 -->
           <div class="mb-4 p-4 bg-gray-800 rounded-md">
-            <h2 class="text-xl mb-3">4. What is the primary disadvantage of using Merge Sort?</h2>
-            <label class=" mb-2 block"><input type="radio" name="q4" value="It has a high time complexity" class="mr-2"> A) It has a high time complexity</label>
-            <label class="mb-2 block"><input type="radio" name="q4" value="It requires extra memory" class="mr-2"> B) It requires extra memory</label>
-            <label class="mb-2 block"><input type="radio" name="q4" value="It is not a stable sorting algorithm" class="mr-2"> C) It is not a stable sorting algorithm</label>
-            <label class="mb-2 block"><input type="radio" name="q4" value="It is not an in-place sorting algorithm" class="mr-2"> D) It is not an in-place sorting algorithm</label>
+            <h2 class="text-xl mb-3">4. How many total states exist in the Tower of Hanoi problem with n discs??</h2>
+            <label class=" mb-2 block"><input type="radio" name="q4" value="3^n" class="mr-2"> A) 3^n</label>
+            <label class="mb-2 block"><input type="radio" name="q4" value="n^3" class="mr-2"> B) n^3</label>
+            <label class="mb-2 block"><input type="radio" name="q4" value="2^n" class="mr-2"> C) 2^n</label>
+            <label class="mb-2 block"><input type="radio" name="q4" value="I2n" class="mr-2"> D) 2n</label>
           </div>
 
           <!-- Question 5 -->
           <div class="mb-4 p-4 bg-gray-800 rounded-md">
-            <h2 class="text-xl mb-3">5. How does Merge Sort compare to Quick Sort in terms of time complexity?</h2>
-            <label class=" mb-2 block"><input type="radio" name="q5" value="Merge Sort is faster" class="mr-2"> A) Merge Sort is faster</label>
-            <label class="mb-2 block"><input type="radio" name="q5" value="Quick Sort is faster" class="mr-2"> B) Quick Sort is faster</label>
-            <label class="mb-2 block"><input type="radio" name="q5" value="Both have the same time complexity" class="mr-2"> C) Both have the same time complexity</label>
-            <label class="mb-2 block"><input type="radio" name="q5" value="It depends on the input size" class="mr-2"> D) It depends on the input size</label>
+            <h2 class="text-xl mb-3">5. In the recursive solution of the Tower of Hanoi, if you move n-1 discs to the auxillary peg, what is the next move?</h2>
+            <label class=" mb-2 block"><input type="radio" name="q5" value="Move the smallest disk to auxillary peg" class="mr-2"> A) Move the smallest disk to auxillary peg</label>
+            <label class="mb-2 block"><input type="radio" name="q5" value="Move the largest disk to the auxillary disk" class="mr-2"> B) Move the largest disk to the auxillary disk.</label>
+            <label class="mb-2 block"><input type="radio" name="q5" value="Move n-1 disks to the destination peg." class="mr-2"> C) Move n-1 disks to the destination peg.</label>
+            <label class="mb-2 block"><input type="radio" name="q5" value="Move the nth(largest) disk to the destination peg." class="mr-2"> D) Move the nth(largest) disk to the destination peg.</label>
           </div>
 
-          <button type="submit" class="mt-4 px-6 py-2 bg-blue-600 text-white rounded-md">Submit</button>
+          <button type="submit" class="mt-4 px-6 py-2 text-white rounded-md" style="background-color: #ff007b;">Submit</button>
         </form>
 
         <div id="result" class="mt-6 hidden">
@@ -186,11 +186,11 @@
 
       // Correct answers
       const answers = {
-        q1: 'It is a stable sorting algorithm',
-        q2: 'O(n log n)',
-        q3: 'It keeps duplicate elements',
-        q4: 'It requires extra memory',
-        q5: 'Both have the same time complexity'
+        q1: '2^n - 1',
+        q2: 'T(n) = 2 x T(n-1) + 1',
+        q3: 'Frame-Stewart Algorithm',
+        q4: '3^n',
+        q5: 'Move the nth(largest) disk to the destination peg.'
       };
 
       // Check answers

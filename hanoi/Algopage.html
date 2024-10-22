@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Merge Sort Simulation</title>
+    <title>Algo Page</title>
     <!-- Tailwind CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
@@ -14,15 +14,34 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
       rel="stylesheet"
     />
+    <!-- Custom CSS -->
+    <link href="style.css" rel="stylesheet" />
+    <!-- Consistent Font Style -->
     <style>
       body {
         font-family: "Roboto", sans-serif;
-        background-color: #1c1e22;
+        background-color: #1c1e22; /* Complementary background */
+        color: rgb(229, 231, 235); /* Main text color */
+      }
+
+      /* Card styles for main content */
+      .card {
+        background-color: rgb(45, 47, 51);
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         color: rgb(229, 231, 235);
       }
 
       #sidebar {
         padding: 20px;
+      }
+
+      h1 {
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color:  #ff007b;
       }
 
       #sidebar ul li a {
@@ -32,41 +51,26 @@
       #sidebar a {
         color: rgb(229, 231, 235);
       }
-
-      td,
-      th {
-        border: 1px solid rgba(229, 231, 235, 0.2);
-        padding: 8px;
-      }
-
-      .step-number {
-        font-weight: bold;
-        font-size: 16px;
-      }
-
-      .highlight {
-        color: #e91e63;
-        font-weight: bold;
-      }
     </style>
   </head>
 
-  <body class="bg-slate-950 text-gray-300 min-h-screen flex flex-col">
+  <body class="text-white">
     <!-- Navbar -->
     <nav class="bg-black text-white py-6 px-4 md:px-8 shadow-lg">
       <div class="container mx-auto flex items-center justify-between">
         <div class="flex items-center space-x-4">
+          <!-- Menu button beside title -->
           <button id="menu-btn" class="text-white text-2xl">
             <i class="fa fa-bars"></i>
           </button>
           <a href="#" class="text-2xl font-bold text-white italic"
-            >Merge Sort </a
+            >Tower Of Hanoi</a
           >
         </div>
         <div class="hidden md:flex space-x-6">
-          <button
+          <a href="../main.html"><button
             style="
-              background-color: rgb(225, 29, 72);
+              background-color:  #ff007b;
               border: none;
               color: white;
               height: 50px;
@@ -78,10 +82,10 @@
             "
           >
             Home
-          </button>
+          </button></a>
           <button
             style="
-              background-color: rgb(225, 29, 72);
+              background-color:  #ff007b;
               border: none;
               color: white;
               height: 50px;
@@ -96,7 +100,7 @@
           </button>
           <button
             style="
-              background-color: rgb(225, 29, 72);
+              background-color:  #ff007b;
               border: none;
               color: white;
               height: 50px;
@@ -114,7 +118,7 @@
     </nav>
 
     <!-- Layout Wrapper -->
-    <div class="flex-1 flex flex-col md:flex-row">
+    <div class="flex flex-col md:flex-row">
       <!-- Sidebar -->
       <aside
         id="sidebar"
@@ -174,74 +178,53 @@
         </ul>
       </aside>
 
-      <!-- Main Content -->
       <main class="flex-1 p-8 bg-slate-950">
         <h1
-          class="text-3xl font-extrabold mb-6 text-center pb-11 pt-5 text-red-700"
+          class="text-3xl font-extrabold mb-6 text-center pb-11 pt-5" style="color: #ff007b;"
         >
-           Visualization
+          Overview
         </h1>
 
-        <!-- Input Form -->
-        <div class="bg-gray-800 p-6 rounded-lg shadow-lg text-center">
-          <label class="block text-lg mb-4">Enter Array Size</label>
-          <input
-            type="number"
-            id="arraySize"
-            class="bg-gray-700 text-white p-2 rounded-md"
-            placeholder="Enter size"
-            min="1"
-          />
-
-          <label class="block text-lg mt-6 mb-4"
-            >Enter Array Elements (comma separated)</label
-          >
-          <input
-            type="text"
-            id="arrayElements"
-            class="bg-gray-700 text-white p-2 rounded-md w-full"
-            placeholder="E.g., 34, 7, 23, 32, 5"
-          />
-
-          <button
-            id="startSort"
-            class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 mt-6 rounded-md shadow-md"
-          >
-            Start Merge Sort
-          </button>
-        </div>
-
-        <!-- Visualization Section -->
-        <div
-          id="mergeSortSteps"
-          class="bg-gray-800 p-6 mt-8 rounded-lg shadow-lg text-left hidden"
-        >
-          <h2 class="text-2xl font-semibold mb-4">Merge Sort Steps:</h2>
-          <ul id="stepsList" class="list-decimal ml-8">
-            <!-- Steps will be dynamically added here -->
+        <div class="card">
+          <h2 class="text-2xl font-bold mb-4">
+            Prerequisites of the Experiment
+          </h2>
+          <h3 class="text-lg font-semibold mb-4">
+            This experiment requires you to have basic knowledge about:
+          </h3>
+          <ul class="list-disc list-inside space-y-3">
+            <li><strong>Recursion and its base cases</strong></li>
+            <li><strong>Stacks and their working</strong></li>
+            <li>
+              <strong>The concept of Backtracking.</strong>
+            </li>
           </ul>
         </div>
 
-        <!-- Control Buttons -->
-        <div id="controls" class="flex gap-4 mt-6 justify-center">
-          <button
-            id="nextStepButton"
-            class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-md hidden"
-          >
-            Next Step
-          </button>
-          <button
-            id="resetButton"
-            class="bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-md hidden"
-          >
-            Reset
-          </button>
+        <div class="card">
+          <h2 class="text-2xl font-bold mb-4">Overview of the Experiment</h2>
+          <p class="text-lg mb-4">
+            The aim of this experiment is to understand the use of recursion 
+            to solve problems like the Tower of Hanoi algorithm.
+            It also aims to introduce the divide and conquer approach
+            to problem solving and the importance of backtracking 
+            in recursive programs.
+          </p>
+          <p class="text-lg mb-4">
+            The experiment features a series of modules with:
+          </p>
+          <ul class="list-disc list-inside space-y-3">
+            <li><strong>Video lectures</strong></li>
+            <li><strong>Interactive demonstrations</strong></li>
+            <li><strong>Simulations</strong></li>
+            <li><strong>Quizzes for self-analysis</strong></li>
+          </ul>
         </div>
       </main>
     </div>
 
     <!-- Footer -->
-    <footer class="bg-black text-white p-6 border-t border-black mt-auto">
+    <footer class="bg-black text-white p-6 border-t border-black">
       <div class="container mx-auto text-center italic">
         <p>&copy; 2024 AlgoSim. All rights reserved.</p>
       </div>
@@ -256,8 +239,5 @@
         sidebar.classList.toggle("hidden");
       });
     </script>
-
-    <!-- JavaScript for Merge Sort Visualization -->
-    <script src="Simulation.js"></script>
   </body>
 </html>
