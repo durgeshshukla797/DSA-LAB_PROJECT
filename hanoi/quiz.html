@@ -49,7 +49,7 @@
       <div class="flex items-center space-x-4">
         <!-- Menu button beside title -->
         <button id="menu-btn" aria-label="Toggle Sidebar" class="text-white text-2xl"><i class="fa fa-bars"></i></button>
-        <a href="#" class="text-2xl font-bold text-white italic">Merge Sort</a>
+        <a href="#" class="text-2xl font-bold text-white italic">Tower of Hanoi</a>
       </div>
       <div class="hidden md:flex space-x-6">
         <a href="../main.html"><button style="background-color: rgb(225, 29, 72); border: none; color: white; height: 50px; border-radius: 25px; cursor: pointer; font-weight: bold; font-size: 15px; padding: 0 20px;">Home</button></a>
@@ -90,57 +90,57 @@
             <li class="mb-2"><strong>No External Assistance:</strong> Complete the quiz on your own without using any outside help, such as notes, books, or the internet. Collaboration is not allowed.</li>
             <li class="mb-2"><strong>Review Before Submitting:</strong> Before submitting your quiz, review your answers to ensure they are correct. Once submitted, you will not be able to change your answers.</li>
           </ul>
-          <button id="continue-btn" class="mt-4 px-6 py-2 bg-blue-600 text-white rounded-md">Continue</button>
+          <button id="continue-btn" class="mt-4 px-6 py-2 text-white rounded-md"style="background-color: rgb(225, 29, 72);">Continue</button>
         </div>
 
         <!-- Quiz Section -->
         <form id="quiz-form" class="hidden">
           <!-- Question 1 -->
           <div class="mb-4 p-4 bg-gray-800 rounded-md">
-            <h2 class="text-xl mb-3">1. What is the primary purpose of Merge Sort?</h2>
-            <label class=" mb-2 block"><input type="radio" name="q1" value="To find the maximum element in an array" class="mr-2"> A) To find the maximum element in an array</label>
-            <label class="mb-2 block"><input type="radio" name="q1" value="To sort an array in ascending order" class="mr-2"> B) To sort an array in ascending order</label>
-            <label class="mb-2 block"><input type="radio" name="q1" value="To find the minimum element in an array" class="mr-2"> C) To find the minimum element in an array</label>
-            <label class="mb-2 block"><input type="radio" name="q1" value="To search for an element in an array" class="mr-2"> D) To search for an element in an array</label>
+            <h2 class="text-xl mb-3">1. In the backtracking technique, when do we backtrack?</h2>
+            <label class=" mb-2 block"><input type="radio" name="q1" value=" When a solution is found." class="mr-2"> A)  When a solution is found.</label>
+            <label class="mb-2 block"><input type="radio" name="q1" value=" When a potential solution leads to a dead-end" class="mr-2"> B)  When a potential solution leads to a dead-end</label>
+            <label class="mb-2 block"><input type="radio" name="q1" value="When the algorithm needs to repeat steps" class="mr-2"> C) When the algorithm needs to repeat steps</label>
+            <label class="mb-2 block"><input type="radio" name="q1" value="When recursion reaches the base case" class="mr-2"> D) When recursion reaches the base case</label>
           </div>
 
           <!-- Question 2 -->
           <div class="mb-4 p-4 bg-gray-800 rounded-md">
-            <h2 class="text-xl mb-3">2. Which of the following is a characteristic of Merge Sort?</h2>
-            <label class=" mb-2 block "><input type="radio" name="q2" value="It is an in-place sorting algorithm" class="mr-2"> A) It is an in-place sorting algorithm</label>
-            <label class="mb-2 block"><input type="radio" name="q2" value="It is a stable sorting algorithm" class="mr-2"> B) It is a stable sorting algorithm</label>
-            <label class="mb-2 block"><input type="radio" name="q2" value="It has a time complexity of O(n^2)" class="mr-2"> C) It has a time complexity of O(n^2)</label>
-            <label class="mb-2 block"><input type="radio" name="q2" value="It is not suitable for large datasets" class="mr-2"> D) It is not suitable for large datasets</label>
+            <h2 class="text-xl mb-3">2. Which of the following problems can be solved using recursion?</h2>
+            <label class=" mb-2 block "><input type="radio" name="q2" value="Fibonacci sequence " class="mr-2"> A) Fibonacci sequence</label>
+            <label class="mb-2 block"><input type="radio" name="q2" value=" Factorial of a number" class="mr-2"> B) Factorial of a number</label>
+            <label class="mb-2 block"><input type="radio" name="q2" value="Tower of Hanoi" class="mr-2"> C) Tower of Hanoi</label>
+            <label class="mb-2 block"><input type="radio" name="q2" value="All of the above" class="mr-2"> D) All of the above</label>
           </div>
 
           <!-- Question 3 -->
           <div class="mb-4 p-4 bg-gray-800 rounded-md">
-            <h2 class="text-xl mb-3">3. What is the time complexity of Merge Sort in the worst-case scenario?</h2>
+            <h2 class="text-xl mb-3">3.What is the time complexity of tower of hanoi problem?</h2>
             <label class=" mb-2 block"><input type="radio" name="q3" value="O(n log n)" class="mr-2"> A) O(n log n)</label>
             <label class="mb-2 block"><input type="radio" name="q3" value="O(n^2)" class="mr-2"> B) O(n^2)</label>
-            <label class="mb-2 block"><input type="radio" name="q3" value="O(n)" class="mr-2"> C) O(n)</label>
+            <label class="mb-2 block"><input type="radio" name="q3" value="O(2^n)" class="mr-2"> C) O(2^n)</label>
             <label class="mb-2 block"><input type="radio" name="q3" value="O(log n)" class="mr-2"> D) O(log n)</label>
           </div>
 
           <!-- Question 4 -->
           <div class="mb-4 p-4 bg-gray-800 rounded-md">
-            <h2 class="text-xl mb-3">4. How does Merge Sort handle duplicate elements in the input array?</h2>
-            <label class=" mb-2 block"><input type="radio" name="q4" value="It removes duplicate elements" class="mr-2"> A) It removes duplicate elements</label>
-            <label class="mb-2 block"><input type="radio" name="q4" value="It keeps duplicate elements" class="mr-2"> B) It keeps duplicate elements</label>
-            <label class="mb-2 block"><input type="radio" name="q4" value="It throws an error" class="mr-2"> C) It throws an error</label>
-            <label class="mb-2 block"><input type="radio" name="q4" value="It ignores duplicate elements" class="mr-2"> D) It ignores duplicate elements</label>
+            <h2 class="text-xl mb-3">4.  Which of the following is NOT a valid rule for the Tower of Hanoi puzzle</h2>
+            <label class=" mb-2 block"><input type="radio" name="q4" value="Only one disk can be moved at a time." class="mr-2"> A) Only one disk can be moved at a time.</label>
+            <label class="mb-2 block"><input type="radio" name="q4" value="A disk can only be placed on an empty peg or a larger disk." class="mr-2"> B) A disk can only be placed on an empty peg or a larger disk.</label>
+            <label class="mb-2 block"><input type="radio" name="q4" value="You can move all disks in one go if the auxiliary peg is empty." class="mr-2"> C)You can move all disks in one go if the auxiliary peg is empty. </label>
+            <label class="mb-2 block"><input type="radio" name="q4" value="All disks must be moved from the source peg to the destination peg." class="mr-2"> D) All disks must be moved from the source peg to the destination peg.</label>
           </div>
 
           <!-- Question 5 -->
           <div class="mb-4 p-4 bg-gray-800 rounded-md">
-            <h2 class="text-xl mb-3">5. Which of the following is a disadvantage of Merge Sort?</h2>
-            <label class=" mb-2 block"><input type="radio" name="q5" value="It is not suitable for large datasets" class="mr-2"> A) It is not suitable for large datasets</label>
-            <label class="mb-2 block"><input type="radio" name="q5" value="It has a high time complexity" class="mr-2"> B) It has a high time complexity</label>
-            <label class="mb-2 block"><input type="radio" name="q5" value="It requires extra memory" class="mr-2"> C) It requires extra memory</label>
-            <label class="mb-2 block"><input type="radio" name="q5" value="It is not a stable sorting algorithm" class="mr-2"> D) It is not a stable sorting algorithm</label>
+            <h2 class="text-xl mb-3">5. Who is credited with formulating the Tower of Hanoi puzzle?</h2>
+            <label class=" mb-2 block"><input type="radio" name="q5" value="Édouard Lucas" class="mr-2"> A) Édouard Lucas</label>
+            <label class="mb-2 block"><input type="radio" name="q5" value=" Blaise Pascal" class="mr-2"> B)  Blaise Pascal</label>
+            <label class="mb-2 block"><input type="radio" name="q5" value="John von Neumann" class="mr-2"> C) John von Neumann </label>
+            <label class="mb-2 block"><input type="radio" name="q5" value=" Alan Turing" class="mr-2"> D) Alan Turing</label>
           </div>
 
-          <button type="submit" class="mt-4 px-6 py-2 bg-blue-600 text-white rounded-md">Submit</button>
+          <button type="submit" class="mt-4 px-6 py-2 text-white rounded-md" style="background-color: rgb(225, 29, 72);">Submit</button>
         </form>
 
         <div id="result" class="mt-6 hidden">
@@ -191,11 +191,11 @@
 
       // Correct answers
       const answers = {
-        q1: 'To sort an array in ascending order',
-        q2: 'It is a stable sorting algorithm',
-        q3: 'O(n log n)',
-        q4: 'It keeps duplicate elements',
-        q5: 'It requires extra memory'
+        q1: 'When a potential solution leads to a dead-end',
+        q2: 'All of the above',
+        q3: ' O(2^n)',
+        q4: 'You can move all disks in one go if the auxiliary peg is empty.',
+        q5: 'Édouard Lucas'
       };
 
       // Check answers

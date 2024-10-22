@@ -10,7 +10,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    color: #ff007b;
+    color: rgb(225, 29, 72);
     background-color: #101010;
     font-family: Arial, sans-serif;
 }
@@ -107,7 +107,7 @@ button {
 
 .ring {
     height: 20px;
-    background-color: #ff007b;
+    background-color: rgb(225, 29, 72);
     border-radius: 4px;
     position: absolute;
     bottom: 0;
