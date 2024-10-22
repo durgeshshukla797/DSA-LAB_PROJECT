@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tower of Hanoi</title>
+    <!-- Tailwind CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Consistent Font Style -->
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        background-color: #1c1e22;
+        color: rgb(229, 231, 235);
+      }
+
+      /* Sidebar styling */
+      #sidebar {
+        padding: 20px;
+      }
+
+      /* Reduce padding inside sidebar */
+      #sidebar ul li a {
+        padding: 8px 16px;
+      }
+
+      /* Apply color to sidebar links */
+      #sidebar a {
+        color: rgb(229, 231, 235);
+      }
+
+      /* Text color for headings */
+      h2 {
+        color: rgb(225, 29, 72);
+      }
+    </style>
+  </head>
+
+  <body class="text-white">
+    <!-- Navbar -->
+    <nav class="bg-black text-white py-6 px-4 md:px-8 shadow-lg">
+      <div class="container mx-auto flex items-center justify-between">
+        <div class="flex items-center space-x-4">
+          <!-- Menu button beside title -->
+          <button id="menu-btn" class="text-white text-2xl">
+            <i class="fa fa-bars"></i>
+          </button>
+          <a href="#" class="text-2xl font-bold text-white italic"
+            >Tower of Hanoi</a
+          >
+        </div>
+        <div class="hidden md:flex space-x-6">
+          <a href="../main.html"><button
+            style="
+              background-color:rgb(225, 29, 72);
+              border: none;
+              color: white;
+              height: 50px;
+              border-radius: 25px;
+              cursor: pointer;
+              font-weight: bold;
+              font-size: 15px;
+              padding: 0 20px;
+            "
+          >
+            Home
+          </button></a>
+          <button
+            style="
+              background-color: rgb(225, 29, 72);
+              border: none;
+              color: white;
+              height: 50px;
+              border-radius: 25px;
+              cursor: pointer;
+              font-weight: bold;
+              font-size: 15px;
+              padding: 0 20px;
+            "
+          >
+            Collaborator
+          </button>
+          <button
+            style="
+              background-color:rgb(225, 29, 72);
+              border: none;
+              color: white;
+              height: 50px;
+              border-radius: 25px;
+              cursor: pointer;
+              font-weight: bold;
+              font-size: 15px;
+              padding: 0 20px;
+            "
+          >
+            Contact
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Layout Wrapper -->
+    <div class="flex flex-col md:flex-row">
+      <!-- Sidebar -->
+      <aside
+        id="sidebar"
+        class="w-full md:w-64 bg-black shadow-md h-auto md:h-screen sticky top-0 border-t md:border-t-0 border-black hidden"
+      >
+        <h2 class="text-lg font-semibold text-white mb-4">Content</h2>
+        <ul class="space-y-4">
+          <li>
+            <a
+              href="Algopage.html"
+              class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"
+              ><i class="fa-solid fa-magnifying-glass mr-3"></i>Overview</a
+            >
+          </li>
+          <li>
+            <a
+              href="pretest.html"
+              class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"
+              ><i class="fas fa-pencil-alt mr-3"></i>Pretest</a
+            >
+          </li>
+          <li>
+            <a
+              href="introduction.html"
+              class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"
+              ><i class="fas fa-book-open mr-3"></i>Introduction</a
+            >
+          </li>
+          <li>
+            <a
+              href="analysis.html"
+              class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"
+              ><i class="fas fa-chart-line mr-3"></i>Analysis</a
+            >
+          </li>
+          <li>
+            <a
+              href="quiz.html"
+              class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"
+              ><i class="fas fa-question-circle mr-3"></i>Quiz</a
+            >
+          </li>
+          <li>
+            <a
+              href="simulation.html"
+              class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"
+              ><i class="fas fa-play-circle mr-3"></i>Simulation</a
+            >
+          </li>
+          <li>
+            <a
+              href="postest.html"
+              class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"
+              ><i class="fas fa-check-circle mr-3"></i>Posttest</a
+            >
+          </li>
+        </ul>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="flex-1 p-8 bg-slate-950">
+        <h1
+          class="text-3xl font-extrabold mb-6 text-center pb-11 pt-5 " style="color: rgb(225, 29, 72);"
+        >
+          Introduction to Merge Sort
+        </h1>
+
+        <div class="space-y-6">
+          <p class="text-lg leading-relaxed">
+            Merge Sort is a popular sorting algorithm that utilizes the
+            divide-and-conquer technique. It divides the input array into two
+            halves, recursively sorts each half, and then merges the sorted
+            halves back together.
+          </p>
+          <p class="text-lg leading-relaxed">
+            Unlike other algorithms, Merge Sort is stable and guarantees O(n log
+            n) time complexity in both worst and average cases. It is
+            particularly useful for sorting large data sets.
+          </p>
+        </div>
+
+        <h2 class="text-2xl font-bold mt-8 mb-5">Steps of Merge Sort</h2>
+        <ul class="list-disc list-inside pl-6 mb-6 text-lg leading-relaxed">
+          <li class="mt-3">
+            Divide the array into two halves until each sub-array contains a
+            single element.
+          </li>
+          <li class="mt-3">
+            Recursively merge the sub-arrays by comparing the elements from each
+            half and arranging them in sorted order.
+          </li>
+          <li class="mt-3">
+            The final sorted array is obtained after all merges are complete.
+          </li>
+        </ul>
+
+        <h2 class="text-2xl font-bold mt-8 mb-5">Merge Sort Example</h2>
+        <p class="text-lg leading-relaxed mb-4">
+          Let's walk through an example to understand how Merge Sort works. We
+          will start with the unsorted array, break it down into smaller
+          sub-arrays, and then merge them back together in sorted order.
+        </p>
+
+        <!-- Merge Sort Image Example -->
+        <img
+          src="Merge Sort Example.png"
+          class="mx-auto pb-4"
+          alt="Merge Sort Example"
+        />
+
+        <!-- Step-by-step Breakdown of Merge Sort -->
+        <ul
+          class="list-decimal list-inside pl-6 mb-6 text-lg leading-relaxed italic"
+        >
+          <li class="mt-3">
+            Start with the unsorted array:
+            <strong>[38, 27, 43, 3, 9, 82, 10]</strong>.
+          </li>
+          <li class="mt-3">
+            Divide the array into two halves:
+            <strong>[38, 27, 43, 3]</strong> and <strong>[9, 82, 10]</strong>.
+          </li>
+          <li class="mt-3">
+            Recursively divide until each sub-array has one element:
+            <strong>[38]</strong>, <strong>[27]</strong>, <strong>[43]</strong>,
+            <strong>[3]</strong>, <strong>[9]</strong>, <strong>[82]</strong>,
+            and <strong>[10]</strong>.
+          </li>
+          <li class="mt-3">
+            Now, start merging the sub-arrays back together in sorted order:
+            <ul class="list-decimal list-inside pl-6">
+              <li>
+                <strong>[27, 38, 43, 3]</strong> and
+                <strong>[9, 10, 82]</strong>
+              </li>
+              <li>Final merge: <strong>[3, 9, 10, 27, 38, 43, 82]</strong></li>
+            </ul>
+          </li>
+        </ul>
+
+        <!-- Flowchart Image -->
+        <h2 class="text-2xl font-bold mt-8 mb-5 ml-10 " style="color: rgb(225, 29, 72);">
+          Flowchart:
+        </h2>
+        <div>
+          <img
+            src="Merge Sort-Flow-Chart.png"
+            class="mx-auto pb-4"
+            alt="Merge Sort Flowchart"
+          />
+        </div>
+
+        <!-- Video -->
+        <h2 class="text-2xl font-bold mt-8 mb-5 ml-10 " style="color:rgb(225, 29, 72);">
+          Video Reference:
+        </h2>
+        <div class="mb-8">
+          <video
+            width="900"
+            height="650"
+            controls
+            class="mx-auto rounded-lg shadow-lg"
+          >
+            <source src="Merge Sort Video.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <!-- Advantages -->
+        <h2 class="text-2xl font-bold mt-8 mb-5 ml-10 " style="color: rgb(225, 29, 72);">
+          Advantages:
+        </h2>
+        <ul class="list-disc list-inside pl-6 mb-6 text-lg leading-relaxed">
+          <li class="mt-3">
+            Time complexity is O(n log n), making it efficient for large
+            datasets.
+          </li>
+          <li class="mt-3">
+            Merge Sort is stable and maintains the relative order of equal
+            elements.
+          </li>
+          <li class="mt-3">
+            It is well-suited for sorting linked lists and large datasets that
+            don't fit in memory.
+          </li>
+          <li class="mt-3">
+            Parallelizes well, enabling faster sorting on multi-core systems.
+          </li>
+          <li class="mt-3">
+            Works well with external storage, making it ideal for handling large
+            datasets.
+          </li>
+        </ul>
+
+        <!-- Disadvantages -->
+        <h2 class="text-2xl font-bold mt-8 mb-5 ml-10 " style="color:rgb(225, 29, 72);">
+          Disadvantages:
+        </h2>
+        <ul class="list-disc list-inside pl-6 mb-6 text-lg leading-relaxed">
+          <li class="mt-3">
+            Merge Sort requires additional memory space for merging, making it
+            less memory-efficient than other algorithms like Quick Sort.
+          </li>
+          <li class="mt-3">
+            For smaller datasets, the recursive nature of Merge Sort can lead to
+            overhead compared to algorithms like Insertion Sort.
+          </li>
+          <li class="mt-3">
+            It can be slower for smaller datasets when compared to simpler
+            algorithms like Bubble Sort or Insertion Sort.
+          </li>
+          <li class="mt-3">
+            Implementation can be more complex due to its recursive nature and
+            extra space requirements.
+          </li>
+        </ul>
+      </main>
+    </div>
+
+     <!-- Footer -->
+  <footer class="bg-black text-white p-6 border-t border-black">
+    <div class="container mx-auto text-center italic">
+      <p>&copy; 2024 AlgoSim. All rights reserved.</p>
+    </div>
+ </footer>
+
+    <script>
+      // Toggle the sidebar menu
+      const menuBtn = document.getElementById("menu-btn");
+      const sidebar = document.getElementById("sidebar");
+      menuBtn.addEventListener("click", () => {
+        sidebar.classList.toggle("hidden");
+      });
+    </script>
+  </body>
+</html>
