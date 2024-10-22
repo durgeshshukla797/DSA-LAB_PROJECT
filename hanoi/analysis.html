@@ -121,25 +121,21 @@
                 Analysis
             </h1>
             <div class="card">
-                <h3 class="text-2xl font-bold mt-8 mb-7" style="color: rgb(225, 29, 72);">Time Complexity</h3>
+                <h3 class="text-2xl font-bold mt-8 mb-7" style="color: rgb(225, 29, 72);">The Problem Definition</h3>
                 <p class="font-semibold text-lg leading-relaxed mb-6">
-                    To understand the concept of Time and Space Complexity, imagine you're organizing a deck of cards.
+                    You are given three pegs and a stack of n disks, each disk having a different size. <br>All the disks are initially placed on one peg in decreasing size from top to bottom, i.e., the largest disk is at the bottom<br> and the smallest is at the top. The goal is to move the entire stack to another peg, following these rules:
                 </p>
 
-                <h4 class="text-xl mb-4"><strong>1. Breaking the Deck in Half:</strong></h4>
-                <p class="mb-6">
-                    Imagine you keep splitting the deck of cards into two halves. The number of splits is <strong>log(n)</strong>. The base of log is 2 in Computer Science.
-                </p>
+                <h4 class="text-xl mb-4"><strong>1. Only one disk can be moved at a time.</strong></h4>
 
-                <h4 class="text-xl mb-4"><strong>2. Putting the Deck Back Together:</strong></h4>
-                <p class="mb-6">
-                    When you start putting the cards back together, the complexity becomes <strong>n * log(n)</strong>. Hence, the time complexity of Merge Sort is <strong>O(n * log(n))</strong>.
-                </p>
+                <h4 class="text-xl mb-4"><strong>2. A disk can only be moved if it is the top disk on a peg.</strong></h4>
+                <h4 class="text-xl mb-4"><strong>3. A disk can only be placed on an empty peg or on top of a larger disk.</strong></h4>
+                <p class="mb-6"></p>
 
                 <!-- Updated Section Title -->
                 <div class="my-8">
-                    <h4 class="text-xl font-semibold mb-2" style="color:rgb(225, 29, 72);">Merge Sort Example</h4>
-                    <img src="merge_sort_image.png" alt="Merge Sort Diagram" class="w-96 h-48 border rounded-md" />
+                    <h4 class="text-xl font-semibold mb-2" style="color:rgb(225, 29, 72);">Diagram</h4>
+                    <img src="towers-of-hanoi.png" alt="Tower of Hanoi Diagram" class="w-96 h-48 border rounded-md" />
                 </div>
                 
                 
@@ -149,70 +145,64 @@
             <div class="card">
                 <h3 class="text-2xl font-bold mt-8 mb-7 " style="color: rgb(225, 29, 72);">Space Complexity</h3>
                 <p class="font-semibold text-lg leading-relaxed mb-6">
-                    For Merge Sort, the space complexity is O(n) because you need extra space to hold n cards temporarily.
+                    The space complexity is O(2^n) because the number of moves increase exponentially as the number of disks increase.
                 </p>
             </div>
 
             <div class="card">
-                <h3 class="text-2xl font-bold mt-8 mb-7 " style="color: rgb(225, 29, 72);">Best, Average, and Worst Case Scenarios</h3>
+                <h3 class="text-2xl font-bold mt-8 mb-7 " style="color: rgb(225, 29, 72);">Recursive Solution </h3>
 
-                <h4 class="text-xl font-semibold mb-2">Best Case Scenario</h4>
+                <h4 class="text-xl font-semibold mb-2">Base Case : </h4>
                 <p class="mb-6">
-                    Even if the deck is sorted, Merge Sort still operates at <strong>O(n * log(n))</strong> as splitting and merging still happens.
+                    If there is only one disk, simply move it from the source peg to the destination peg.
                 </p>
 
-                <h4 class="text-xl font-semibold mb-2">Average Case Scenario</h4>
+                <h4 class="text-xl font-semibold mb-2">Recursive Case :</h4>
                 <p class="mb-6">
-                    In a random deck, Merge Sort also operates at <strong>O(n * log(n))</strong>, making it a consistent performer.
+                    1. Move n-1 disks from the source peg to the auxiliary peg (using the destination peg as an intermediary).<br>
+                    2. Move the largest disk (the nth disk) directly from the source peg to the destination peg.<br>
+                    3. Move the n−1 disks from the auxiliary peg to the destination peg (using the source peg as an intermediary).
                 </p>
 
-                <h4 class="text-xl font-semibold mb-2">Worst Case Scenario</h4>
+                <h4 class="text-xl font-semibold mb-2">Number of Moves :</h4>
                 <p class="mb-6">
-                    Even in the worst case (completely reversed deck), the time complexity remains <strong>O(n * log(n))</strong>.
+                    The number of moves required to solve the Tower of Hanoi problem for n disks is T(n), where <strong>T(n)= 2^n -1</strong>.
                 </p>
             </div>
 
             <!-- New Applications Section -->
             <div class="card">
-                <h3 class="text-2xl font-bold mt-8 mb-7 " style="color: rgb(225, 29, 72);">Applications of Merge Sort</h3>
+                <h3 class="text-2xl font-bold mt-8 mb-7 " style="color: rgb(225, 29, 72);">Example for small n :</h3>
                 <p class="font-semibold text-lg leading-relaxed mb-6">
-                    Merge Sort is widely used in various scenarios where its stability and consistent time complexity make it highly preferred.
+                    For n = 3, the minimum number of moves are <strong> T(3) = 2^3 -1 = 7.</strong>
                 </p>
 
-                <h4 class="text-xl font-semibold mb-4">1. Sorting Large Datasets</h4>
+                <h4 class="text-xl font-semibold mb-4">The steps would be :</h4>
                 <p class="mb-6">
-                    Merge Sort is ideal for sorting massive datasets, especially when the data can't fit into memory and needs to be accessed from external storage.
+                    1. Move disk 1 from peg A to peg C.
+                </p>
+                <p class="mb-6">
+                    2. Move disk 2 from peg A to peg B.
+                </p>
+                <p class="mb-6">
+                    3. Move disk 1 from peg C to peg B.
+                </p>
+                <p class="mb-6">
+                    4. Move disk 3 from peg A to peg C.
+                </p>
+                <p class="mb-6">
+                    5. Move disk 1 from peg B to peg A.
+                </p>
+                <p class="mb-6">
+                    6. Move disk 2 from peg B to peg C.
+                </p>
+                <p class="mb-6">
+                    7. Move disk 1 from peg A to peg C.
                 </p>
 
-                <h4 class="text-xl font-semibold mb-4">2. External Sorting</h4>
-                <p class="mb-6">
-                    When dealing with huge datasets stored in external memory (such as on a disk), Merge Sort is preferred because it accesses data sequentially, which is faster for disk operations.
-                </p>
+                
 
-                <h4 class="text-xl font-semibold mb-4">3. Inversion Counting</h4>
-                <p class="mb-6">
-                    Merge Sort helps in counting inversions in an array, where an inversion is a pair of elements out of order.
-                </p>
-
-                <h4 class="text-xl font-semibold mb-4">4. TimSort in Programming Languages</h4>
-                <p class="mb-6">
-                    A variation of Merge Sort, TimSort, is used in languages like Python, Java, Android, and Swift for sorting non-primitive types because of its stability.
-                </p>
-
-                <h4 class="text-xl font-semibold mb-4">5. Sorting Linked Lists</h4>
-                <p class="mb-6">
-                    Merge Sort is preferred for sorting linked lists because of its non-contiguous memory usage.
-                </p>
-
-                <h4 class="text-xl font-semibold mb-4">6. Parallel Sorting</h4>
-                <p class="mb-6">
-                    The independent sorting of subarrays makes Merge Sort easy to parallelize, which can greatly speed up sorting in multicore systems.
-                </p>
-
-                <h4 class="text-xl font-semibold mb-4">7. Union and Intersection of Arrays</h4>
-                <p class="mb-6">
-                    Merge Sort's merge function is highly efficient for solving problems like finding the union or intersection of two sorted arrays.
-                </p>
+            
             </div>
         </main>
     </div>
