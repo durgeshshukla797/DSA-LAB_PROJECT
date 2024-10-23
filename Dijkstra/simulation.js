@@ -16,7 +16,7 @@ const resetButton = document.getElementById('resetButton');
 
 // Event Listeners
 createEdgeButton.addEventListener('click', () => {
-    isCreatingEdge = !isCreatingEdge; // Toggle edge creation
+    isCreatingEdge = !isCreatingEdge; 
     if (isCreatingEdge) {
         canvas.addEventListener('mousedown', handleMouseDown);
         canvas.addEventListener('mouseup', handleMouseUp);
@@ -42,15 +42,15 @@ function drawGraph() {
         ctx.beginPath();
         ctx.moveTo(fromNode.x, fromNode.y);
         ctx.lineTo(toNode.x, toNode.y);
-        ctx.strokeStyle = edge.color || 'white'; // Use edge-specific color
-        ctx.lineWidth = 3; // Increased edge thickness
+        ctx.strokeStyle = edge.color || 'white';
+        ctx.lineWidth = 3; 
         ctx.stroke();
 
         // Draw edge weight at the midpoint in a different color
         const midX = (fromNode.x + toNode.x) / 2;
         const midY = (fromNode.y + toNode.y) / 2;
-        ctx.fillStyle = edge.weightColor || 'yellow'; // Use edge-specific weight color
-        ctx.font = 'bold 16px Arial'; // Bold font for edge weight
+        ctx.fillStyle = edge.weightColor || 'yellow'; 
+        ctx.font = 'bold 16px Arial'; 
         ctx.fillText(edge.weight, midX, midY);
     });
 
@@ -58,7 +58,7 @@ function drawGraph() {
     nodes.forEach(node => {
         ctx.beginPath();
         ctx.arc(node.x, node.y, 20, 0, Math.PI * 2);
-        ctx.fillStyle = node.color || 'lightblue';  // Use node-specific color if available
+        ctx.fillStyle = node.color || 'lightblue';  
         ctx.fill();
         ctx.strokeStyle = 'black';
         ctx.stroke();
@@ -72,13 +72,12 @@ function drawGraph() {
 
 // Handle node creation
 function handleCanvasClickForNode(event) {
-    if (isCreatingEdge) return; // Prevent node creation if creating edges
-
+    if (isCreatingEdge) return; 
     const x = event.offsetX;
     const y = event.offsetY;
 
-    const id = String.fromCharCode(65 + nodes.length); // 'A', 'B', 'C', etc.
-    nodes.push({ x, y, id, color: 'lightblue' }); // Initial color for nodes
+    const id = String.fromCharCode(65 + nodes.length); 
+    nodes.push({ x, y, id, color: 'lightblue' }); 
 
     drawGraph();
 }
@@ -91,7 +90,7 @@ function handleMouseDown(event) {
     // Check if the user is clicking on a node
     const clickedNode = getNodeAtPosition(x, y);
     if (clickedNode) {
-        dragNode = clickedNode; // Start dragging from this node
+        dragNode = clickedNode; 
     }
 }
 
@@ -104,17 +103,17 @@ function handleMouseUp(event) {
         // Check if the user is releasing over another node
         const targetNode = getNodeAtPosition(x, y);
         if (targetNode && targetNode !== dragNode) {
-            const weight = Math.floor(Math.random() * 20) + 1; // Random weight between 1-20
+            const weight = Math.floor(Math.random() * 20) + 1; 
             edges.push({ 
                 from: dragNode.id, 
                 to: targetNode.id, 
                 weight, 
-                color: 'white', // Edge color
-                weightColor: 'yellow' // Default weight color
+                color: 'white', 
+                weightColor: 'yellow' 
             });
         }
         drawGraph();
-        dragNode = null; // Reset dragging state
+        dragNode = null; 
     }
 }
 
@@ -123,7 +122,7 @@ function getNodeAtPosition(x, y) {
     return nodes.find(node => {
         const dx = x - node.x;
         const dy = y - node.y;
-        return Math.sqrt(dx * dx + dy * dy) < 20; // Check if click is inside node radius
+        return Math.sqrt(dx * dx + dy * dy) < 20; 
     });
 }
 
@@ -136,14 +135,13 @@ async function dijkstra(start) {
   nodes.forEach(node => {
       distances[node.id] = Infinity;
       prev[node.id] = null;
-      node.color = 'lightblue'; // Reset node color
+      node.color = 'lightblue'; 
   });
   distances[start.id] = 0;
-  start.color = 'green'; // Mark start node
-
+  start.color = 'green'; 
   while (Object.keys(visited).length < nodes.length) {
       drawGraph();
-      await sleep(1000); // Delay for animation
+      await sleep(1000); 
 
       // Get the unvisited node with the smallest distance
       const unvisitedNodes = nodes.filter(n => !visited[n.id]);
@@ -152,7 +150,7 @@ async function dijkstra(start) {
       });
 
       visited[currentNode.id] = true;
-      currentNode.color = 'orange'; // Mark current node as being visited
+      currentNode.color = 'orange'; 
 
       // For each edge, update distances to neighbors
       edges
@@ -166,13 +164,13 @@ async function dijkstra(start) {
                   if (newDist < distances[neighborId]) {
                       distances[neighborId] = newDist;
                       prev[neighborId] = currentNode.id;
-                      edge.color = 'blue'; // Color the edge being updated
-                      edge.weightColor = 'pink'; // Change weight color to indicate an update
+                      edge.color = 'blue'; 
+                      edge.weightColor = 'pink'; 
                   }
               }
           });
 
-      currentNode.color = 'green'; // Mark current node as visited
+      currentNode.color = 'green';
   }
 
   highlightShortestPath(prev);
@@ -181,14 +179,14 @@ async function dijkstra(start) {
 
 // Highlight the shortest path after Dijkstra's algorithm completes
 function highlightShortestPath(prev) {
-    let currentNodeId = nodes[nodes.length - 1].id; // You can change this to the target node
+    let currentNodeId = nodes[nodes.length - 1].id; 
 
     while (prev[currentNodeId]) {
         const nextNodeId = prev[currentNodeId];
         const edge = edges.find(e => (e.from === currentNodeId && e.to === nextNodeId) || 
                                       (e.from === nextNodeId && e.to === currentNodeId));
-        edge.color = 'red';  // Highlight the shortest path in red
-        edge.weightColor = 'red'; // Change weight color for the shortest path
+        edge.color = 'red';  
+        edge.weightColor = 'red'; 
         currentNodeId = nextNodeId;
         drawGraph();
     }
@@ -213,7 +211,7 @@ async function runDijkstra() {
     const result = await dijkstra(startNode);
 
     const tableBody = document.querySelector('#distancesTable tbody');
-    tableBody.innerHTML = ''; // Clear the table
+    tableBody.innerHTML = ''; 
 
     nodes.forEach(node => {
         const row = document.createElement('tr');
@@ -243,7 +241,7 @@ function resetGraph() {
     drawGraph();
 
     const tableBody = document.querySelector('#distancesTable tbody');
-    tableBody.innerHTML = ''; // Clear the table
+    tableBody.innerHTML = ''; 
 }
 
 // Initial draw
