@@ -52,7 +52,7 @@
       <div class="flex items-center space-x-4">
         <!-- Menu button beside title -->
         <button id="menu-btn" aria-label="Toggle Sidebar" class="text-white text-2xl"><i class="fa fa-bars"></i></button>
-        <a href="#" class="text-2xl font-bold text-white italic">Dijkstra Algorithm</a>
+        <a href="#" class="text-2xl font-bold text-white italic">Linked List</a>
       </div>
       <div class="hidden md:flex space-x-6">
         <button style="background-color: rgb(225, 29, 72); border: none; color: white; height: 50px; border-radius: 25px; cursor: pointer; font-weight: bold; font-size: 15px; padding: 0 20px;">Home</button>
@@ -100,48 +100,52 @@
         <form id="quiz-form" class="hidden">
           <!-- Question 1 -->
           <div class="mb-4 p-4 bg-gray-800 rounded-md">
-            <h2 class="text-xl mb-3">1. What is the primary purpose of Dijkstra's algorithm?</h2>
-            <label class=" mb-2 block"><input type="radio" name="q1" value="To find the shortest path in a weighted graph" class="mr-2"> A) To find the shortest path in a weighted graph</label>
-            <label class="mb-2 block"><input type="radio" name="q1" value="To find the minimum spanning tree" class="mr-2"> B) To find the minimum spanning tree</label>
-            <label class="mb-2 block"><input type="radio" name="q1" value="To traverse a tree or graph" class="mr-2"> C) To traverse a tree or graph</label>
-            <label class="mb-2 block"><input type="radio" name="q1" value="To detect cycles in a graph" class="mr-2"> D) To detect cycles in a graph</label>
-          </div>
+            <h2 class="text-xl mb-3">1. How would you detect a loop in a linked list?</h2>
+            <label class="mb-2 block"><input type="radio" name="q1" value="Using two pointers moving at different speeds (slow and fast pointer technique)" class="mr-2"> A) Using two pointers moving at different speeds (slow and fast pointer technique)</label>
+            <label class="mb-2 block"><input type="radio" name="q1" value="Traversing the list twice" class="mr-2"> B) Traversing the list twice</label>
+            <label class="mb-2 block"><input type="radio" name="q1" value="Using a stack" class="mr-2"> C) Using hash tables to store visited nodes</label>
+            <label class="mb-2 block"><input type="radio" name="q1" value="Using hash tables to store visited nodes" class="mr-2"> D) Both a and d</label>
+            </div>
+            
 
           <!-- Question 2 -->
           <div class="mb-4 p-4 bg-gray-800 rounded-md">
-            <h2 class="text-xl mb-3">2. Which data structure is commonly used to efficiently retrieve the vertex with the smallest tentative distance in Dijkstra's algorithm?</h2>
-            <label class=" mb-2 block"><input type="radio" name="q2" value="Array" class="mr-2"> A) Array</label>
-            <label class="mb-2 block"><input type="radio" name="q2" value="Linked List" class="mr-2"> B) Linked List</label>
-            <label class="mb-2 block"><input type="radio" name="q2" value="Min-Heap" class="mr-2"> C) Min-Heap</label>
-            <label class="mb-2 block"><input type="radio" name="q2" value="Stack" class="mr-2"> D) Stack</label>
-          </div>
+            <h2 class="text-xl mb-3">2. What is the best way to reverse a singly linked list?</h2>
+            <label class="mb-2 block"><input type="radio" name="q2" value="Iterative method" class="mr-2"> A) Iterative method</label>
+            <label class="mb-2 block"><input type="radio" name="q2" value="Recursive method" class="mr-2"> B) Recursive method</label>
+            <label class="mb-2 block"><input type="radio" name="q2" value="Both are equally efficient" class="mr-2"> C) Both are equally efficient</label>
+            <label class="mb-2 block"><input type="radio" name="q2" value="Using an auxiliary array" class="mr-2"> D) Using an auxiliary array</label>
+            </div>
+            
 
           <!-- Question 3 -->
           <div class="mb-4 p-4 bg-gray-800 rounded-md">
-            <h2 class="text-xl mb-3">3. What is the time complexity of Dijkstra's algorithm when implemented using a priority queue?</h2>
-            <label class=" mb-2 block"><input type="radio" name="q3" value="O(V^2)" class="mr-2"> A) O(V^2)</label>
-            <label class="mb-2 block"><input type="radio" name="q3" value="O(E log V)" class="mr-2"> B) O(E log V)</label>
-            <label class="mb-2 block"><input type="radio" name="q3" value="O(V + E)" class="mr-2"> C) O(V + E)</label>
-            <label class="mb-2 block"><input type="radio" name="q3" value="O(E^2)" class="mr-2"> D) O(E^2)</label>
-          </div>
-
+            <h2 class="text-xl mb-3">3. What happens when you try to access the `next` pointer of the last node in a singly linked list?</h2>
+            <label class="mb-2 block"><input type="radio" name="q3" value="It points to the first node" class="mr-2"> A) It points to the first node</label>
+            <label class="mb-2 block"><input type="radio" name="q3" value="It points to NULL" class="mr-2"> B) It points to NULL</label>
+            <label class="mb-2 block"><input type="radio" name="q3" value="It throws an error" class="mr-2"> C) It throws an error</label>
+            <label class="mb-2 block"><input type="radio" name="q3" value="It points to a random memory location" class="mr-2"> D) It points to a random memory location</label>
+            </div>
+            
           <!-- Question 4 -->
           <div class="mb-4 p-4 bg-gray-800 rounded-md">
-            <h2 class="text-xl mb-3">4. Which of the following statements is true about Dijkstra's algorithm?</h2>
-            <label class=" mb-2 block"><input type="radio" name="q4" value="It can handle negative weight edges." class="mr-2"> A) It can handle negative weight edges.</label>
-            <label class="mb-2 block"><input type="radio" name="q4" value="It can be used to find the shortest path in a directed graph." class="mr-2"> B) It can be used to find the shortest path in a directed graph.</label>
-            <label class="mb-2 block"><input type="radio" name="q4" value="It guarantees the shortest path for all graphs." class="mr-2"> C) It guarantees the shortest path for all graphs.</label>
-            <label class="mb-2 block"><input type="radio" name="q4" value="It is an optimal solution for finding the longest path." class="mr-2"> D) It is an optimal solution for finding the longest path.</label>
-          </div>
+            <h2 class="text-xl mb-3">4. Which of the following applications commonly use singly linked lists?</h2>
+            <label class="mb-2 block"><input type="radio" name="q4" value="Memory management" class="mr-2"> A) Memory management</label>
+            <label class="mb-2 block"><input type="radio" name="q4" value="Undo functionality in editors" class="mr-2"> B) Undo functionality in editors</label>
+            <label class="mb-2 block"><input type="radio" name="q4" value="File allocation in operating systems" class="mr-2"> C) File allocation in operating systems</label>
+            <label class="mb-2 block"><input type="radio" name="q4" value="All of the above" class="mr-2"> D) All of the above</label>
+            </div>
+            
 
           <!-- Question 5 -->
           <div class="mb-4 p-4 bg-gray-800 rounded-md">
-            <h2 class="text-xl mb-3">5. In Dijkstra's algorithm, what is the purpose of the 'tentative distance'?</h2>
-            <label class=" mb-2 block"><input type="radio" name="q5" value="To represent the current shortest distance from the source vertex to a vertex." class="mr-2"> A) To represent the current shortest distance from the source vertex to a vertex.</label>
-            <label class="mb-2 block"><input type="radio" name="q5" value="To keep track of the number of vertices visited." class="mr-2"> B) To keep track of the number of vertices visited.</label>
-            <label class="mb-2 block"><input type="radio" name="q5" value="To store the vertices in the path." class="mr-2"> C) To store the vertices in the path.</label>
-            <label class="mb-2 block"><input type="radio" name="q5" value="To determine the maximum distance in the graph." class="mr-2"> D) To determine the maximum distance in the graph.</label>
-          </div>
+            <h2 class="text-xl mb-3">5. Which of the following scenarios will benefit most from using a singly linked list?</h2>
+            <label class="mb-2 block"><input type="radio" name="q5" value="When frequent insertions and deletions are required at the front of the list" class="mr-2"> A) When frequent insertions and deletions are required at the front of the list</label>
+            <label class="mb-2 block"><input type="radio" name="q5" value="When random access to elements is required" class="mr-2"> B) When random access to elements is required</label>
+            <label class="mb-2 block"><input type="radio" name="q5" value="When frequent search operations are required" class="mr-2"> C) When frequent search operations are required</label>
+            <label class="mb-2 block"><input type="radio" name="q5" value="When elements need to be stored contiguously in memory" class="mr-2"> D) When elements need to be stored contiguously in memory</label>
+            </div>
+            
 
           <button type="submit" class="mt-4 px-6 py-2 bg-blue-600 text-white rounded-md">Submit</button>
         </form>
@@ -157,7 +161,7 @@
   <!-- Footer -->
   <footer class="bg-black text-white p-6 border-t border-black">
     <div class="container mx-auto text-center italic">
-      <p>&copy; 2024 Linked List. All rights reserved.</p>
+      <p>&copy; 2024 AlgoSim. All rights reserved.</p>
     </div>
   </footer>
 
@@ -183,37 +187,54 @@
     });
 
     quizForm.addEventListener('submit', function (event) {
-      event.preventDefault();
-      let score = 0;
+  event.preventDefault();
+  let score = 0;
+  let allAnswered = true;
 
-      // Check if any answer is selected
-      const selectedAnswers = [...quizForm.elements].some(input => input.checked);
-      if (!selectedAnswers) {
-        alert('Please select an answer for each question.');
-        return;
+  // Correct answers
+  const answers = {
+    q1: 'Both a and d',
+    q2: 'Iterative method',
+    q3: 'It points to NULL',
+    q4: 'All of the above',
+    q5: 'When frequent insertions and deletions are required at the front of the list'
+  };
+
+  // Loop over each question to check if answered and correct
+  for (let question in answers) {
+    const options = quizForm.elements[question];  // Get all radio buttons for this question
+    let selectedAnswer = null;
+
+    // Loop through options and find which one is selected
+    for (let i = 0; i < options.length; i++) {
+      if (options[i].checked) {
+        selectedAnswer = options[i].value;  // Store the selected answer
+        break;
       }
+    }
 
-      // Correct answers
-      const answers = {
-        q1: 'To find the shortest path in a weighted graph',
-        q2: 'Min-Heap',
-        q3: 'O(E log V)',
-        q4: 'It can be used to find the shortest path in a directed graph.',
-        q5: 'To represent the current shortest distance from the source vertex to a vertex.'
-      };
+    // Check if no answer is selected
+    if (!selectedAnswer) {
+      allAnswered = false;
+      break;
+    }
 
-      // Check answers
-      for (let question in answers) {
-        const userAnswer = quizForm.elements[question].value;
-        if (userAnswer === answers[question]) {
-          score++;
-        }
-      }
+    // Check if the selected answer matches the correct answer
+    if (selectedAnswer === answers[question]) {
+      score++;
+    }
+  }
 
-      // Display score
-      scoreSpan.textContent = score;
-      resultDiv.classList.remove('hidden');
-    });
+  if (!allAnswered) {
+    alert('Please select an answer for each question.');
+    return;
+  }
+
+  // Display score
+  scoreSpan.textContent = score;
+  resultDiv.classList.remove('hidden');
+});
+
   </script>
 </body>
 

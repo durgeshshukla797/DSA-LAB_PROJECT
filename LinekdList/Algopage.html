@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AlgoSim</title>
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+  <!-- Consistent Font Style -->
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #1c1e22;
+      color: rgb(229, 231, 235);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #main-content {
+      flex: 1; /* Ensures that main content fills up space, pushing footer to the bottom */
+    }
+
+    #sidebar {
+      padding: 20px;
+    }
+
+    #sidebar ul li a {
+      padding: 8px 16px;
+    }
+
+    #sidebar a {
+      color: rgb(229, 231, 235);
+    }
+
+    .card {
+      background-color: rgb(45, 47, 51);
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      color: rgb(229, 231, 235);
+    }
+
+  </style>
+</head>
+
+<body class="text-white">
+  <!-- Navbar -->
+  <nav class="bg-black text-white py-6 px-4 md:px-8 shadow-lg">
+    <div class="container mx-auto flex items-center justify-between">
+      <div class="flex items-center space-x-4">
+        <button id="menu-btn" class="text-white text-2xl"><i class="fa fa-bars"></i></button>
+        <a href="#" class="text-2xl font-bold text-white italic">Linked Lists</a>
+      </div>
+      <div class="hidden md:flex space-x-6">
+        <a href="../main.html">
+          <button style="background-color: rgb(225, 29, 72); border: none; color: white; height: 50px; border-radius: 25px; cursor: pointer; font-weight: bold; font-size: 15px; padding: 0 20px;">Home</button>
+        </a>
+        <button style="background-color: rgb(225, 29, 72); border: none; color: white; height: 50px; border-radius: 25px; cursor: pointer; font-weight: bold; font-size: 15px; padding: 0 20px;">Collaborator</button>
+        <button style="background-color: rgb(225, 29, 72); border: none; color: white; height: 50px; border-radius: 25px; cursor: pointer; font-weight: bold; font-size: 15px; padding: 0 20px;">Contact</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Layout Wrapper -->
+  <div id="main-content" class="flex flex-col md:flex-row">
+    <!-- Sidebar -->
+    <aside id="sidebar" class="w-full md:w-64 bg-black shadow-md h-auto md:h-screen sticky top-0 border-t md:border-t-0 border-black hidden">
+      <h2 class="text-lg font-semibold text-white mb-4">Content</h2>
+      <ul class="space-y-4">
+        <li><a href="Algopage.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fa-solid fa-magnifying-glass mr-3"></i>Overview</a></li>
+        <li><a href="pretest.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-pencil-alt mr-3"></i>Pretest</a></li>
+        <li><a href="introduction.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-book-open mr-3"></i>Introduction</a></li>
+        <li><a href="analysis.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-chart-line mr-3"></i>Analysis</a></li>
+        <li><a href="quiz.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-question-circle mr-3"></i>Quiz</a></li>
+        <li><a href="simulation.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-play-circle mr-3"></i>Simulation</a></li>
+        <li><a href="postest.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-check-circle mr-3"></i>Posttest</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-8 bg-slate-950">
+      <h1 class="text-3xl font-extrabold mb-6 text-center pb-11 pt-5 text-red-700" style="color: rgb(225, 29, 72);">OVERVIEW</h1>
+      <div class="card">
+        <h2 class="text-2xl font-bold mt-8 mb-5 text-red-500" style="color: rgb(225, 29, 72);">Prerequisites required for this experiment:</h2>
+        <ul class="list-disc list-inside pl-6 mb-6 text-lg leading-relaxed">
+          <li class="mt-3">
+            Basic knowledge of array implementation and linked list is required.
+          </li>
+          <li class="mt-3">
+            The mathematical concept for working with pointers is needed.
+          </li>
+          <li class="mt-3">
+            One should know about the concept of time and space complexity.
+          </li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2 class="text-2xl font-bold mt-8 mb-5 text-red-500" style="color: rgb(225, 29, 72);">Overview of this experiment:</h2>
+        <p class="text-lg leading-relaxed pt-3 pb-0">
+          In this experiment, we will basically discuss:
+          <li class="mt-4">
+            What are Linked Lists?
+          </li>
+          <li class="mt-4">
+            Types of Linked Lists (Singly, Doubly, and Circular Linked Lists).
+          </li>
+          <li class="mt-4">
+            How to implement Linked Lists in different scenarios.
+          </li>
+          <li class="mt-4">
+            Applications of Linked Lists.
+          </li>
+        </p>
+        <p class="text-lg leading-relaxed pt-10 pb-0">
+          This experiment will feature a series of:
+          <li class="mt-4">
+            Video Lectures
+          </li>
+          <li class="mt-4">
+            Simulations
+          </li>
+          <li class="mt-4">
+            Pre-Test and Post-Test for self-analysis.
+          </li>
+        </p>
+      </div>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-black text-white p-6 border-t border-black">
+    <div class="container mx-auto text-center italic">
+      <p>&copy; 2024 AlgoSim. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript to Toggle Sidebar -->
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const sidebar = document.getElementById('sidebar');
+
+    menuBtn.addEventListener('click', function () {
+      sidebar.classList.toggle('hidden');
+    });
+  </script>
+</body>
+
+</html>
