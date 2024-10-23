@@ -14,38 +14,38 @@
   <style>
     body {
       font-family: 'Roboto', sans-serif;
-      background-color: #1c1e22; /* Complementary background */
-      color: rgb(229, 231, 235); /* Main text color */
+      background-color: #1c1e22;
+      color: rgb(229, 231, 235);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
-    /* Sidebar styling */
+    #main-content {
+      flex: 1; /* Ensures that main content fills up space, pushing footer to the bottom */
+    }
+
     #sidebar {
       padding: 20px;
     }
 
-    /* Reduce padding inside sidebar */
     #sidebar ul li a {
       padding: 8px 16px;
     }
 
-    /* Apply color to sidebar links */
     #sidebar a {
       color: rgb(229, 231, 235);
     }
-    
-    /* Card styles for main content */
-    .card {
-        background-color: rgb(45, 47, 51);
-        border-radius: 8px;
-        padding: 20px;
-        margin-bottom: 20px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        color: rgb(229, 231, 235);
-      }
 
-      
-      
-   
+    .card {
+      background-color: rgb(45, 47, 51);
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      color: rgb(229, 231, 235);
+    }
+
   </style>
 </head>
 
@@ -54,22 +54,21 @@
   <nav class="bg-black text-white py-6 px-4 md:px-8 shadow-lg">
     <div class="container mx-auto flex items-center justify-between">
       <div class="flex items-center space-x-4">
-        <!-- Menu button beside title -->
         <button id="menu-btn" class="text-white text-2xl"><i class="fa fa-bars"></i></button>
         <a href="#" class="text-2xl font-bold text-white italic">Hashtables</a>
       </div>
       <div class="hidden md:flex space-x-6">
         <a href="../main.html">
           <button style="background-color: rgb(225, 29, 72); border: none; color: white; height: 50px; border-radius: 25px; cursor: pointer; font-weight: bold; font-size: 15px; padding: 0 20px;">Home</button>
-        </a>         
+        </a>
         <button style="background-color: rgb(225, 29, 72); border: none; color: white; height: 50px; border-radius: 25px; cursor: pointer; font-weight: bold; font-size: 15px; padding: 0 20px;">Collaborator</button>
         <button style="background-color: rgb(225, 29, 72); border: none; color: white; height: 50px; border-radius: 25px; cursor: pointer; font-weight: bold; font-size: 15px; padding: 0 20px;">Contact</button>
-      </div>      
+      </div>
     </div>
   </nav>
 
   <!-- Layout Wrapper -->
-  <div class="flex flex-col md:flex-row">
+  <div id="main-content" class="flex flex-col md:flex-row">
     <!-- Sidebar -->
     <aside id="sidebar" class="w-full md:w-64 bg-black shadow-md h-auto md:h-screen sticky top-0 border-t md:border-t-0 border-black hidden">
       <h2 class="text-lg font-semibold text-white mb-4">Content</h2>
@@ -84,88 +83,56 @@
       </ul>
     </aside>
 
- <!-- Main Content -->
-<main class="flex-1 p-8 bg-slate-950">
-  <h1 class="text-3xl font-extrabold mb-6 text-center pb-11 pt-5 text-red-700" style="color: rgb(225, 29, 72);">OVERVIEW</h1>
-  <div class = "card"> 
-  <h2 class="text-2xl font-bold mt-8 mb-5 text-red-500" style="color: rgb(225, 29, 72);">Prerequisites reqired for this experiment: </h2>
-  
-  <ul class="list-disc list-inside pl-6 mb-6 text-lg leading-relaxed">
-    <li class="mt-3">
-        Basic knowledege for array implementation and linked list is requried.
-    </li>
-    <li class="mt-3">
-        The mathemetical conpect for working od moduloud function (%) is needed.
-    </li>
-    <li class="mt-3">
-        One should know about the concept of time and sapce complexity.
-    </li>
+    <!-- Main Content -->
+    <main class="flex-1 p-8 bg-slate-950">
+      <h1 class="text-3xl font-extrabold mb-6 text-center pb-11 pt-5 text-red-700" style="color: rgb(225, 29, 72);">OVERVIEW</h1>
+      <div class="card">
+        <h2 class="text-2xl font-bold mt-8 mb-5 text-red-500" style="color: rgb(225, 29, 72);">Prerequisites required for this experiment:</h2>
+        <ul class="list-disc list-inside pl-6 mb-6 text-lg leading-relaxed">
+          <li class="mt-3">
+            Basic knowledge of array implementation and linked list is required.
+          </li>
+          <li class="mt-3">
+            The mathematical concept for working with the modulus function (%) is needed.
+          </li>
+          <li class="mt-3">
+            One should know about the concept of time and space complexity.
+          </li>
+        </ul>
+      </div>
 
-  </ul>
-  </div>
-
-  <div class="card"> 
-  <h2 class="text-2xl font-bold mt-8 mb-5 text-red-500" style="color: rgb(225, 29, 72);" >Overview of this experiment: </h2>  
-    <p class="text-lg leading-relaxed pt-3 pb-0">
-      In this experiment we will basically discuss: 
-        <li class="mt-4">
+      <div class="card">
+        <h2 class="text-2xl font-bold mt-8 mb-5 text-red-500" style="color: rgb(225, 29, 72);">Overview of this experiment:</h2>
+        <p class="text-lg leading-relaxed pt-3 pb-0">
+          In this experiment we will basically discuss:
+          <li class="mt-4">
             What is Hashing?
-        </li>
-        <li class="mt-4">
-            what are HashTables and Hashing Functions ?
-        </li>
-        <li class="mt-4">
-           What is collision and one of the way to deal with the collision which is "Linear Probing".
-        </li>
-        <li class="mt-4">
-            Appliaction of Hashing.
-        </li>
-        
-    </p>
-
-    <p class="text-lg leading-relaxed pt-10 pb-0">
-         This experiment will feature a series of: 
-          <li class="mt-4">
-              Video Lectures
           </li>
           <li class="mt-4">
-              Simulations
+            What are HashTables and Hashing Functions?
           </li>
           <li class="mt-4">
-            Pre-Test and Post-Test for self analysis.
+            What is collision and one way to deal with the collision, which is "Linear Probing".
           </li>
-      </p>
+          <li class="mt-4">
+            Applications of Hashing.
+          </li>
+        </p>
+        <p class="text-lg leading-relaxed pt-10 pb-0">
+          This experiment will feature a series of:
+          <li class="mt-4">
+            Video Lectures
+          </li>
+          <li class="mt-4">
+            Simulations
+          </li>
+          <li class="mt-4">
+            Pre-Test and Post-Test for self-analysis.
+          </li>
+        </p>
+      </div>
+    </main>
   </div>
- 
-  <!-- <div>
-    <p class="font-semibold text-lg leading-relaxed pb-3">The AlgoSim will teach us about Dijkstra's Shortest Path Algorithm. We will understand the working of Dijkstra's Algorithm with a stepwise graphical explanation.</p>
-    <p class="font-medium text-lg leading-relaxed">We will cover the following:</p>
-    <ul class="list-decimal list-inside pl-6 mb-6 text-lg leading-relaxed">
-    <li class="mt-3">
-      A Brief Overview of the Fundamental Concepts of Graph
-    </li>
-    <li class="mt-3">
-      Understand the Use of Dijkstra's Algorithm
-    </li>
-    <li class="mt-3">
-      Understand the Working of the Algorithm with a Step-by-Step Example
-    </li>
-    <li class="mt-3">
-      Highlight real-world examples where Dijkstra’s algorithm is used, such as in road maps, network optimization, and more.
-    </li>
-    <li class="mt-3">
-      Include an interactive graph that users can manipulate (place nodes, set edges with weights) and visualize how Dijkstra's algorithm processes the graph.
-    </li>
-    <li class="mt-3">
-      Summarize the importance and limitations (e.g., works only with non-negative weights) of the Dijkstra algorithm.
-    </li>
-  </ul>
-  <p class="font-semibold text-lg leading-relaxed pb-3">So, let's get started.</p>
-  </div>
-  
-</main>
-</div> -->
- 
 
   <!-- Footer -->
   <footer class="bg-black text-white p-6 border-t border-black">
