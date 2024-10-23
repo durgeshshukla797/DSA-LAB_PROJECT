@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: rgb(225, 29, 72);
+    background-color: #101010;
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: black;
+    padding: 15px 20px; /* Add some padding for spacing */
+    display: flex;
+    justify-content: space-between;
+    z-index: 10; /* Ensure the navbar stays on top of other elements */
+}
+
+.navbar button {
+    background-color: rgb(225, 29, 72);
+    border: none;
+    color: white;
+    height: 40px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 0 15px;
+    margin: 0 5px;
+}
+
+/* Main container for the game */
+.container {
+    text-align: center;
+    margin-top: 100px; /* Ensure space below the navbar */
+}
+
+h1 {
+    margin-bottom: 50px;
+    font-size: 59px;
+}
+
+label {
+    margin-right: 10px;
+    color:  #d0ccce;
+    font-size: 17px;
+}
+
+input {
+    width: 90px;
+    padding: 10px;
+    margin-right: 5px;
+    background-color: #d0ccce;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #d0ccce;
+    color: #0f0e0e;
+}
+
+/* Tower styles */
+.tower-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+    width: 95%; /* Increased width for more space between rods */
+    position: relative;
+}
+
+.rod-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    width: 230px; /* Ensuring enough space for rings */
+    position: relative;
+}
+
+.rod {
+    width: 10px;
+    height: 250px;
+    background-color: #5e5b5c;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1; /* Make sure rods are on top of rings */
+}
+
+.tower-label {
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.ring {
+    height: 20px;
+    background-color: rgb(225, 29, 72);
+    border-radius: 4px;
+    position: absolute;
+    bottom: 0;
+    transition: all 0.3s;
+    z-index: 0; /* Rings behind the rod */
+    left: 50%;
+    transform: translateX(-50%); /* Centers rings horizontally */
+}
+
+.ring-1 { width: 40px; }
+.ring-2 { width: 70px; }
+.ring-3 { width: 100px; }
+.ring-4 { width: 130px; }
+.ring-5 { width: 160px; }
+.ring-6 { width: 190px; }
+.ring-7 { width: 220px; }
+.ring-8 { width: 250px; }
+
+/* Style adjustments for speed slider */
+#speedSlider {
+    margin-left: 10px;
+}
