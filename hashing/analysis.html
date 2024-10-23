@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analysis</title>
+    <!-- Tailwind CSS -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+        rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        rel="stylesheet"
+    />
+
+    <!-- Consistent Font Style -->
+    <style>
+        body {
+            font-family: "Roboto", sans-serif;
+            background-color: #1c1e22; /* Complementary background */
+            color: rgb(229, 231, 235); /* Main text color */
+        }
+
+        /* Sidebar styling */
+        #sidebar {
+            padding: 20px;
+        }
+
+        /* Reduce padding inside sidebar */
+        #sidebar ul li a {
+            padding: 8px 16px;
+        }
+
+        /* Apply color to sidebar links */
+        #sidebar a {
+            color: rgb(229, 231, 235);
+        }
+    </style>
+</head>
+
+<body class="text-white">
+    <!-- Navbar -->
+    <nav class="bg-black text-white py-6 px-4 md:px-8 shadow-lg">
+        <div class="container mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <!-- Menu button beside title -->
+                <button id="menu-btn" class="text-white text-2xl">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a href="#" class="text-2xl font-bold text-white italic">Hashtables</a>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="../main.html">
+                  <button style="background-color: rgb(225, 29, 72); border: none; color: white; height: 50px; border-radius: 25px; cursor: pointer; font-weight: bold; font-size: 15px; padding: 0 20px;">Home</button>
+                </a>         
+                <button style="background-color: rgb(225, 29, 72); border: none; color: white; height: 50px; border-radius: 25px; cursor: pointer; font-weight: bold; font-size: 15px; padding: 0 20px;">Collaborator</button>
+                <button style="background-color: rgb(225, 29, 72); border: none; color: white; height: 50px; border-radius: 25px; cursor: pointer; font-weight: bold; font-size: 15px; padding: 0 20px;">Contact</button>
+              </div>  
+        </div>
+    </nav>
+
+    <!-- Layout Wrapper -->
+    <div class="flex flex-col md:flex-row">
+        <!-- Sidebar -->
+        <aside
+            id="sidebar"
+            class="w-full md:w-64 bg-black shadow-md h-auto md:h-screen sticky top-0 border-t md:border-t-0 border-black hidden"
+        >
+            <h2 class="text-lg font-semibold text-white mb-4">Content</h2>
+            <ul class="space-y-4">
+                <li>
+                    <a
+                        href="Algopage.html"
+                        class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"
+                    ><i class="fa-solid fa-magnifying-glass mr-3"></i>Overview</a>
+                </li>
+                <li>
+                    <a
+                        href="pretest.html"
+                        class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"
+                    ><i class="fas fa-pencil-alt mr-3"></i>Pretest</a>
+                </li>
+                <li>
+                    <a
+                        href="introduction.html"
+                        class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"
+                    ><i class="fas fa-book-open mr-3"></i>Introduction</a>
+                </li>
+                <li>
+                    <a
+                        href="analysis.html"
+                        class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"
+                    ><i class="fas fa-chart-line mr-3"></i>Analysis</a>
+                </li>
+                <li>
+                    <a
+                        href="quiz.html"
+                        class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"
+                    ><i class="fas fa-question-circle mr-3"></i>Quiz</a>
+                </li>
+                <li>
+                    <a
+                        href="simulation.html"
+                        class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"
+                    ><i class="fas fa-play-circle mr-3"></i>Simulation</a>
+                </li>
+                <li>
+                    <a
+                        href="postest.html"
+                        class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"
+                    ><i class="fas fa-check-circle mr-3"></i>Posttest</a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-8 bg-slate-950">
+            <h1 class="text-3xl font-extrabold mb-6 text-center pb-11 pt-5 " style="color: rgb(225, 29, 72);">
+                ANALYSIS
+            </h1>
+            <div class="card">
+                <h3 class="text-2xl font-bold mt-8 mb-7" style="color: rgb(225, 29, 72); font-size:xx-large;">NEED OF HASHING</h3>
+                <p class=" text-lg leading-relaxed mb-6" style="font-size:x-large;">
+                    The amount of data on the internet is growing exponentially every day, making it difficult to store it all 
+                    effectively. In day-to-day programming, this amount of data might not be that big, but still, it needs to 
+                    be stored, accessed, and processed easily and efficiently. 
+                </p>
+                <p style="font-size:x-large;">
+                    Arrays is one of the way but not very efficient. Though storing in Array takes O(1) time, 
+                    searching in it takes at least O(log n) time. This time appears to be small, but for a large data set, 
+                    it can cause a lot of problems and this, in turn, makes the Array data structure inefficient.
+                </p>
+                <p class = "mt-8 mb-5", style="font-size: x-large;"> Hash tables offer several advantages over arrays, particularly in scenarios that involve frequent searching, inserting, or deleting operations. 
+                    Here's a brief comparison of the advantages of hash tables over arrays:
+                <h4 class="text-xl mb-4"><strong>1. Faster Operations: Hash tables offer O(1) average time for search, insert, and delete, compared to O(n) in arrays.</strong></h4>
+                <h4 class="text-xl mb-4"><strong>2. Dynamic Sizing: Hash tables can dynamically resize, while arrays have fixed sizes (unless reallocated).</strong></h4>
+                <h4 class="text-xl mb-4"><strong>3. Dynamic Sizing: Hash tables can dynamically resize, while arrays have fixed sizes (unless reallocated).</strong></h4>
+                <h4 class="text-xl mb-4"><strong>4. No Need for Sorted Data: Hash tables don't require data to be sorted for fast lookup, unlike sorted arrays where binary search can be used.</strong></h4>
+                </p>
+                <p class="mb-6"></p>
+
+                <!-- Updated Section Title -->
+                <!-- <div class="my-8">
+                    <h4 class="text-xl font-semibold mb-2" style="color:rgb(225, 29, 72);">Diagram</h4>
+                    <img src="towers-of-hanoi.png" alt="Tower of Hanoi Diagram" class="w-96 h-48 border rounded-md" />
+                </div> -->
+                
+                
+                
+                
+
+            <div class="card">
+                <h3 class="text-2xl font-bold mt-8 mb-7 " style="color: rgb(225, 29, 72); font-size:xx-large;">TIME COMPLEXITY</h3>
+                <p class="font-semibold text-lg leading-relaxed mb-6">
+                    The time complexity of hashing depends on the operations and the efficiency of the hash function used.
+                    <h4 class="text-xl mb-4"><strong>1. Average Time Complexity</strong></h4>
+                    <ul class="list-disc list-inside pl-6 mb-6 text-lg leading-relaxed">
+                        <li class="mt-3">
+                            Search: O(1)
+                        </li>
+                        <li class="mt-3">
+                            Insert: O(1)
+                        </li>
+                        <li class="mt-3">
+                            Delete: O(1)
+                        </li>
+                      </ul>
+
+                      <h4 class="text-xl mb-4"><strong>2. Worst Time Complexity</strong></h4>
+                    <ul class="list-disc list-inside pl-6 mb-6 text-lg leading-relaxed">
+                        <li class="mt-3">
+                            Search: O(n)
+                        </li>
+                        <li class="mt-3">
+                            Insert: O(n)
+                        </li>
+                        <li class="mt-3">
+                            Delete: O(n)
+                        </li>
+                      </ul>
+                </p>
+            </div>
+
+
+            <div class="card">
+                <h3 class="text-2xl font-bold mt-8 mb-7 " style="color: rgb(225, 29, 72); font-size:xx-large;">SPACE COMPLEXITY</h3>
+                <p class="font-semibold text-lg leading-relaxed mb-6">
+                    The space complexity of a hash table mainly depends on the number of elements (keys) and the size of the table.
+                    <h4 class="text-xl mb-4"><strong>1. Average Space Complexity</strong></h4>
+                    <ul class="list-disc list-inside pl-6 mb-6 text-lg leading-relaxed">
+                        <li class="mt-3">
+                            O(n), where n is the number of elements (keys) stored in the hash table.
+                        </li>
+                      </ul>
+
+                      <h4 class="text-xl mb-4"><strong>2. Worst Space Complexity</strong></h4>
+                    <ul class="list-disc list-inside pl-6 mb-6 text-lg leading-relaxed">
+                        <li class="mt-3">
+                            O(n + m), where n is the number of elements and m is the size of the hash table (including empty spaces)
+                        </li>
+                      </ul>
+                </p>
+            </div>
+
+
+            <!-- Flowchart -->
+                <div class="my-8">
+                    <h1 class="text-xl font-semibold mb-10" style="color:rgb(225, 29, 72); font-size: xx-large;">FLOWCAHRT</h1>
+                    <img src="Flow_chart.png" width="500" height="50" class="mx-auto pb-4" alt="Application1">
+                </div>
+
+            <div class="card">
+                <h1 class="text-2xl font-bold mt-8 mb-7 " style="color: rgb(225, 29, 72); font-size: xx-large;">APPLICATION</h1>
+
+                <h4 class="text-xl mb-4">
+                    <strong>
+                    1. Hashing provides constant time search, insert and delete operations on average. 
+                    This is why hashing is one of the most used data structure, example problems are, distinct elements, counting frequencies of items, 
+                    finding duplicates, etc.
+                </strong>
+                </h4>
+
+                <h4 class="text-xl mb-4">
+                    <strong>
+                    2. Database indexing: Hashing is used to index and retrieve data efficiently in databases and other data storage systems.
+                    </strong>
+                </h4>
+
+                <h4 class="text-xl mb-4">
+                    <strong>
+                    3. Cryptography: Hashing is used in cryptography to generate digital signatures, message authentication codes (MACs), 
+                    and key derivation functions
+                    4.Dictionaries : To implement a dictionary so that we can quickly search a word
+                    </strong>
+                </h4>
+
+                <h4 class="text-xl mb-4">
+                    <strong>
+                    4.Dictionaries : To implement a dictionary so that we can quickly search a word
+                    </strong>
+                </h4>
+
+                <h4 class="text-xl mb-4">
+                    <strong>
+                    5. Load balancing: Hashing is used in load-balancing algorithms, such as consistent hashing, 
+                    to distribute requests to servers in a network.
+                    </strong>
+                </h4>
+                
+
+
+            <!-- New Applications Section
+            <div class="card">
+                <h3 class="text-2xl font-bold mt-8 mb-7 " style="color: rgb(225, 29, 72);">Example for small n :</h3>
+                <p class="font-semibold text-lg leading-relaxed mb-6">
+                    For n = 3, the minimum number of moves are <strong> T(3) = 2^3 -1 = 7.</strong>
+                </p>
+
+                <h4 class="text-xl font-semibold mb-4">The steps would be :</h4>
+                <p class="mb-6">
+                    1. Move disk 1 from peg A to peg C.
+                </p>
+                <p class="mb-6">
+                    2. Move disk 2 from peg A to peg B.
+                </p>
+                <p class="mb-6">
+                    3. Move disk 1 from peg C to peg B.
+                </p>
+                <p class="mb-6">
+                    4. Move disk 3 from peg A to peg C.
+                </p>
+                <p class="mb-6">
+                    5. Move disk 1 from peg B to peg A.
+                </p>
+                <p class="mb-6">
+                    6. Move disk 2 from peg B to peg C.
+                </p>
+                <p class="mb-6">
+                    7. Move disk 1 from peg A to peg C.
+                </p> -->
+
+                
+
+            
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white p-6 border-t border-black">
+        <div class="container mx-auto text-center italic">
+            <p>&copy; 2024 AlgoSim. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for responsive sidebar -->
+    <script>
+        const menuBtn = document.getElementById("menu-btn");
+        const sidebar = document.getElementById("sidebar");
+
+        menuBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("hidden");
+        });
+    </script>
+</body>
+</html>
