@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AlgoSim - Dijkstra's Algorithm Quiz</title>
+  <title>AlgoSim</title>
   <!-- Tailwind CSS -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <!-- Font Awesome -->
@@ -13,27 +13,34 @@
   <style>
     body {
       font-family: 'Roboto', sans-serif;
-      background-color: #1c1e22;
-      color: rgb(229, 231, 235);
+      background-color: #1c1e22; /* Complementary background */
+      color: rgb(229, 231, 235); /* Main text color */
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
+      min-height: 100vh; /* Ensure the body takes at least the full viewport height */
     }
 
+
+    /* Sidebar styling */
     #sidebar {
       padding: 20px;
     }
 
+   
+
+    /* Reduce padding inside sidebar */
     #sidebar ul li a {
       padding: 8px 16px;
     }
 
+    /* Apply color to sidebar links */
     #sidebar a {
       color: rgb(229, 231, 235);
     }
 
+    /* Footer styling */
     footer {
-      margin-top: auto;
+      margin-top: auto; /* Push footer to the bottom */
     }
   </style>
 </head>
@@ -43,8 +50,9 @@
   <nav class="bg-black text-white py-6 px-4 md:px-8 shadow-lg">
     <div class="container mx-auto flex items-center justify-between">
       <div class="flex items-center space-x-4">
+        <!-- Menu button beside title -->
         <button id="menu-btn" aria-label="Toggle Sidebar" class="text-white text-2xl"><i class="fa fa-bars"></i></button>
-        <a href="#" class="text-2xl font-bold text-white italic">Dijkstra's Algorithm</a>
+        <a href="#" class="text-2xl font-bold text-white italic">Dijkstra Algorithm</a>
       </div>
       <div class="hidden md:flex space-x-6">
         <a href="../main.html">
@@ -64,7 +72,7 @@
       <ul class="space-y-4">
         <li><a href="Algopage.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fa-solid fa-magnifying-glass mr-3"></i>Overview</a></li>
         <li><a href="pretest.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-pencil-alt mr-3"></i>Pretest</a></li>
-        <li><a href ="introduction.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-book-open mr-3"></i>Introduction</a></li>
+        <li><a href="introduction.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-book-open mr-3"></i>Introduction</a></li>
         <li><a href="analysis.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-chart-line mr-3"></i>Analysis</a></li>
         <li><a href="quiz.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-question-circle mr-3"></i>Quiz</a></li>
         <li><a href="simulation.html" class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"><i class="fas fa-play-circle mr-3"></i>Simulation</a></li>
@@ -75,7 +83,7 @@
     <!-- Main Content -->
     <main class="flex-1 p-8 bg-slate-950">
       <div class="container mx-auto p-6">
-        <h1 class="text-3xl font-extrabold mb-6 text-center pb-11 pt-5 text-red-700">Dijkstra's Algorithm Quiz</h1>
+        <h1 class="text-3xl font-extrabold mb-6 text-center pb-11 pt-5 text-red-700">Posttest</h1>
 
         <!-- Instructions Section -->
         <div id="instructions" class="mb-6 p-4 bg-gray-800 rounded-md">
@@ -94,59 +102,63 @@
         <form id="quiz-form" class="hidden">
           <!-- Question 1 -->
           <div class="mb-4 p-4 bg-gray-800 rounded-md">
-            <h2 class="text-xl mb-3">1. What is the primary condition that must be satisfied for Dijkstra's algorithm to work correctly?</h2>
-            <label class="mb-2 block"><input type="radio" name="q1" value="Graph must have negative weights" class="mr-2"> A) Graph must have negative weights</label>
-            <label class="mb-2 block"><input type="radio" name="q1" value="Graph must have no negative weight edges" class="mr-2"> B) Graph must have no negative weight edges</label>
-            <label class="mb-2 block"><input type="radio" name="q1" value="Graph must be a complete graph" class="mr-2"> C) Graph must be a complete graph</label>
-            <label class="mb-2 block"><input type="radio" name="q1" value="Graph must be acyclic" class="mr-2"> D) Graph must be acyclic</label>
+            <h2 class="text-xl mb-3">1. What is the primary purpose of Dijkstra's algorithm?</h2>
+            <label class=" mb-2 block"><input type="radio" name="q1" value="To find the shortest path in a weighted graph" class="mr-2"> A) To find the shortest path in a weighted graph</label>
+            <label class="mb-2 block"><input type="radio" name="q1" value="To find the minimum spanning tree" class="mr-2"> B) To find the minimum spanning tree</label>
+            <label class="mb-2 block"><input type="radio" name="q1" value="To traverse a tree or graph" class="mr-2"> C) To traverse a tree or graph</label>
+            <label class="mb-2 block"><input type="radio" name="q1" value="To detect cycles in a graph" class="mr-2"> D) To detect cycles in a graph</label>
           </div>
 
           <!-- Question 2 -->
           <div class="mb-4 p-4 bg-gray-800 rounded-md">
-            <h2 class="text-xl mb-3">2. In Dijkstra's algorithm, how does the algorithm determine the next node to process from the priority queue?</h2>
-            <label class="mb-2 block"><input type="radio" name="q2" value="The node with the smallest total degree is selected" class="mr-2"> A) The node with the smallest total degree is selected</label>
-            <label class="mb-2 block"><input type="radio" name="q2" value="The node with the highest weight edge is selected" class="mr-2"> B) The node with the highest weight edge is selected</label>
-            <label class="mb-2 block"><input type="radio" name="q2" value="The node with the minimum distance from the source is selected" class="mr-2"> C) The node with the minimum distance from the source is selected</label>
-            <label class="mb-2 block"><input type="radio" name="q2" value="The node closest to the destination is selected" class="mr-2"> D) The node closest to the destination is selected</label>
+            <h2 class="text-xl mb-3">2. Which data structure is commonly used to efficiently retrieve the vertex with the smallest tentative distance in Dijkstra's algorithm?</h2>
+            <label class=" mb-2 block"><input type="radio" name="q2" value="Array" class="mr-2"> A) Array</label>
+            <label class="mb-2 block"><input type="radio" name="q2" value="Linked List" class="mr-2"> B) Linked List</label>
+            <label class="mb-2 block"><input type="radio" name="q2" value="Min-Heap" class="mr-2"> C) Min-Heap</label>
+            <label class="mb-2 block"><input type="radio" name="q2" value="Stack" class="mr-2"> D) Stack</label>
           </div>
 
           <!-- Question 3 -->
           <div class="mb-4 p-4 bg-gray-800 rounded-md">
-            <h2 class="text-xl mb-3">3. What is the time complexity of Dijkstra's algorithm using a binary heap as a priority queue?</h2>
-            <label class="mb-2 block"><input type="radio" name="q3" value="O(V + E)" class="mr-2"> A) O(V + E)</label>
-            <label class="mb-2 block"><input type="radio" name="q3" value="O(V^2)" class="mr-2"> B) O(V^2)</label>
-            <label class="mb-2 block"><input type="radio" name="q3" value="O(E log V)" class="mr-2"> C) O(E log V)</label>
-            <label class="mb-2 block"><input type="radio" name="q3" value="O(V log V)" class="mr-2"> D) O(V log V)</label>
+            <h2 class="text-xl mb-3">3. What is the time complexity of Dijkstra's algorithm when implemented using a priority queue?</h2>
+            <label class=" mb-2 block"><input type="radio" name="q3" value="O(V^2)" class="mr-2"> A) O(V^2)</label>
+            <label class="mb-2 block"><input type="radio" name="q3" value="O(E log V)" class="mr-2"> B) O(E log V)</label>
+            <label class="mb-2 block"><input type="radio" name="q3" value="O(V + E)" class="mr-2"> C) O(V + E)</label>
+            <label class="mb-2 block"><input type="radio" name="q3" value="O(E^2)" class="mr-2"> D) O(E^2)</label>
           </div>
 
           <!-- Question 4 -->
           <div class="mb-4 p-4 bg-gray-800 rounded-md">
-            <h2 class="text-xl mb-3">4. Which of the following statements about Dijkstra's algorithm is true?</h2>
-            <label class="mb-2 block"><input type="radio" name="q4" value="It can be used to find the shortest path in graphs with negative weights" class="mr-2"> A) It can be used to find the shortest path in graphs with negative weights</label>
-            <label class="mb-2 block"><input type="radio" name="q4" value="It guarantees the shortest path from the source to all vertices" class="mr-2"> B) It guarantees the shortest path from the source to all vertices</label>
-            <label class="mb-2 block"><input type="radio" name="q4" value="It is always more efficient than Bellman-Ford algorithm" class="mr-2"> C) It is always more efficient than Bellman-Ford algorithm</label>
-            <label class="mb-2 block"><input type="radio" name="q4" value="It uses breadth-first search to explore the graph" class="mr-2"> D) It uses breadth-first search to explore the graph</label>
+            <h2 class="text-xl mb-3">4. Which of the following statements is true about Dijkstra's algorithm?</h2>
+            <label class=" mb-2 block"><input type="radio" name="q4" value="It can handle negative weight edges." class="mr-2"> A) It can handle negative weight edges.</label>
+            <label class="mb-2 block"><input type="radio" name="q4" value="It can be used to find the shortest path in a directed graph." class="mr-2"> B) It can be used to find the shortest path in a directed graph.</label>
+            <label class="mb-2 block"><input type="radio" name="q4" value="It guarantees the shortest path for all graphs." class="mr-2"> C) It guarantees the shortest path for all graphs.</label>
+            <label class="mb-2 block"><input type="radio" name="q4" value="It is an optimal solution for finding the longest path." class="mr-2"> D) It is an optimal solution for finding the longest path.</label>
           </div>
 
           <!-- Question 5 -->
           <div class="mb-4 p-4 bg-gray-800 rounded-md">
-            <h2 class="text-xl mb-3">5. In which scenario would Dijkstra's algorithm not yield the correct result?</h2>
-            <label class="mb-2 block"><input type="radio" name="q5" value="When there are cycles in the graph" class="mr-2"> A) When there are cycles in the graph</label>
-            <label class="mb-2 block"><input type="radio" name="q5" value="When negative edge weights exist" class="mr-2"> B) When negative edge weights exist</label>
-            <label class="mb-2 block"><input type="radio" name="q5" value="When the graph is disconnected" class="mr-2"> C) When the graph is disconnected</label>
-            <label class="mb-2 block"><input type="radio" name="q5" value="When the graph is directed" class="mr-2"> D) When the graph is directed</label>
+            <h2 class="text-xl mb-3">5. In Dijkstra's algorithm, what is the purpose of the 'tentative distance'?</h2>
+            <label class=" mb-2 block"><input type="radio" name="q5" value="To represent the current shortest distance from the source vertex to a vertex." class="mr-2"> A) To represent the current shortest distance from the source vertex to a vertex.</label>
+            <label class="mb-2 block"><input type="radio" name="q5" value="To keep track of the number of vertices visited." class="mr-2"> B) To keep track of the number of vertices visited.</label>
+            <label class="mb-2 block"><input type="radio" name="q5" value="To store the vertices in the path." class="mr-2"> C) To store the vertices in the path.</label>
+            <label class="mb-2 block"><input type="radio" name="q5" value="To determine the maximum distance in the graph." class="mr-2"> D) To determine the maximum distance in the graph.</label>
           </div>
 
-          <!-- Submit Button -->
-          <button type="submit" class="px-6 py-2 bg-green-600 text-white rounded-md">Submit Quiz</button>
+          <button type="submit" class="mt-4 px-6 py-2 bg-blue-600 text-white rounded-md">Submit</button>
         </form>
+
+        <div id="result" class="mt-6 hidden">
+          <h2 class="text-2xl">Your Score: <span id="score"></span>/5</h2>
+        </div>
       </div>
+    </div>
     </main>
-  </div>
+
 
   <!-- Footer -->
-  <footer class="bg-black text-white py-4">
-    <div class="container mx-auto text-center">
+  <footer class="bg-black text-white p-6 border-t border-black">
+    <div class="container mx-auto text-center italic">
       <p>&copy; 2024 AlgoSim. All rights reserved.</p>
     </div>
   </footer>
@@ -185,11 +197,11 @@
 
       // Correct answers
       const answers = {
-        q1: 'Graph must have no negative weight edges',
-        q2: 'The node with the minimum distance from the source is selected',
+        q1: 'To find the shortest path in a weighted graph',
+        q2: 'Min-Heap',
         q3: 'O(E log V)',
-        q4: 'It guarantees the shortest path from the source to all vertices',
-        q5: 'When negative edge weights exist'
+        q4: 'It can be used to find the shortest path in a directed graph.',
+        q5: 'To represent the current shortest distance from the source vertex to a vertex.'
       };
 
       // Check answers
