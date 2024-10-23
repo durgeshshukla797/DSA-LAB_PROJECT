@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Hashing - Pretest</title>
+    <!-- Tailwind CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        background-color: #1c1e22;
+        color: rgb(229, 231, 235);
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      /* Sidebar styling */
+      #sidebar {
+        padding: 20px;
+      }
+
+      /* Reduce padding inside sidebar */
+      #sidebar ul li a {
+        padding: 8px 16px;
+      }
+
+      /* Apply color to sidebar links */
+      #sidebar a {
+        color: rgb(229, 231, 235);
+      }
+
+      /* Footer styling */
+      footer {
+        margin-top: auto;
+      }
+    </style>
+  </head>
+
+  <body class="text-white">
+    <!-- Navbar -->
+    <nav class="bg-black text-white py-6 px-4 md:px-8 shadow-lg">
+      <div class="container mx-auto flex items-center justify-between">
+        <div class="flex items-center space-x-4">
+          <button
+            id="menu-btn"
+            aria-label="Toggle Sidebar"
+            class="text-white text-2xl"
+          >
+            <i class="fa fa-bars"></i>
+          </button>
+          <a href="#" class="text-2xl font-bold text-white italic"
+            >Hashing</a
+          >
+        </div>
+        <div class="hidden md:flex space-x-6">
+          <a href="../main.html"><button
+            style="
+              background-color:rgb(225, 29, 72);
+              border: none;
+              color: white;
+              height: 50px;
+              border-radius: 25px;
+              cursor: pointer;
+              font-weight: bold;
+              font-size: 15px;
+              padding: 0 20px;
+            "
+          >
+            Home
+          </button></a>
+          <button
+            style="
+              background-color: rgb(225, 29, 72);
+              border: none;
+              color: white;
+              height: 50px;
+              border-radius: 25px;
+              cursor: pointer;
+              font-weight: bold;
+              font-size: 15px;
+              padding: 0 20px;
+            "
+          >
+            Collaborator
+          </button>
+          <button
+            style="
+              background-color: rgb(225, 29, 72);
+              border: none;
+              color: white;
+              height: 50px;
+              border-radius: 25px;
+              cursor: pointer;
+              font-weight: bold;
+              font-size: 15px;
+              padding: 0 20px;
+            "
+          >
+            Contact
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Layout Wrapper -->
+    <div class="flex flex-col md:flex-row flex-grow">
+      <!-- Sidebar -->
+      <aside
+        id="sidebar"
+        class="w-full md:w-64 bg-black shadow-md h-auto md:h-screen sticky top-0 border-t md:border-t-0 border-black hidden"
+      >
+        <h2 class="text-lg font-semibold text-white mb-4">Content</h2>
+        <ul class="space-y-4">
+          <li>
+            <a
+              href="Algopage.html"
+              class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"
+              ><i class="fa-solid fa-magnifying-glass mr-3"></i>Overview</a
+            >
+          </li>
+          <li>
+            <a
+              href="pretest.html"
+              class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"
+              ><i class="fas fa-pencil-alt mr-3"></i>Pretest</a
+            >
+          </li>
+          <li>
+            <a
+              href="introduction.html"
+              class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"
+              ><i class="fas fa-book-open mr-3"></i>Introduction</a
+            >
+          </li>
+          <li>
+            <a
+              href="analysis.html"
+              class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"
+              ><i class="fas fa-chart-line mr-3"></i>Analysis</a
+            >
+          </li>
+          <li>
+            <a
+              href="quiz.html"
+              class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"
+              ><i class="fas fa-question-circle mr-3"></i>Quiz</a
+            >
+          </li>
+          <li>
+            <a
+              href="simulation.html"
+              class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"
+              ><i class="fas fa-play-circle mr-3"></i>Simulation</a
+            >
+          </li>
+          <li>
+            <a
+              href="postest.html"
+              class="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md"
+              ><i class="fas fa-check-circle mr-3"></i>Posttest</a
+            >
+          </li>
+        </ul>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="flex-1 p-8 bg-slate-950">
+        <div class="container mx-auto p-6">
+          <h1
+            class="text-3xl font-extrabold mb-6 text-center pb-11 pt-5 " style="color: rgb(225, 29, 72);"
+          >
+            Pretest
+          </h1>
+
+          <!-- Instructions Section -->
+          <div id="instructions" class="mb-6 p-4 bg-gray-800 rounded-md">
+            <h2 class="text-2xl font-semibold mb-4 mt-2">Instructions</h2>
+            <ul class="mt-2 list-disc list-inside mb-4">
+              <li class="mb-2">
+                <strong>Read Each Question Carefully:</strong> Make sure you
+                understand the question before selecting an answer. Take your
+                time to avoid mistakes.
+              </li>
+              <li class="mb-2">
+                <strong>Choose the Correct Option:</strong> For each question,
+                select the answer you believe is correct. Only one option can be
+                selected for each question.
+              </li>
+              <li class="mb-2">
+                <strong>Time Limit:</strong> There is no time limit for this
+                quiz. You can take as much time as you need to complete it.
+              </li>
+              <li class="mb-2">
+                <strong>No External Assistance:</strong> Complete the quiz on
+                your own without using any outside help, such as notes, books,
+                or the internet. Collaboration is not allowed.
+              </li>
+              <li class="mb-2">
+                <strong>Review Before Submitting:</strong> Before submitting
+                your quiz, review your answers to ensure they are correct. Once
+                submitted, you will not be able to change your answers.
+              </li>
+            </ul>
+            <button
+              id="continue-btn"
+              class="mt-4 px-6 py-2 text-white rounded-md" style="background-color: rgb(225, 29, 72);"
+            >
+              Continue
+            </button>
+          </div>
+
+          <!-- Quiz Section -->
+          <form id="quiz-form" class="hidden">
+            <!-- Question 1 
+             1. In a linear-probing hash table, which of the following circumstances results in linear running time for a random search hit?
+ a: All keys hash to same index
+ b: All keys hash to different indices
+ c: All keys hash to an even-numbered index
+ d: All keys hash to different even-numbered indices-->
+            <div class="mb-4 p-4 bg-gray-800 rounded-md">
+              <h2 class="text-xl mb-3">1. In a linear-probing hash table, which of the following circumstances results in linear 
+                running time for a random search hit?</h2>
+              <label class="mb-2 block"
+                ><input type="radio" name="q1" value="A" class="mr-2" /> A)
+                All keys hash to same index</label
+              >
+              <label class="mb-2 block"
+                ><input type="radio" name="q1" value="B" class="mr-2" /> B)
+                All keys hash to different indices</label
+              >
+              <label class="mb-2 block"
+                ><input type="radio" name="q1" value="C" class="mr-2" /> C)
+                All keys hash to an even-numbered index</label
+              >
+              <label class="mb-2 block"
+                ><input type="radio" name="q1" value="D" class="mr-2" /> D)
+                All keys hash to different even-numbered indices</label
+              >
+            </div>
+
+            <!-- Question 2 
+              In a hash table, what is the ideal definition of a collision?
+ a: Two entries are identical except for their keys
+ b: Two entries with different data have the exact same key
+ c: Two entries with different keys have the same exact hash value
+ d: Two entries with the exact same key have different hash values-->
+            <div class="mb-4 p-4 bg-gray-800 rounded-md">
+              <h2 class="text-xl mb-3">
+                2. In a hash table, what is the ideal definition of a collision?
+              </h2>
+              <label class="mb-2 block"
+                ><input type="radio" name="q2" value="A" class="mr-2" /> A)
+                Two entries are identical except for their keys</label
+              >
+              <label class="mb-2 block"
+                ><input type="radio" name="q2" value="B" class="mr-2" /> B) 
+                Two entries with different data have the exact same key</label
+              >
+              <label class="mb-2 block"
+                ><input type="radio" name="q2" value="C" class="mr-2" /> C)
+                Two entries with different keys have the same exact hash value</label
+              >
+              <label class="mb-2 block"
+                ><input type="radio" name="q2" value="D" class="mr-2" /> D)
+                Two entries with the exact same key have different hash values</label
+              >
+            </div>
+
+            <!-- Question 3 
+             What is the time complexity of rehashing a hash table with n elements?
+
+a) O(n) 
+b) O(1)
+c) O(n²)
+d) O(log n)-->
+            <div class="mb-4 p-4 bg-gray-800 rounded-md">
+              <h2 class="text-xl mb-3">
+                3. What is the time complexity of rehashing a hash table with n elements?
+              </h2>
+              <label class="mb-2 block"
+                ><input type="radio" name="q3" value="A" class="mr-2" /> A)
+                O(n) </label
+              >
+              <label class="mb-2 block"
+                ><input type="radio" name="q3" value="B" class="mr-2" /> B)
+               O(1)</label
+              >
+              <label class="mb-2 block"
+                ><input type="radio" name="q3" value="C" class="mr-2" /> C)
+               O(n²)</label
+              >
+              <label class="mb-2 block"
+                ><input type="radio" name="q3" value="D" class="mr-2" /> D)
+                O(log n)</label
+              >
+            </div>
+
+            <!-- Question 4 
+             Explain the concept of perfect hashing. Under what conditions is it used?
+
+a) A technique used when the size of the table is exactly the same as the number of elements
+b) A method that guarantees no collisions 
+c) A technique where two hash functions are applied
+d) A method where the hash table automatically resizes itself-->
+            <div class="mb-4 p-4 bg-gray-800 rounded-md">
+              <h2 class="text-xl mb-3">
+                4. Explain the concept of perfect hashing. Under what conditions is it used?
+              </h2>
+              <label class="mb-2 block"
+                ><input type="radio" name="q4" value="A" class="mr-2" /> A) 
+                A technique used when the size of the table is exactly the same as the number of elements</label
+              >
+              <label class="mb-2 block"
+                ><input type="radio" name="q4" value="B" class="mr-2" /> B) 
+                A method that guarantees no collisions </label
+              >
+              <label class="mb-2 block"
+                ><input type="radio" name="q4" value="C" class="mr-2" /> C) 
+                A technique where two hash functions are applied</label
+              >
+              <label class="mb-2 block"
+                ><input type="radio" name="q4" value="D" class="mr-2" /> D) 
+                A method where the hash table automatically resizes itself</label
+              >
+            </div>
+
+            <!-- QUESTION 5
+            What problem can arise in linear probing during collision resolution, 
+             and how does this affect the efficiency of hash table operations?
+
+a) Infinite loops, causing the hash table to crash
+b) Primary clustering, where consecutive occupied slots lead to longer search times 
+c) Secondary clustering, where multiple keys are mapped to the same index
+d) Memory overflow, as the hash table continuously expands
+Answer: b) -->
+            <div class="mb-4 p-4 bg-gray-800 rounded-md">
+              <h2 class="text-xl mb-3">
+                5. What problem can arise in linear probing during collision resolution, 
+                and how does this affect the efficiency of hash table operations?
+              </h2>
+              <label class="mb-2 block"
+                ><input type="radio" name="q5" value="A" class="mr-2" /> A)
+                Infinite loops, causing the hash table to crash</label
+              >
+              <label class="mb-2 block"
+                ><input type="radio" name="q5" value="B" class="mr-2" /> B)
+                Primary clustering, where consecutive occupied slots lead to longer search times </label
+              >
+              <label class="mb-2 block"
+                ><input type="radio" name="q5" value="C" class="mr-2" /> C) 
+                Secondary clustering, where multiple keys are mapped to the same index</label
+              >
+              <label class="mb-2 block"
+                ><input type="radio" name="q5" value="D" class="mr-2" /> D)
+                Memory overflow, as the hash table continuously expands</label
+              >
+            </div>
+
+            <button
+              type="button"
+              id="submit-btn"
+              class="px-6 py-2 text-white rounded-md" style="background-color:rgb(225, 29, 72);"
+            >
+              Submit
+            </button>
+            <div id="result" class="mt-4 text-lg"></div>
+          </form>
+        </div>
+      </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-6 px-4 text-center">
+      <p>&copy; 2024 AlgoSim. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for sidebar toggle and quiz submission -->
+    <script>
+      document
+        .getElementById("menu-btn")
+        .addEventListener("click", function () {
+          document.getElementById("sidebar").classList.toggle("hidden");
+        });
+
+      // Show quiz after clicking continue button
+      document
+        .getElementById("continue-btn")
+        .addEventListener("click", function () {
+          document.getElementById("instructions").classList.add("hidden");
+          document.getElementById("quiz-form").classList.remove("hidden");
+        });
+
+      // Correct answers
+      const correctAnswers = {
+        q1: "A",
+        q2: "C",
+        q3: "A",
+        q4: "B",
+        q5: "B",
+      };
+
+      // Calculate score on form submission
+      document
+        .getElementById("submit-btn")
+        .addEventListener("click", function () {
+          let score = 0;
+
+          // Check each question
+          for (let i = 1; i <= 5; i++) {
+            const selectedAnswer = document.querySelector(
+              `input[name="q${i}"]:checked`
+            );
+            if (
+              selectedAnswer &&
+              selectedAnswer.value === correctAnswers[`q${i}`]
+            ) {
+              score++;
+            }
+          }
+
+          // Display score
+          document.getElementById(
+            "result"
+          ).textContent = `You scored ${score} out of 5`;
+        });
+    </script>
+  </body>
+</html>
