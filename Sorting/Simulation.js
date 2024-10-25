@@ -10,7 +10,7 @@ const mergeSortStepsDiv = document.getElementById("mergeSortSteps");
 // Global variables to store the array and steps for visualization
 let array = [];
 let steps = [];
-let currentStep = 0;
+let currentStep = 0; 
 
 // Event listener for the Start Merge Sort button
 startSortButton.addEventListener("click", () => {
