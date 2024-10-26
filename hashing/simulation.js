@@ -1,8 +1,11 @@
 const canvas = document.getElementById('hashCanvas');
 const ctx = canvas.getContext('2d');
 
-const tableSize = 11; // Size of the hash table
+const tableSize = 11; // Increased size of the hash table
 let hashTable = new Array(tableSize).fill(null); // Initialize empty table
+
+// Adjust font size for better visibility with larger values
+ctx.font = "14px Arial";
 
 // Draw the initial empty hash table
 drawHashTable();
@@ -14,39 +17,28 @@ function hashFunction(key) {
 function drawHashTable() {
     ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas
 
-    // Set the color for table borders
-    ctx.strokeStyle = '#ea2d59'; // Blue color for the slot borders
+    // Set the color for table borders and text
+    ctx.strokeStyle = '#ea2d59'; // Border color
+    ctx.fillStyle = '#ffffff'; // Text color
 
-    // Set the color for the text (index and values)
-    ctx.fillStyle = '#ea2d59'; // Red color for the text
+    // Adjust spacing between slots for larger table
+    const slotSize = 55; // Adjust size to fit more slots
+    const startX = 20; // Starting x position of the table
+    const startY = 100; // Starting y position of the table
 
     // Draw the table slots
     for (let i = 0; i < tableSize; i++) {
-        ctx.strokeRect(50 + i * 50, 50, 50, 50); // Draw a rectangle with blue borders
+        ctx.strokeRect(startX + i * slotSize, startY, slotSize, slotSize); // Draw slot
 
-        // Draw index numbers in red
-        ctx.fillText(i, 50 + i * 50 + 20, 120); // index numbers
+        // Draw index numbers below the slots
+        ctx.fillText(i, startX + i * slotSize + 10, startY + slotSize + 20);
 
+        // Draw value inside the slot if it exists
         if (hashTable[i] !== null) {
-            // Draw the value inside the slot in red
-            ctx.fillText(hashTable[i], 50 + i * 50 + 20, 80); // values
+            ctx.fillText(hashTable[i], startX + i * slotSize + 10, startY + slotSize / 2);
         }
     }
 }
-
-
-// function drawHashTable() {
-//     ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas
-
-//     // Draw the table slots
-//     for (let i = 0; i < tableSize; i++) {
-//         ctx.strokeRect(50 + i * 50, 50, 50, 50); // Draw a rectangle
-//         ctx.fillText(i, 50 + i * 50 + 20, 120); // index numbers
-//         if (hashTable[i] !== null) {
-//             ctx.fillText(hashTable[i], 50 + i * 50 + 20, 80); // values
-//         }
-//     }
-// }
 
 function insert() {
     const element = parseInt(document.getElementById('element').value);
@@ -59,23 +51,21 @@ function insert() {
     let index = hashFunction(element);
     let startIndex = index;
 
-    // Display calculation for the hashing operation
     document.getElementById('result').innerText = `Hashing Calculation: ${element} % ${tableSize} = ${index}\n`;
 
     // Linear probing for collision resolution
     while (hashTable[index] !== null) {
-        document.getElementById('result').innerText += `Collision occured at index ${index}. Trying at next index...\n`;
+        document.getElementById('result').innerText += `Collision at index ${index}. Trying next index...\n`;
         index = (index + 1) % tableSize;
 
-        // If we've gone through the entire table, it's full
         if (index === startIndex) {
             document.getElementById('result').innerText += 'Hash table is full!';
             return;
         }
     }
 
-    hashTable[index] = element; // Insert element in found slot
-    drawHashTable(); // Redraw table to show new element
+    hashTable[index] = element;
+    drawHashTable();
     document.getElementById('result').innerText += `Element ${element} inserted at index ${index}`;
 }
 
@@ -89,16 +79,14 @@ function deleteElement() {
 
     let index = hashFunction(element);
     let startIndex = index;
-    let found = false;  // To track if element was found during probing
+    let found = false;
 
-    // Display calculation for the hashing operation
     document.getElementById('result').innerText = `Hashing Calculation: ${element} % ${tableSize} = ${index}\n`;
 
-    // Linear probing to find the element
     while (hashTable[index] !== null) {
         if (hashTable[index] === element) {
-            hashTable[index] = null; // Delete the element by setting it to null
-            drawHashTable(); // Redraw table after deletion
+            hashTable[index] = null;
+            drawHashTable();
             document.getElementById('result').innerText += `Element ${element} deleted from index ${index}`;
             found = true;
             break;
@@ -106,9 +94,8 @@ function deleteElement() {
         document.getElementById('result').innerText += `Checking index ${index}... Not a match. Trying next index...\n`;
         index = (index + 1) % tableSize;
 
-        // If we've looped through the whole table and not found the element
         if (index === startIndex) {
-            break;  // We've searched the entire table
+            break;
         }
     }
 
@@ -118,7 +105,6 @@ function deleteElement() {
 }
 
 function searchElement() {
-    
     const element = parseInt(document.getElementById('element').value);
 
     if (isNaN(element)) {
@@ -128,12 +114,10 @@ function searchElement() {
 
     let index = hashFunction(element);
     let startIndex = index;
-    let found = false;  // To track if element was found during probing
+    let found = false;
 
-    // Display calculation for the hashing operation
     document.getElementById('result').innerText = `Hashing Calculation: ${element} % ${tableSize} = ${index}\n`;
 
-    // Linear probing to find the element
     while (hashTable[index] !== null || index === startIndex) {
         if (hashTable[index] === element) {
             document.getElementById('result').innerText += `Element ${element} found at index ${index}`;
@@ -143,9 +127,8 @@ function searchElement() {
         document.getElementById('result').innerText += `Checking index ${index}... Not a match. Trying next index...\n`;
         index = (index + 1) % tableSize;
 
-        // If we've looped through the whole table and not found the element
         if (index === startIndex) {
-            break;  // We've searched the entire table
+            break;
         }
     }
 
@@ -155,32 +138,7 @@ function searchElement() {
 }
 
 function resetTable() {
-    hashTable = new Array(tableSize).fill(null); // Reset the hash table
-    drawHashTable(); // Redraw the empty hash table
-    document.getElementById('result').innerText = 'Hash table has been reset.'; // Update result message
+    hashTable = new Array(tableSize).fill(null);
+    drawHashTable();
+    document.getElementById('result').innerText = 'Hash table has been reset.';
 }
-
-
-
-// function drawHashTable() {
-//     ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas
-
-//     // Set the color for table borders
-//     ctx.strokeStyle = '#ea2d59'; // Blue color for the slot borders
-
-//     // Set the color for the text (index and values)
-//     ctx.fillStyle = '#ea2d59'; // Red color for the text
-
-//     // Draw the table slots
-//     for (let i = 0; i < tableSize; i++) {
-//         ctx.strokeRect(50 + i * 50, 50, 50, 50); // Draw a rectangle with blue borders
-
-//         // Draw index numbers in red
-//         ctx.fillText(i, 50 + i * 50 + 20, 120); // index numbers
-
-//         if (hashTable[i] !== null) {
-//             // Draw the value inside the slot in red
-//             ctx.fillText(hashTable[i], 50 + i * 50 + 20, 80); // values
-//         }
-//     }
-// }
