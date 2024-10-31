@@ -47,7 +47,12 @@ nextStepButton.addEventListener("click", () => {
     currentStep++;
     showStep(currentStep);
   } else {
-    alert("Merge Sort Completed!");
+    // Display "Merge Sort Completed!" in the steps list when sorting is complete
+    const completionMessage = document.createElement("li");
+    completionMessage.innerHTML = `<span class="highlight">Merge Sort Completed!</span>`;
+    stepsList.appendChild(completionMessage);
+
+    // Disable the Next Step button after completion
     nextStepButton.disabled = true;
   }
 });
@@ -62,12 +67,7 @@ function mergeSort(arr, left, right) {
   if (left < right) {
     const mid = Math.floor((left + right) / 2);
     steps.push(
-      `Divide array from index ${left} to ${mid} and ${
-        mid + 1
-      } to ${right}: [${arr.slice(left, mid + 1)}], [${arr.slice(
-        mid + 1,
-        right + 1
-      )}]`
+      `Divide array from index ${left} to ${mid} and ${mid + 1} to ${right}: [${arr.slice(left, mid + 1)}], [${arr.slice(mid + 1, right + 1)}]`
     );
 
     mergeSort(arr, left, mid);
