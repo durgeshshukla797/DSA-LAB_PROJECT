@@ -142,10 +142,15 @@
         </a>
     </nav>
 
+
     <div class="container">
         <h1>Tower of Hanoi</h1>
         <label for="numRings">Enter number of rings:</label>
         <input type="number" id="numRings" min="1" max="8" value="3">
+
+        <label for="numPegs">Enter number of pegs:</label>
+        <input type="number" id="numPegs" min="2" max="5" value="3"> <!-- New input for pegs -->
+
         <button onclick="startHanoi()">Start</button>
         <button onclick="stopHanoi()">Stop</button>
         <button onclick="resumeHanoi()">Resume</button>
@@ -156,20 +161,7 @@
             <span id="speedDisplay">500ms</span>
         </div>
 
-        <div class="tower-container">
-            <div class="rod-container">
-                <div class="rod" id="towerA"></div>
-                <div class="tower-label">A</div>
-            </div>
-            <div class="rod-container">
-                <div class="rod" id="towerB"></div>
-                <div class="tower-label">B</div>
-            </div>
-            <div class="rod-container">
-                <div class="rod" id="towerC"></div>
-                <div class="tower-label">C</div>
-            </div>
-        </div>
+        <div class="tower-container" id="towerContainer"></div> <!-- Tower container for dynamic rods -->
     </div>
 
     <script src="script.js"></script>
