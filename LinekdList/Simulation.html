@@ -5,6 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Linked List Simulation</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #1c1e22, #4a4e54); /* Gradient background */
+      color: #ffffff; /* Main text color */
+      margin: 0;
+      padding: 0;
+      height: 100vh; /* Full height */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
     .visual-space {
       display: flex;
       align-items: center;
@@ -16,13 +33,21 @@
     .node {
       display: inline-block;
       margin: 5px;
+      border-radius: 10px;
       padding: 0;
-      border: 2px solid black;
+      border: 2px solid rgba(255, 255, 255, 0.2);
       text-align: center;
       width: 100px;
       height: 50px;
       position: relative;
       display: flex;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s, box-shadow 0.3s; /* Animation for nodes */
+    }
+
+    .node:hover {
+      transform: translateY(-5px); /* Slight lift effect on hover */
+      box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.3);
     }
 
     .node .value {
@@ -31,9 +56,11 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: rgb(179, 126, 92);
+      background: linear-gradient(90deg, #6c63ff, #5f9ea0); /* Gradient background for value */
       color: white;
       font-weight: bold;
+      border-right: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 10px 0 0 10px; /* Rounded corners */
     }
 
     .node .pointer {
@@ -42,47 +69,74 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: rgb(223, 231, 231);
+      background-color: rgb(34, 34, 34); /* Dark background for pointer */
       font-size: 12px;
+      border-radius: 0 10px 10px 0; /* Rounded corners */
     }
 
     .arrow {
-      width: 50px;
-      height: 4px; /* Increased height for bold effect */
-      background-color: green; /* Arrow color */
-      position: relative;
-      margin-left: -10px; /* Center the arrow between the nodes */
-      margin-right: 10px; /* Space to the right of the arrow */
-      top: -20px; /* Adjust the position to be above the nodes */
-    }
+  width: 50px;
+  height: 4px; /* Increased height for bold effect */
+  background-color: rgb(66, 185, 131); /* Arrow color */
+  position: relative;
+  margin-left: 0; /* Center the arrow */
+  margin-right: 0; /* Space to the right of the arrow */
+  top: -12px; /* Adjust the position to be above the nodes */
+  border-radius: 2px; /* Rounded edges for arrow */
+  display: flex; /* Use flexbox for centering */
+  align-items: center; /* Center vertically */
+}
 
-    .arrow:after {
-      content: "";
-      position: absolute;
-      right: -12px;
-      top: -5px;
-      border-left: 12px solid green; /* Arrowhead color */
-      border-top: 6px solid transparent;
-      border-bottom: 6px solid transparent;
-    }
+.arrow:after {
+  content: "";
+  position: absolute;
+  right: -12px;
+  top: -5px;
+  border-left: 12px solid rgb(66, 185, 131); /* Arrowhead color */
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+}
+
     button {
-  background-color: rgb(84, 84, 197); /* Set button background to blue */
-  color: white; /* Set text color to white for better contrast */
-  border: none; /* Remove default border */
-  padding: 10px 15px; /* Add some padding */
-  border-radius: 5px; /* Add rounded corners */
-  cursor: pointer; /* Change cursor to pointer on hover */
-  font-size: 16px; /* Increase font size */
-}
+      background: linear-gradient(90deg, #6c63ff, #5f9ea0); /* Gradient background for button */
+      color: white; /* Set text color to white for better contrast */
+      border: none; /* Remove default border */
+      padding: 10px 15px; /* Add some padding */
+      border-radius: 5px; /* Add rounded corners */
+      cursor: pointer; /* Change cursor to pointer on hover */
+      font-size: 16px; /* Increase font size */
+      transition: background 0.3s, transform 0.3s; /* Smooth transition */
+    }
 
-button:hover {
-  background-color: rgb(84, 84, 197); /* Darker blue on hover */
-}
-
+    button:hover {
+      background: linear-gradient(90deg, #5f9ea0, #6c63ff); /* Inverted gradient on hover */
+      transform: scale(1.05); /* Slightly grow on hover */
+    }
 
     .input-section {
       margin: 20px;
       text-align: center;
+    }
+
+    .input-section label {
+      font-size: 18px;
+      margin-right: 10px;
+      color: #ffffff; /* Softer label color */
+    }
+
+    .input-section input {
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background-color: rgb(29, 31, 36);
+      color: #ffffff;
+      margin: 10px 0;
+      transition: border 0.3s; /* Smooth border transition */
+    }
+
+    input:focus {
+      outline: none;
+      border: 1px solid rgb(66, 185, 131);
     }
   </style>
 </head>

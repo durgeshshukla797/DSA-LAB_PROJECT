@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Collaborators</title>
+    <!-- Tailwind CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        background-color: #1c1e22;
+        color: rgb(229, 231, 235);
+      }
+
+      .card {
+        background-color: rgb(45, 47, 51);
+        border-radius: 8px;
+        padding: 20px;
+        width: 100%;
+        max-width: 320px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        margin: 10px; /* Added margin for spacing */
+      }
+
+      .profile-picture {
+        border-radius: 50%;
+        width: 120px; /* Increased width */
+        height: 120px; /* Increased height */
+        object-fit: cover;
+        margin-bottom: 15px;
+      }
+
+      .collaborator-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px; /* Spacing between cards */
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px; /* Padding around the grid */
+      }
+
+      .row-gap {
+        grid-column: span 3;
+        display: flex;
+        justify-content: center;
+        gap: 40px; /* Gap between the bottom row collaborators */
+        margin-top: -20px; /* Slight overlap for staggered effect */
+      }
+
+      h1 {
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: rgb(225, 29, 72);
+      }
+
+      a {
+        color: rgb(225, 29, 72); /* Link color */
+        text-decoration: none; /* No underline */
+      }
+
+      a:hover {
+        text-decoration: underline; /* Underline on hover */
+      }
+    </style>
+  </head>
+
+  <body class="text-white">
+    <!-- Navbar -->
+    <nav class="bg-black text-white py-6 px-4 md:px-8 shadow-lg">
+      <div class="container mx-auto flex items-center justify-between">
+        <div class="flex items-center space-x-4">
+          <a href="#" class="text-2xl font-bold text-white italic">Collaborators</a>
+        </div>
+        <div class="hidden md:flex space-x-6">
+          <button class="bg-red-700 text-white h-12 px-6 rounded-full font-bold text-sm">Home</button>
+          <button class="bg-red-700 text-white h-12 px-6 rounded-full font-bold text-sm">Contact</button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="p-8 bg-slate-950">
+      <h1 class="text-3xl font-extrabold mb-6 text-center pb-11 pt-5 text-red-700">Collaborators</h1>
+
+      <!-- Collaborator Grid -->
+      <div class="collaborator-grid">
+        <!-- Top Row Collaborators -->
+        <div class="card">
+          <img src="DhruvYadav.jpg" alt="Dhruv Yadav" class="profile-picture" />
+          <h3 class="text-xl font-semibold mb-2">Dhruv Yadav</h3>
+          <ul class="list-none">
+            <li><strong>Contact:</strong> +91 9876543210</li>
+            <li><strong>Email:</strong> <a href="mailto:yadavds_1@rknec.edu">yadavds_1@rknec.edu</a></li>
+            <li><strong>GitHub:</strong> <a href="https://github.com/Dhruv197252" target="_blank">https://github.com/Dhruv197252</a></li>
+            <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/dhruvyadav" target="_blank">linkedin.com/in/dhruvyadav</a></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <img src="DhruvYadav.jpg" alt="Disha Chauhan" class="profile-picture" />
+          <h3 class="text-xl font-semibold mb-2">Disha Chauhan</h3>
+          <ul class="list-none">
+            <li><strong>Contact:</strong> +91 9876543211</li>
+            <li><strong>Email:</strong> <a href="mailto:disha@example.com">disha@example.com</a></li>
+            <li><strong>GitHub:</strong> <a href="https://github.com/Dishachauhan05" target="_blank">https://github.com/Dishachauhan05</a></li>
+            <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/dishachauhan" target="_blank">linkedin.com/in/dishachauhan</a></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <img src="DhruvYadav.jpg" alt="Durgesh Shukla" class="profile-picture" />
+          <h3 class="text-xl font-semibold mb-2">Durgesh Shukla</h3>
+          <ul class="list-none">
+            <li><strong>Contact:</strong> +91 9876543212</li>
+            <li><strong>Email:</strong> <a href="mailto:shukladr_1@rknec.edu">shukladr_1@rknec.edu</a></li>
+            <li><strong>GitHub:</strong> <a href="https://github.com/durgeshshukla" target="_blank">https://github.com/durgeshshukla797</a></li>
+            <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/durgeshshukla" target="_blank">linkedin.com/in/durgesh</a></li>
+          </ul>
+        </div>
+
+        <!-- Bottom Row Collaborators (Center aligned under gaps) -->
+        <div class="row-gap">
+          <div class="card">
+            <img src="DhruvYadav.jpg" alt="Juilee Lambe" class="profile-picture" />
+            <h3 class="text-xl font-semibold mb-2">Juilee Lambe</h3>
+            <ul class="list-none">
+              <li><strong>Contact:</strong> +91 9876543213</li>
+              <li><strong>Email:</strong> <a href="mailto:juilee@example.com">juilee@example.com</a></li>
+              <li><strong>GitHub:</strong> <a href="https://github.com/jui1ee" target="_blank">https://github.com/jui1ee</a></li>
+              <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/juileelambe" target="_blank">linkedin.com/in/juileelambe</a></li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <img src="DhruvYadav.jpg" alt="Janhvi Thakre" class="profile-picture" />
+            <h3 class="text-xl font-semibold mb-2">Janhvi Thakre</h3>
+            <ul class="list-none">
+              <li><strong>Contact:</strong> +91 9876543214</li>
+              <li><strong>Email:</strong> <a href="mailto:janhvi@example.com">janhvi@example.com</a></li>
+              <li><strong>GitHub:</strong> <a href="https://github.com/janhvithakare" target="_blank">https://github.com/janhvithakare</a></li>
+              <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/janhvithakre" target="_blank">linkedin.com/in/janhvithakre</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
