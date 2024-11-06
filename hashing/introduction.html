@@ -20,8 +20,8 @@
       body {
         
         font-family: "Roboto", sans-serif;
-        background-color: #1c1e22;
-        color: rgb(229, 231, 235);
+        background-color: #ffffff;
+        color: rgb(41, 41, 41);
       }
 
       /* Sidebar styling */
@@ -177,7 +177,7 @@
         </h1>
 
         <div class="space-y-6">
-          <p class="text-lg leading-relaxed" style="font-size:x-large;"> 
+          <p class="text-lg leading-relaxed" style="font-size:x-large; color: rgb(48, 48, 48);"> 
             Hashing is a technique used in data structures to efficiently store and retrieve data, allowing for quick access. 
             It works by mapping data to a specific index in a hash table using a hash function, which makes it easy to find information based on a key. 
             This method is commonly used in databases, caching systems, and various programming applications to speed up search and retrieval. 
@@ -206,11 +206,11 @@
         </div>
 
         <h2 class="text-2xl font-bold mt-8 mb-5">What is Hashing in Data Structure?</h2>
-        <p style="font-size:x-large;">
+        <p style="font-size:x-large; color: rgb(48, 48, 48);">
             Hashing is a technique used in data structures to store and retrieve data efficiently. 
             It involves using a hash function to map data items to a fixed-size array which is called a hash table.<br>
             Below are basic terminologies in hashing:
-            <ul class="list-disc list-inside pl-6 mb-6 text-lg leading-relaxed">
+            <ul class="list-disc list-inside pl-6 mb-6 text-lg leading-relaxed" style="color: rgb(48, 48, 48); font-size: larger;">
                 <li class="mt-3">
                     Hash Table.
                 </li>
@@ -226,7 +226,7 @@
 
 
         <h2 class="text-2xl font-bold mt-8 mb-5">What are Hash Table in Data Structure?</h2>
-        <p style="font-size:x-large;">
+        <p style="font-size:x-large; color: rgb(48, 48, 48);">
             Hash tables are a type of data structure in which the address/ index value of the data element is generated 
             from a hash function. This enables very fast data access as the index value behaves as a key for the data value.
             In other words, hash tables store key-value pairs but the key is generated through a hashing function. 
@@ -237,14 +237,14 @@
         </p>
 
         <h2 class="text-2xl font-bold mt-8 mb-5">What are Hash Functions?</h2>
-        <p style="font-size:x-large;">
+        <p style="font-size:x-large; color: rgb(48, 48, 48);">
             The hash function is a function that takes a key and returns an index into the hash table. 
             A hash function is an algorithm that transforms any amount of data into a fixed-length element or string. 
             The goal of a hash function is to distribute keys evenly across the hash table, minimizing collisions 
             (when two keys map to the same index).  A good hash function ensures that even tiny changes in input data will 
             produce dramatically different hash outputs.
             Common hash functions include:
-            <ul class="list-disc list-inside pl-6 mb-6 text-lg leading-relaxed">
+            <ul class="list-disc list-inside pl-6 mb-6 text-lg leading-relaxed" style="color: rgb(48, 48, 48); font-size: larger;">
                 <li class="mt-3">
                    Division Method: Key % Hash Table Size
                 </li>
@@ -258,13 +258,13 @@
 
 
         <h2 class="text-2xl font-bold mt-8 mb-5">What are Hash Collisions?</h2>
-        <p style="font-size:x-large;">
+        <p style="font-size:x-large; color: rgb(48, 48, 48);">
             A hash collision occurs when two different keys map to the same index in a hash table. 
             This can happen even with a good hash function, especially if the hash table is full or the keys are similar.
         </p>
-        <p style="font-size:x-large;"> 
+        <p style="font-size:x-large; color: rgb(48, 48, 48);"> 
             Causes of Hash Collisions:        
-            <ul class="list-disc list-inside pl-6 mb-6 text-lg leading-relaxed">
+            <ul class="list-disc list-inside pl-6 mb-6 text-lg leading-relaxed" style="color: rgb(48, 48, 48); font-size: larger;">
                 <li class="mt-3">
                     Poor Hash Function: A hash function that does not distribute keys evenly across the hash table can lead to more collisions.
                     
@@ -281,9 +281,9 @@
         </p>
 
         <h2 class="text-2xl font-bold mt-8 mb-5">Hash Collisions Resolution Techniques</h2>
-        <p style="font-size:x-large;">
+        <p style="font-size:x-large; color: rgb(48, 48, 48);">
             There are two types of collision resolution techniques:
-            <ul class="list-disc list-inside pl-6 mb-6 text-lg leading-relaxed">
+            <ul class="list-disc list-inside pl-6 mb-6 text-lg leading-relaxed" style="color: rgb(48, 48, 48); font-size: larger;">
                 <li class="mt-3"> 1. Open Addressing: </li>
                     
                     <ul class="list-disc list-inside pl-6 mb-6 text-lg leading-relaxed">
@@ -315,7 +315,7 @@
         </p>
 
         <h2 class="text-2xl font-bold mt-8 mb-5">Linear Probing</h2>
-        <p style="font-size:x-large;">
+        <p style="font-size:x-large; color: rgb(48, 48, 48);">
             In linear probing, the hash table is searched sequentially that starts from the original location of the hash. 
             If in case the location that we get is already occupied, then we check for the next location. 
             <br><b>The function used for is as follows: rehash(key) = (n+1)%table-size.</b>
