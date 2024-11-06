@@ -19,7 +19,7 @@ function drawHashTable() {
 
     // Set the color for table borders and text
     ctx.strokeStyle = '#ea2d59'; // Border color
-    ctx.fillStyle = '#ffffff'; // Text color
+    ctx.fillStyle = '#000000'; // Text color
 
     // Adjust spacing between slots for larger table
     const slotSize = 55; // Adjust size to fit more slots
